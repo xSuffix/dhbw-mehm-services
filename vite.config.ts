@@ -102,8 +102,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'safari-pinned-tab.svg'],
       manifest: {
-        name: 'Vitesse',
-        short_name: 'Vitesse',
+        name: 'Mehm Services',
+        short_name: 'Mehms',
         theme_color: '#ffffff',
         icons: [
           {
