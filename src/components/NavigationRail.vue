@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full fixed bottom-0 bg-cool-gray-900 md:hidden">
+  <div class="w-full fixed bottom-0 bg-cool-gray-900 rounded-t-2xl md:hidden">
     <nav
-      class="max-w-lg h-16 mx-auto flex justify-around rounded-t text-gray-200"
+      class="max-w-lg h-16 mx-auto flex justify-around text-gray-200"
     >
       <router-link to="/" class="flex items-center px-4">
         <div>
