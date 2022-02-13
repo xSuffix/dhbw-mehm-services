@@ -10,8 +10,15 @@ declare module 'vue' {
     CarbonLogoGithub: typeof import('~icons/carbon/logo-github')['default']
     CarbonMoon: typeof import('~icons/carbon/moon')['default']
     CarbonSun: typeof import('~icons/carbon/sun')['default']
+    CarbonWarning: typeof import('~icons/carbon/warning')['default']
     Counter: typeof import('./components/Counter.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']
+    'HeroiconsSolid:film': typeof import('~icons/heroicons-solid/film')['default']
+    'HeroiconsSolid:hashtag': typeof import('~icons/heroicons-solid/hashtag')['default']
+    'HeroiconsSolid:home': typeof import('~icons/heroicons-solid/home')['default']
+    'HeroiconsSolid:mail': typeof import('~icons/heroicons-solid/mail')['default']
+    NavigationRail: typeof import('./components/NavigationRail.vue')['default']
+    NavigationRailItem: typeof import('./components/NavigationRailItem.vue')['default']
     README: typeof import('./components/README.md')['default']
   }
 }

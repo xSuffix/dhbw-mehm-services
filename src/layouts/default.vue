@@ -6,4 +6,5 @@
       [Default Layout]
     </div>
   </main>
+  <NavigationRail />
 </template>

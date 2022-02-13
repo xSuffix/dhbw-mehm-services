@@ -102,8 +102,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'safari-pinned-tab.svg'],
       manifest: {
-        name: 'Mehm Services',
-        short_name: 'Mehms',
+        name: 'DHBW Mehms',
+        short_name: 'DHBW Mehms',
         theme_color: '#ffffff',
         icons: [
           {
