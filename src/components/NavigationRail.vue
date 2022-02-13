@@ -6,41 +6,41 @@
       <router-link to="/" class="flex items-center px-4">
         <div>
           <div
-            class="pill w-14 h-7 flex items-center justify-center text-gray-300"
+            class="pill w-14 h-30px flex items-center justify-center text-gray-300"
           >
             <heroicons-solid:home />
           </div>
-          <div class="text-center text-sm font-medium">
+          <div class="text-center text-xs font-medium">
             Home
           </div>
         </div>
       </router-link>
       <router-link to="/vines" class="flex items-center px-4">
         <div>
-          <div class="pill w-14 h-7 flex items-center justify-center text-gray-300">
+          <div class="pill w-14 h-30px flex items-center justify-center text-gray-300">
             <heroicons-solid:film />
           </div>
-          <div class="text-center text-sm font-medium">
+          <div class="text-center text-xs font-medium">
             Vines
           </div>
         </div>
       </router-link>
       <router-link to="/numbers" class="flex items-center px-4">
         <div>
-          <div class="pill w-14 h-7 flex items-center justify-center text-gray-300">
+          <div class="pill w-14 h-30px flex items-center justify-center text-gray-300">
             <heroicons-solid:hashtag />
           </div>
-          <div class="text-center text-sm font-medium">
+          <div class="text-center text-xs font-medium">
             Zahlen
           </div>
         </div>
       </router-link>
       <router-link to="/contact" class="flex items-center px-4">
         <div>
-          <div class="pill w-14 h-7 flex items-center justify-center text-gray-300">
+          <div class="pill w-14 h-30px flex items-center justify-center text-gray-300">
             <heroicons-solid:mail />
           </div>
-          <div class="text-center text-sm font-medium">
+          <div class="text-center text-xs font-medium">
             Kontakt
           </div>
         </div>
