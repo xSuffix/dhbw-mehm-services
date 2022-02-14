@@ -1,3 +1,3 @@
 <template>
-  <Logo />
+  <header>hi</header>
 </template>

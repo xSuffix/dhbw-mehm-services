@@ -12,6 +12,15 @@ export default defineConfig({
   ],
   theme: {
     extend: {
+      colors: {
+        border: colors.dark,
+      },
+      fontFamily: {
+        play: ['"Press Start 2P"', 'cursive'],
+      },
+      lineHeight: {
+        logo: '1.125',
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -37,6 +46,9 @@ export default defineConfig({
             code: { color: 'inherit' },
           },
         },
+      },
+      textShadow: {
+        outline: '-1px -1px 0 #222, 0 -1px 0 #222, 1px -1px 0 #222, 1px 0 0 #222, 1px 1px 0 #222, 0 1px 0 #222, -1px 1px 0 #222',
       },
     },
   },

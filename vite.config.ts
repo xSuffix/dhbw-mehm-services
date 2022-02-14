@@ -5,6 +5,7 @@ import Pages from 'vite-plugin-pages'
 import Layouts from 'vite-plugin-vue-layouts'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import PurgeIcons from 'vite-plugin-purge-icons'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Markdown from 'vite-plugin-md'
@@ -74,6 +75,11 @@ export default defineConfig({
       autoInstall: true,
     }),
 
+    // https://github.com/antfu/purge-icons
+    PurgeIcons({
+      /* PurgeIcons Options */
+    }),
+
     // https://github.com/antfu/vite-plugin-windicss
     WindiCSS({
       safelist: markdownWrapperClasses,
@@ -139,6 +145,7 @@ export default defineConfig({
     fs: {
       strict: true,
     },
+    host: true,
   },
 
   // https://github.com/antfu/vite-ssg

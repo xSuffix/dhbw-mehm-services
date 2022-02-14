@@ -1,47 +1,26 @@
+<script setup lang="ts">
+const items = [
+  { url: '/', label: 'Home', icon: 'heroicons-solid:home' },
+  { url: '/vines', label: 'Vines', icon: 'heroicons-solid:film' },
+  { url: '/numbers', label: 'Zahlen', icon: 'heroicons-solid:hashtag' },
+  { url: '/contact', label: 'Kontakt', icon: 'heroicons-solid:mail' },
+]
+</script>
+
 <template>
   <div class="w-full fixed bottom-0 bg-cool-gray-900 rounded-t-2xl md:hidden">
     <nav
       class="max-w-lg h-16 mx-auto flex justify-around text-gray-200"
     >
-      <router-link to="/" class="flex items-center px-1">
+      <router-link v-for="item in items" :key="item.url" :to="item.url" class="flex items-center">
         <div>
           <div
             class="pill w-12 h-26px flex items-center justify-center text-gray-300"
           >
-            <heroicons-solid:home />
+            <span class="iconify" :data-icon="item.icon" />
           </div>
           <div class="text-center text-xs font-medium pt-0.5">
-            Home
-          </div>
-        </div>
-      </router-link>
-      <router-link to="/vines" class="flex items-center px-1">
-        <div>
-          <div class="pill w-12 h-26px flex items-center justify-center text-gray-300">
-            <heroicons-solid:film />
-          </div>
-          <div class="text-center text-xs font-medium pt-0.5">
-            Vines
-          </div>
-        </div>
-      </router-link>
-      <router-link to="/numbers" class="flex items-center px-1">
-        <div>
-          <div class="pill w-12 h-26px flex items-center justify-center text-gray-300">
-            <heroicons-solid:hashtag />
-          </div>
-          <div class="text-center text-xs font-medium pt-0.5">
-            Zahlen
-          </div>
-        </div>
-      </router-link>
-      <router-link to="/contact" class="flex items-center px-1">
-        <div>
-          <div class="pill w-12 h-26px flex items-center justify-center text-gray-300">
-            <heroicons-solid:mail />
-          </div>
-          <div class="text-center text-xs font-medium pt-0.5">
-            Kontakt
+            {{ item.label }}
           </div>
         </div>
       </router-link>

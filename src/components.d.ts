@@ -4,18 +4,14 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
-    CarbonDicomOverlay: typeof import('~icons/carbon/dicom-overlay')['default']
-    CarbonLanguage: typeof import('~icons/carbon/language')['default']
-    CarbonLogoGithub: typeof import('~icons/carbon/logo-github')['default']
-    CarbonMoon: typeof import('~icons/carbon/moon')['default']
-    CarbonSun: typeof import('~icons/carbon/sun')['default']
     Counter: typeof import('./components/Counter.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']
-    'HeroiconsSolid:film': typeof import('~icons/heroicons-solid/film')['default']
-    'HeroiconsSolid:hashtag': typeof import('~icons/heroicons-solid/hashtag')['default']
-    'HeroiconsSolid:home': typeof import('~icons/heroicons-solid/home')['default']
-    'HeroiconsSolid:mail': typeof import('~icons/heroicons-solid/mail')['default']
+    FooterLinkExternal: typeof import('./components/FooterLinkExternal.vue')['default']
+    FooterLinkInternal: typeof import('./components/FooterLinkInternal.vue')['default']
+    FooterVitesse: typeof import('./components/FooterVitesse.vue')['default']
+    Header: typeof import('./components/Header.vue')['default']
+    IconBadge: typeof import('./components/IconBadge.vue')['default']
+    Logo: typeof import('./components/Logo.vue')['default']
     NavigationRail: typeof import('./components/NavigationRail.vue')['default']
     README: typeof import('./components/README.md')['default']
   }
