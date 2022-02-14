@@ -1,9 +1,9 @@
 <template>
   <div class="w-full fixed bottom-0 bg-cool-gray-900 rounded-t-2xl md:hidden">
     <nav
-      class="max-w-lg h-17 mx-auto flex justify-around text-gray-200"
+      class="max-w-lg h-16 mx-auto flex justify-around text-gray-200"
     >
-      <router-link to="/" class="flex items-center px-4">
+      <router-link to="/" class="flex items-center px-1">
         <div>
           <div
             class="pill w-12 h-26px flex items-center justify-center text-gray-300"
@@ -15,9 +15,9 @@
           </div>
         </div>
       </router-link>
-      <router-link to="/vines" class="flex items-center px-4">
+      <router-link to="/vines" class="flex items-center px-1">
         <div>
-          <div class="pill w-12 h-6 flex items-center justify-center text-gray-300">
+          <div class="pill w-12 h-26px flex items-center justify-center text-gray-300">
             <heroicons-solid:film />
           </div>
           <div class="text-center text-xs font-medium pt-0.5">
@@ -25,9 +25,9 @@
           </div>
         </div>
       </router-link>
-      <router-link to="/numbers" class="flex items-center px-4">
+      <router-link to="/numbers" class="flex items-center px-1">
         <div>
-          <div class="pill w-12 h-6 flex items-center justify-center text-gray-300">
+          <div class="pill w-12 h-26px flex items-center justify-center text-gray-300">
             <heroicons-solid:hashtag />
           </div>
           <div class="text-center text-xs font-medium pt-0.5">
@@ -35,9 +35,9 @@
           </div>
         </div>
       </router-link>
-      <router-link to="/contact" class="flex items-center px-4">
+      <router-link to="/contact" class="flex items-center px-1">
         <div>
-          <div class="pill w-12 h-6 flex items-center justify-center text-gray-300">
+          <div class="pill w-12 h-26px flex items-center justify-center text-gray-300">
             <heroicons-solid:mail />
           </div>
           <div class="text-center text-xs font-medium pt-0.5">
