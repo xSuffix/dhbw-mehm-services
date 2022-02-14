@@ -6,11 +6,11 @@
       <router-link to="/" class="flex items-center px-4">
         <div>
           <div
-            class="pill w-13 h-26px flex items-center justify-center text-gray-300"
+            class="pill w-12 h-26px flex items-center justify-center text-gray-300"
           >
             <heroicons-solid:home />
           </div>
-          <div class="text-center text-xs font-medium pt-1">
+          <div class="text-center text-xs font-medium pt-0\.5">
             Home
           </div>
         </div>
@@ -20,7 +20,7 @@
           <div class="pill w-12 h-6 flex items-center justify-center text-gray-300">
             <heroicons-solid:film />
           </div>
-          <div class="text-center text-xs font-medium pt-1">
+          <div class="text-center text-xs font-medium pt-0\.5">
             Vines
           </div>
         </div>
@@ -30,7 +30,7 @@
           <div class="pill w-12 h-6 flex items-center justify-center text-gray-300">
             <heroicons-solid:hashtag />
           </div>
-          <div class="text-center text-xs font-medium pt-1">
+          <div class="text-center text-xs font-medium pt-0\.5">
             Zahlen
           </div>
         </div>
@@ -40,7 +40,7 @@
           <div class="pill w-12 h-6 flex items-center justify-center text-gray-300">
             <heroicons-solid:mail />
           </div>
-          <div class="text-center text-xs font-medium pt-1">
+          <div class="text-center text-xs font-medium pt-0\.5">
             Kontakt
           </div>
         </div>
