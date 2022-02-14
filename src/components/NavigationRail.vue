@@ -1,7 +1,7 @@
 <template>
   <div class="w-full fixed bottom-0 bg-cool-gray-900 rounded-t-2xl md:hidden">
     <nav
-      class="max-w-lg h-18 mx-auto flex justify-around text-gray-200"
+      class="max-w-lg h-17 mx-auto flex justify-around text-gray-200"
     >
       <router-link to="/" class="flex items-center px-4">
         <div>
@@ -10,7 +10,7 @@
           >
             <heroicons-solid:home />
           </div>
-          <div class="text-center text-xs font-medium pt-0\.5">
+          <div class="text-center text-xs font-medium pt-0.5">
             Home
           </div>
         </div>
@@ -20,7 +20,7 @@
           <div class="pill w-12 h-6 flex items-center justify-center text-gray-300">
             <heroicons-solid:film />
           </div>
-          <div class="text-center text-xs font-medium pt-0\.5">
+          <div class="text-center text-xs font-medium pt-0.5">
             Vines
           </div>
         </div>
@@ -30,7 +30,7 @@
           <div class="pill w-12 h-6 flex items-center justify-center text-gray-300">
             <heroicons-solid:hashtag />
           </div>
-          <div class="text-center text-xs font-medium pt-0\.5">
+          <div class="text-center text-xs font-medium pt-0.5">
             Zahlen
           </div>
         </div>
@@ -40,7 +40,7 @@
           <div class="pill w-12 h-6 flex items-center justify-center text-gray-300">
             <heroicons-solid:mail />
           </div>
-          <div class="text-center text-xs font-medium pt-0\.5">
+          <div class="text-center text-xs font-medium pt-0.5">
             Kontakt
           </div>
         </div>
