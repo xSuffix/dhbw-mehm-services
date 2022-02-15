@@ -18,7 +18,7 @@ const dhbwLinks = [
 </script>
 
 <template>
-  <footer class="container mx-auto p-4 bg-light-300 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+  <footer class="p-4 bg-light-300 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
     <div>
       <p class="pb-4">
         <strong>Über DHBW Mehms</strong>
