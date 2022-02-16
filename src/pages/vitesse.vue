@@ -60,5 +60,5 @@ const { t } = useI18n()
 
 <route lang="yaml">
 meta:
-  layout: default
+  layout: 404
 </route>
