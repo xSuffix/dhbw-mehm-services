@@ -1,17 +1,18 @@
 ---
 title: Mehms
 meta:
-  description: 404
+  - name: 404
+    content: Hello World
 mehms:
-  - title: 'parrot vs. algorithm'
-    description: 'Proof that parrot > algorithm'
-    path: 'https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg'
+  - title: parrot vs. algorithm
+    description: Proof that parrot > algorithm
+    path: https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg
 
 ---
 
-<MehmToolbar />
-
 <route lang="yaml">
 meta:
-  layout: 404
+  layout: default
 </route>
+
+<MehmToolbar />

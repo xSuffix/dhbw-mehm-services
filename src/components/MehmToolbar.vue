@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const categorySelect = [
   'alle', 'Programmieren', 'DHBW', 'andere',
@@ -9,11 +9,11 @@ const sortSelect = [
   'Datum', 'Likes', 'Kommentare',
 ]
 
-const asc = true
-const orderIcon = computed(() => {
-  return asc ? 'heroicons-solid:sort-ascending' : 'heroicons-solid:sort-descending'
-})
+const asc = ref(true)
 
+const toggleOrder = () => {
+  asc.value = !asc.value
+}
 </script>
 
 <template>
@@ -32,8 +32,9 @@ const orderIcon = computed(() => {
         {{ sort }}
       </option>
     </select>
-    <button class="box">
-      <span class="iconify text-xl" :data-icon="orderIcon" />
+    <button class="box" @click="toggleOrder()">
+      <heroicons-solid:sort-ascending v-if="asc" />
+      <heroicons-solid:sort-descending v-else />
     </button>
   </div>
 </template>

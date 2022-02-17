@@ -1,10 +1,10 @@
 <template>
   <Hero />
 
-  <header class="flex px-4 py-8 items-center justify-between">
+  <header class="container mx-auto flex px-4 py-8 items-center justify-between">
     <Logo />
     <div>
-      <nav class="flex gap-4 font-play text-white">
+      <nav class="hidden md:flex gap-6 font-play text-white">
         <router-link to="/vines">
           Vines
         </router-link>

@@ -4,10 +4,9 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    CarbonCampsite: typeof import('~icons/carbon/campsite')['default']
     CarbonWarning: typeof import('~icons/carbon/warning')['default']
     Counter: typeof import('./components/Counter.vue')['default']
-    Footer: typeof import('./components/Footer/Footer.vue')['default']
+    Footer: typeof import('./components/footer/Footer.vue')['default']
     FooterLinkExternal: typeof import('./components/footer/FooterLinkExternal.vue')['default']
     FooterLinkInternal: typeof import('./components/footer/FooterLinkInternal.vue')['default']
     FooterVitesse: typeof import('./components/FooterVitesse.vue')['default']
@@ -15,6 +14,8 @@ declare module 'vue' {
     Header: typeof import('./components/header/Header.vue')['default']
     Hero: typeof import('./components/background/Hero.vue')['default']
     'HeroiconsSolid:search': typeof import('~icons/heroicons-solid/search')['default']
+    'HeroiconsSolid:sortAscending': typeof import('~icons/heroicons-solid/sort-ascending')['default']
+    'HeroiconsSolid:sortDescending': typeof import('~icons/heroicons-solid/sort-descending')['default']
     IconBadge: typeof import('./components/IconBadge.vue')['default']
     Logo: typeof import('./components/header/Logo.vue')['default']
     Mehms: typeof import('./components/Mehms.vue')['default']
