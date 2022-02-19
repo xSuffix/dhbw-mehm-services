@@ -12,4 +12,4 @@ meta:
 </route>
 
 <MehmToolbar />
-<MehmsJson class="mt-4" />
+<MehmsGalleryJson class="mt-4" />

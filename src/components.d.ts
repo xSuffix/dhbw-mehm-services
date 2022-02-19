@@ -16,6 +16,7 @@ declare module 'vue' {
     IconBadge: typeof import('./components/IconBadge.vue')['default']
     Logo: typeof import('./components/global/header/Logo.vue')['default']
     MehmsGallery: typeof import('./components/mehms/MehmsGallery.vue')['default']
+    MehmsGalleryJson: typeof import('./components/mehms/MehmsGalleryJson.vue')['default']
     MehmsJson: typeof import('./components/mehms/MehmsJson.vue')['default']
     MehmToolbar: typeof import('./components/mehms/MehmToolbar.vue')['default']
     NavigationRail: typeof import('./components/NavigationRail.vue')['default']
