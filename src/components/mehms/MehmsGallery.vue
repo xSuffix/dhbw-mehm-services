@@ -6,8 +6,9 @@ defineProps({
 
 <template>
   <div>
-    <!-- <router-link v-for="mehm in mehms" :key="mehm.id" :to="'/mehm/'+mehm.id">
+    {{ mehms }}
+    <router-link v-for="mehm in mehms" :key="mehm.id" :to="'/mehm/'+mehm.id">
       d
-    </router-link> -->
+    </router-link>
   </div>
 </template>

@@ -1,12 +1,1190 @@
-{
-  "1": {
+[
+  {
+    "id": "1",
     "title": "parrot vs. algorithm",
     "description": "Proof that parrot > algorithm",
-    "path": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
   },
-  "2": {
+  {
+    "id": "2",
     "title": "binary pants",
     "description": "which do you think is true?",
-    "path": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
+  },
+  {
+    "id": "1",
+    "title": "parrot vs. algorithm",
+    "description": "Proof that parrot > algorithm",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+  },
+  {
+    "id": "2",
+    "title": "binary pants",
+    "description": "which do you think is true?",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
+  },
+  {
+    "id": "1",
+    "title": "parrot vs. algorithm",
+    "description": "Proof that parrot > algorithm",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+  },
+  {
+    "id": "2",
+    "title": "binary pants",
+    "description": "which do you think is true?",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
+  },
+  {
+    "id": "1",
+    "title": "parrot vs. algorithm",
+    "description": "Proof that parrot > algorithm",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+  },
+  {
+    "id": "2",
+    "title": "binary pants",
+    "description": "which do you think is true?",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
+  },
+  {
+    "id": "1",
+    "title": "parrot vs. algorithm",
+    "description": "Proof that parrot > algorithm",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+  },
+  {
+    "id": "2",
+    "title": "binary pants",
+    "description": "which do you think is true?",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
+  },
+  {
+    "id": "1",
+    "title": "parrot vs. algorithm",
+    "description": "Proof that parrot > algorithm",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+  },
+  {
+    "id": "2",
+    "title": "binary pants",
+    "description": "which do you think is true?",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
+  },
+  {
+    "id": "1",
+    "title": "parrot vs. algorithm",
+    "description": "Proof that parrot > algorithm",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+  },
+  {
+    "id": "2",
+    "title": "binary pants",
+    "description": "which do you think is true?",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
+  },
+  {
+    "id": "1",
+    "title": "parrot vs. algorithm",
+    "description": "Proof that parrot > algorithm",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+  },
+  {
+    "id": "2",
+    "title": "binary pants",
+    "description": "which do you think is true?",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
+  },
+  {
+    "id": "1",
+    "title": "parrot vs. algorithm",
+    "description": "Proof that parrot > algorithm",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+  },
+  {
+    "id": "2",
+    "title": "binary pants",
+    "description": "which do you think is true?",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
+  },
+  {
+    "id": "1",
+    "title": "parrot vs. algorithm",
+    "description": "Proof that parrot > algorithm",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+  },
+  {
+    "id": "2",
+    "title": "binary pants",
+    "description": "which do you think is true?",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
+  },
+  {
+    "id": "1",
+    "title": "parrot vs. algorithm",
+    "description": "Proof that parrot > algorithm",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Algorithm_Parrot.jpg"
+  },
+  {
+    "id": "2",
+    "title": "binary pants",
+    "description": "which do you think is true?",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg"
+  },
+  {
+    "id": "3",
+    "title": "c++ kills ...",
+    "description": "... but then again, dying is better than c++",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg"
+  },
+  {
+    "id": "4",
+    "title": "Me developing this gallery",
+    "description": "jk we love you css <3",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg"
+  },
+  {
+    "id": "5",
+    "title": "Pikachu hates this trick",
+    "description": "background: red => glumanda",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Pikachu.jpg"
+  },
+  {
+    "id": "6",
+    "title": "Crypto guru",
+    "description": "Wierbicki be like",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg"
+  },
+  {
+    "id": "7",
+    "title": "Monsieur Wierbicki",
+    "description": "il a la maladie de la vache folle",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg"
+  },
+  {
+    "id": "8",
+    "title": "HTML Hacker",
+    "description": "very concerning",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg"
+  },
+  {
+    "id": "9",
+    "title": "Hacker telling me he knows where I live",
+    "description": "Me who already knows where I live",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg"
+  },
+  {
+    "id": "10",
+    "title": "Antivirus for Linux",
+    "description": "The one on the right is Kumova",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg"
+  },
+  {
+    "id": "11",
+    "title": "MATHEMANN",
+    "description": "Und ich, hasse die Mathematik",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg"
+  },
+  {
+    "id": "12",
+    "title": "NOBLE?! Atom",
+    "description": "Just french stuff",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg"
+  },
+  {
+    "id": "13",
+    "title": "Pineapple on pizza should be illegal",
+    "description": "I really feel with this poor pizzaiolo",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg"
+  },
+  {
+    "id": "14",
+    "title": "Programmer Rick",
+    "description": "The dev of this website can only be a Rick",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg"
+  },
+  {
+    "id": "15",
+    "title": "Sleep well RTX3090",
+    "description": "10/10 would do again",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg"
+  },
+  {
+    "id": "16",
+    "title": "Stackoverflow Lambo",
+    "description": "So true but actually not",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg"
+  },
+  {
+    "id": "17",
+    "title": "Grandma got new phone",
+    "description": "Oh no",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Tech_guy_Grandma_phone.jpeg"
+  },
+  {
+    "id": "18",
+    "title": "The unit tests are wrong",
+    "description": "My code could never be broken",
+    "src": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg"
   }
-}
+]
