@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    '[...all]': typeof import('./components/archive/vitesse/[...all].vue')['default']
     Footer: typeof import('./components/global/footer/Footer.vue')['default']
     FooterLinkExternal: typeof import('./components/global/footer/FooterLinkExternal.vue')['default']
     FooterLinkInternal: typeof import('./components/global/footer/FooterLinkInternal.vue')['default']
@@ -20,6 +21,7 @@ declare module 'vue' {
     NavigationRail: typeof import('./components/NavigationRail.vue')['default']
     PageMehmObject: typeof import('./components/archive/PageMehmObject.vue')['default']
     README: typeof import('./components/README.md')['default']
+    Vitesse: typeof import('./components/archive/vitesse/vitesse.vue')['default']
   }
 }
 

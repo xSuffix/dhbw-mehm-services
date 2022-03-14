@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+defineProps<{
+  showSearch?: boolean
+  showCategory?: boolean
+  showOrder?: boolean
+}>()
+
+const { t } = useI18n()
+
 const categorySelect = [
-  'alle', 'Programmieren', 'DHBW', 'andere',
+  t('category.all'), t('category.programming'), t('category.dhbw'), t('category.others'),
 ]
 
 const sortSelect = [
-  'Datum', 'Likes', 'Kommentare',
+  t('sort.date'), t('sort.likes'), t('sort.comments'),
 ]
 
 const asc = ref(true)
@@ -18,21 +26,24 @@ const toggleOrder = () => {
 
 <template>
   <div class="flex flex-wrap gap-2">
-    <div class="box flex-grow flex-shrink flex-300px">
+    <div v-if="showSearch" class="box flex-grow flex-shrink flex-300px">
       <heroicons-solid:search class="text-xl" />
       <input type="text" spellcheck="false" autocomplete="off" placeholder="Mehms suchen" class="bg-transparent w-full p-1 outline-none">
     </div>
-    <select id="" name="" class="box">
+
+    <select v-if="showCategory" id="" name="" class="box">
       <option v-for="category in categorySelect" :key="category" :value="category">
         {{ category }}
       </option>
     </select>
-    <select id="" name="" class="box">
+
+    <select v-if="showOrder" id="" name="" class="box">
       <option v-for="sort in sortSelect" :key="sort" :value="sort">
         {{ sort }}
       </option>
     </select>
-    <button class="box" @click="toggleOrder()">
+
+    <button v-if="showOrder" class="box" @click="toggleOrder()">
       <heroicons-solid:sort-ascending v-if="asc" />
       <heroicons-solid:sort-descending v-else />
     </button>
