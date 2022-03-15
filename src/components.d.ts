@@ -5,6 +5,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     '[...all]': typeof import('./components/archive/vitesse/[...all].vue')['default']
+    Background: typeof import('./components/global/background/Background.vue')['default']
     Footer: typeof import('./components/global/footer/Footer.vue')['default']
     FooterLinkExternal: typeof import('./components/global/footer/FooterLinkExternal.vue')['default']
     FooterLinkInternal: typeof import('./components/global/footer/FooterLinkInternal.vue')['default']
@@ -16,8 +17,9 @@ declare module 'vue' {
     'HeroiconsSolid:sortDescending': typeof import('~icons/heroicons-solid/sort-descending')['default']
     IconBadge: typeof import('./components/IconBadge.vue')['default']
     Logo: typeof import('./components/global/header/Logo.vue')['default']
+    MehmPost: typeof import('./components/mehms/MehmPost.vue')['default']
     MehmsGalleryJson: typeof import('./components/mehms/MehmsGalleryJson.vue')['default']
-    MehmToolbar: typeof import('./components/mehms/MehmToolbar.vue')['default']
+    MehmsToolbar: typeof import('./components/mehms/MehmsToolbar.vue')['default']
     NavigationRail: typeof import('./components/NavigationRail.vue')['default']
     PageMehmObject: typeof import('./components/archive/PageMehmObject.vue')['default']
     README: typeof import('./components/README.md')['default']

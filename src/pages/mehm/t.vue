@@ -10,7 +10,7 @@ const mehm = mehms.find(mehm => mehm.id === props.id)
 </script>
 
 <template>
-  <MehmToolbar show-search />
+  <MehmsToolbar show-search />
   <div>
     {{ mehm }}
   </div>

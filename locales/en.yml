@@ -3,6 +3,8 @@ category:
   dhbw: DHBW
   others: others
   programming: Programming
+search:
+  placeholder: Search Mehms
 sort:
   comments: Comments
   date: Date

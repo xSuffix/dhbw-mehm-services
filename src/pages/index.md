@@ -10,5 +10,5 @@ meta:
   layout: default
 </route>
 
-<MehmToolbar show-search show-category show-order />
+<MehmsToolbar show-search show-category show-order />
 <MehmsGalleryJson class="mt-4" />

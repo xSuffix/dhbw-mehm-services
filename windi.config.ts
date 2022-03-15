@@ -14,6 +14,28 @@ export default defineConfig({
     extend: {
       colors: {
         border: colors.dark,
+        voida: {
+          100: '#1D2D63',
+          200: '#172650',
+          300: '#101E3D',
+          400: '#0A162A',
+          500: '#071220',
+          600: '#05101B',
+          700: '#030E16',
+          800: '#030D14',
+          900: '#030C12',
+        },
+        void: {
+          100: '#1A2B64',
+          200: '#13234D',
+          300: '#0E1C3B',
+          400: '#0A162B',
+          500: '#071221',
+          600: '#06101C',
+          700: '#040E17',
+          800: '#040D14',
+          900: '#030C12',
+        },
       },
       fontFamily: {
         play: ['"Press Start 2P"', 'cursive'],
@@ -49,6 +71,13 @@ export default defineConfig({
       },
       textShadow: {
         outline: '-1px -1px 0 #222, 0 -1px 0 #222, 1px -1px 0 #222, 1px 0 0 #222, 1px 1px 0 #222, 0 1px 0 #222, -1px 1px 0 #222',
+      },
+    },
+    container: {
+      padding: '1rem',
+      screens: {
+        sm: '100%',
+        xl: '80rem',
       },
     },
   },

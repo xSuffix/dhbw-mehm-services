@@ -28,7 +28,7 @@ const toggleOrder = () => {
   <div class="flex flex-wrap gap-2">
     <div v-if="showSearch" class="box flex-grow flex-shrink flex-300px">
       <heroicons-solid:search class="text-xl" />
-      <input type="text" spellcheck="false" autocomplete="off" placeholder="Mehms suchen" class="bg-transparent w-full p-1 outline-none">
+      <input type="text" spellcheck="false" autocomplete="off" :placeholder="t('search.placeholder')" class="bg-transparent w-full p-1 outline-none">
     </div>
 
     <select v-if="showCategory" id="" name="" class="box">
@@ -52,6 +52,6 @@ const toggleOrder = () => {
 
 <style scoped>
 .box {
-  @apply flex justify-center items-center p-2 min-w-42px min-h-42px rounded bg-blue-900 border border-border-400 px-2 py-1;
+  @apply flex justify-center items-center p-2 min-w-42px min-h-42px rounded bg-void-300 border border-border-400 px-2 py-1;
 }
 </style>
