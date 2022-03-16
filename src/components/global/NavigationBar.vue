@@ -8,7 +8,7 @@ const items = [
 
 <template>
   <div class="w-full fixed bottom-0 bg-void-600 rounded-t-2xl md:hidden">
-    <nav class="max-w-lg h-18 mx-auto flex justify-around text-gray-200">
+    <nav class="max-w-lg h-16 mx-auto flex justify-around text-gray-200">
       <router-link v-for="item in items" :key="item.url" :to="item.url" class="flex items-center">
         <div>
           <div class="pill w-50px h-26px flex items-center justify-center text-gray-300 rounded-2xl">
@@ -21,7 +21,7 @@ const items = [
       </router-link>
     </nav>
   </div>
-  <div class="h-18" />
+  <div class="h-16" />
 </template>
 
 <style scoped>
