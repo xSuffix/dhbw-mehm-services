@@ -4,26 +4,21 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    '[...all]': typeof import('./components/archive/vitesse/[...all].vue')['default']
-    Background: typeof import('./components/global/background/Background.vue')['default']
-    Footer: typeof import('./components/global/footer/Footer.vue')['default']
-    FooterLinkExternal: typeof import('./components/global/footer/FooterLinkExternal.vue')['default']
-    FooterLinkInternal: typeof import('./components/global/footer/FooterLinkInternal.vue')['default']
-    Grid: typeof import('./components/global/background/Grid.vue')['default']
-    Header: typeof import('./components/global/header/Header.vue')['default']
-    Hero: typeof import('./components/global/background/Hero.vue')['default']
+    Background: typeof import('./components/global/Background.vue')['default']
+    Footer: typeof import('./components/global/Footer.vue')['default']
+    Header: typeof import('./components/global/Header.vue')['default']
     'HeroiconsSolid:search': typeof import('~icons/heroicons-solid/search')['default']
     'HeroiconsSolid:sortAscending': typeof import('~icons/heroicons-solid/sort-ascending')['default']
     'HeroiconsSolid:sortDescending': typeof import('~icons/heroicons-solid/sort-descending')['default']
     IconBadge: typeof import('./components/IconBadge.vue')['default']
-    Logo: typeof import('./components/global/header/Logo.vue')['default']
+    IconLinkExternal: typeof import('./components/global/IconLinkExternal.vue')['default']
+    IconLinkInternal: typeof import('./components/global/IconLinkInternal.vue')['default']
+    Logo: typeof import('./components/global/Logo.vue')['default']
     MehmPost: typeof import('./components/mehms/MehmPost.vue')['default']
     MehmsGalleryJson: typeof import('./components/mehms/MehmsGalleryJson.vue')['default']
     MehmsToolbar: typeof import('./components/mehms/MehmsToolbar.vue')['default']
-    NavigationRail: typeof import('./components/NavigationRail.vue')['default']
-    PageMehmObject: typeof import('./components/archive/PageMehmObject.vue')['default']
+    NavigationBar: typeof import('./components/NavigationBar.vue')['default']
     README: typeof import('./components/README.md')['default']
-    Vitesse: typeof import('./components/archive/vitesse/vitesse.vue')['default']
   }
 }
 

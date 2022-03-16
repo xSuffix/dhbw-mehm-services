@@ -5,5 +5,5 @@
     <router-view />
   </main>
   <Footer class="container mx-auto" />
-  <NavigationRail />
+  <NavigationBar />
 </template>

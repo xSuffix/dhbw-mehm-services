@@ -46,7 +46,7 @@ const dhbwLinks = [
         </p>
         <ul>
           <li v-for="link in sitemapLinks" :key="link.url">
-            <FooterLinkInternal v-bind="link" />
+            <IconLinkInternal v-bind="link" />
           </li>
         </ul>
       </div>
@@ -57,7 +57,7 @@ const dhbwLinks = [
         </p>
         <ul>
           <li v-for="link in legalLinks" :key="link.url">
-            <FooterLinkInternal v-bind="link" />
+            <IconLinkInternal v-bind="link" />
           </li>
         </ul>
       </div>
@@ -68,7 +68,7 @@ const dhbwLinks = [
         </p>
         <ul>
           <li v-for="link in dhbwLinks" :key="link.url">
-            <FooterLinkExternal v-bind="link" />
+            <IconLinkExternal v-bind="link" />
           </li>
         </ul>
       </div>
