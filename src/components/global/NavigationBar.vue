@@ -8,15 +8,11 @@ const items = [
 
 <template>
   <div class="w-full fixed bottom-0 bg-void-600 rounded-t-2xl md:hidden">
-    <nav
-      class="max-w-lg h-16 mx-auto flex justify-around text-gray-200"
-    >
+    <nav class="max-w-lg h-16 mx-auto flex justify-around text-gray-200">
       <router-link v-for="item in items" :key="item.url" :to="item.url" class="flex items-center">
         <div>
-          <div
-            class="pill w-12 h-26px flex items-center justify-center text-gray-300"
-          >
-            <span class="iconify" :data-icon="item.icon" />
+          <div class="pill w-12 h-26px flex items-center justify-center text-gray-300">
+            <span class="iconify w-5 h-auto" :data-icon="item.icon" />
           </div>
           <div class="text-center text-xs font-medium pt-0.5">
             {{ item.label }}
@@ -30,7 +26,7 @@ const items = [
 
 <style scoped>
 .router-link-active .pill {
-  @apply rounded-2xl bg-root-100 !text-indigo-50;
+  @apply rounded-2xl bg-void-100 !text-void-600;
 }
 
 .router-link-active {
