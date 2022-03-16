@@ -31,13 +31,13 @@ const toggleOrder = () => {
       <input type="text" spellcheck="false" autocomplete="off" :placeholder="t('search.placeholder')" class="bg-transparent w-full p-1 outline-none">
     </div>
 
-    <select v-if="showCategory" id="" name="" class="box">
+    <select v-if="showCategory" id="category" name="category" class="box flex-grow">
       <option v-for="category in categorySelect" :key="category" :value="category">
         {{ category }}
       </option>
     </select>
 
-    <select v-if="showOrder" id="" name="" class="box">
+    <select v-if="showOrder" id="order" name="order" class="box flex-grow">
       <option v-for="sort in sortSelect" :key="sort" :value="sort">
         {{ sort }}
       </option>
