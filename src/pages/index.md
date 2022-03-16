@@ -1,8 +1,8 @@
 ---
 title: Mehms
 meta:
-  - name: 404
-    content: Hello World
+  - name: Mehms
+    content: Discover quality Mehms
 ---
 
 <route lang="yaml">

@@ -20,7 +20,7 @@ const dhbwLinks = [
 </script>
 
 <template>
-  <div class="pt-10 pb-16">
+  <div class="py-10">
     <footer class="flex flex-wrap gap-8 rounded bg-void-700">
       <div class="flex-grow-[10]">
         <p class="pb-4">
