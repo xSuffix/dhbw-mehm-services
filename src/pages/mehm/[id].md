@@ -14,4 +14,4 @@ defineProps({
 </script>
 
 <MehmsToolbar show-search />
-<MehmPost :id="id" />
+<MehmPost :id="id" class="mt-4" />
