@@ -14,28 +14,14 @@
       </linearGradient>
     </defs>
 
-    <path id="wave" class="gradient" fill="url(#bg-gradient)" fill-rule="evenodd" d="m0 230 80 48c80 48 240 144 400 144s320-96 480-115 320 39 480 29 320-86 400-125l80-38V0H0v230Z" clip-rule="evenodd" />
+    <path id="wave" fill="url(#bg-gradient)" fill-rule="evenodd" d="m0 230 80 48c80 48 240 144 400 144s320-96 480-115 320 39 480 29 320-86 400-125l80-38V0H0v230Z" clip-rule="evenodd" />
     <rect width="100%" height="100%" fill="url(#bg)" clip-path="url(#clip)" />
-
   </svg>
 </template>
 
 <style scoped>
 .banner {
-  @apply fixed top-0 left-1/2 transform -translate-x-1/2 -z-1 w-1920px;
-}
-
-.gradient {
-  background: linear-gradient(135deg, #8f54f0, #42b9fa);
-  background-size: 400% 400%;
-
-  animation: gradient 8s ease infinite;
-}
-
-@keyframes gradient {
-    0% {background-position: 0% 0% }
-    50% {background-position: 100% 100% }
-    100% {background-position: 0% 0% }
+  @apply absolute top-0 left-1/2 transform -translate-x-1/2 -z-1 w-1920px;
 }
 
 .bg-gradient-1 {
@@ -49,6 +35,12 @@
 }
 
 .pattern {
-  @apply dark:fill-void-400 dark:opacity-20;
+  @apply dark:fill-void-700 dark:opacity-20;
+}
+
+@media (min-width: 1920px) {
+  .banner {
+    @apply w-full h-21.98vw;
+  }
 }
 </style>

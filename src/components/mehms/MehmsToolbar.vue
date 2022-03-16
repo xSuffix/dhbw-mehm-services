@@ -25,7 +25,7 @@ const toggleOrder = () => {
 </script>
 
 <template>
-  <div class="flex flex-wrap gap-2">
+  <div class="toolbar sticky top-2 flex flex-wrap gap-2 z-10 transition-top duration-200">
     <div v-if="showSearch" class="box flex-grow flex-shrink flex-300px">
       <heroicons-solid:search class="text-xl" />
       <input type="text" spellcheck="false" autocomplete="off" :placeholder="t('search.placeholder')" class="bg-transparent w-full p-1 outline-none">
@@ -52,6 +52,10 @@ const toggleOrder = () => {
 
 <style scoped>
 .box {
-  @apply flex justify-center items-center p-2 min-w-42px min-h-42px rounded bg-void-300 border border-border-400 px-2 py-1;
+  @apply flex justify-center items-center p-2 min-w-42px min-h-42px rounded bg-void-600 border border-void-900 px-2 py-1;
+}
+
+.scrolling-up .toolbar {
+  @apply top-20;
 }
 </style>

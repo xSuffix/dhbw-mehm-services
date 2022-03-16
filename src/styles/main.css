@@ -11,41 +11,17 @@
 html,
 body,
 #app {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0;
 }
 
+body {
+  @apply overflow-x-hidden text-gray-700 dark:text-gray-200;
+}
+
 html.dark {
-  @apply bg-void-400;
+  @apply bg-void-700;
+  color-scheme: dark;
 }
 
-#nprogress {
-  pointer-events: none;
-}
-
-#nprogress .bar {
-  @apply bg-teal-600 opacity-75;
-
-  position: fixed;
-  z-index: 1031;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 2px;
-}
-
-.btn {
-  @apply px-4 py-1 rounded inline-block
-    bg-teal-600 text-white cursor-pointer
-    hover:bg-teal-700
-    disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50;
-}
-
-.icon-btn {
-  @apply inline-block cursor-pointer select-none
-    opacity-75 transition duration-200 ease-in-out
-    hover:opacity-100 hover:text-teal-600;
-  font-size: 0.9em;
-}
