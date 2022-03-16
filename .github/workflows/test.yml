@@ -20,13 +20,13 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v2
+      # - uses: actions/checkout@v2
   
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache
-          key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+      # - uses: actions/cache@v2
+      #   with:
+      #     path: |
+      #       ~/.cache
+      #     key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
           
       - name: Install pnpm
         uses: pnpm/action-setup@v2.0.1
@@ -48,15 +48,15 @@ jobs:
       - name: Type Check
         run: pnpm run typecheck
 
-      - name: Unit Test
-        run: pnpm run test:unit
+      # - name: Unit Test
+      #   run: pnpm run test:unit
 
-      - name: Cypress PNPM Patch
-        run: cp pnpm-lock.yaml package-lock.json
+      # - name: Cypress PNPM Patch
+      #   run: cp pnpm-lock.yaml package-lock.json
 
-      - name: Cypress
-        uses: cypress-io/github-action@v2
-        with:
-          install-command: echo
-          build: pnpm run build
-          start: npx vite --port 3333
+      # - name: Cypress
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     install-command: echo
+      #     build: pnpm run build
+      #     start: npx vite --port 3333

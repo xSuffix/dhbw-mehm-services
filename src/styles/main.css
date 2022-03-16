@@ -22,10 +22,10 @@ body,
 }
 
 body {
-  @apply overflow-x-hidden text-gray-700 dark:text-gray-200;
+  @apply text-gray-700 dark:text-gray-200;
 }
 
 #app {
-  @apply relative overflow-x-hidden;
+  @apply relative overflow-x-clip;
 }
 

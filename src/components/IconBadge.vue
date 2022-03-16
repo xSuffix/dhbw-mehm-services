@@ -12,5 +12,6 @@ defineProps({
 
 <template>
   <a :href="href" target="_blank" rel="noopener" class="bg-white flex justify-center h-36px w-36px rounded-1/2">
-    <img :src="src" :alt="alt" :class="imgClass"></a>
+    <img :src="src" :alt="alt" :class="imgClass">
+  </a>
 </template>
