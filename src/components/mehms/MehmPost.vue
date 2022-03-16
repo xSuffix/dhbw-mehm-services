@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { toSvg } from 'jdenticon'
+import { useShare } from '@vueuse/core'
 import mehms from '~/data/mehms.json'
 
 const props = defineProps<{
@@ -8,8 +9,19 @@ const props = defineProps<{
 
 const mehm = mehms.find(mehm => mehm.id === props.id)
 const icon = toSvg('blah', 40)
-const liked = ref(false)
 
+const liked = ref(false)
+const shared = ref(false)
+
+const { share, isSupported } = useShare()
+const sharePage = () => {
+  shared.value = true
+  share({
+    title: mehm?.title,
+    text: mehm?.description,
+    url: location.href,
+  })
+}
 </script>
 
 <template>
@@ -38,8 +50,8 @@ const liked = ref(false)
           <heroicons-solid:heart v-if="liked" /><heroicons-outline:heart v-else />0 Likes
         </button>
         <a href="#comments" class="icon-btn"><heroicons-solid:chat-alt />0 Kommentare</a>
-        <button class="icon-btn">
-          <heroicons-solid:share />Teilen
+        <button v-if="isSupported" class="icon-btn" @click="sharePage()">
+          <heroicons-solid:share :class="{'text-void-100': shared}" />Teilen
         </button>
       </div>
     </aside>
@@ -56,6 +68,6 @@ const liked = ref(false)
 }
 
 .icon-btn {
-  @apply flex gap-2 items-center p-2 font-medium;
+  @apply flex gap-2 items-center p-2 font-medium hover:text-white;
 }
 </style>
