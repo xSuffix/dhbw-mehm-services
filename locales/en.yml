@@ -3,6 +3,24 @@ category:
   dhbw: DHBW
   others: others
   programming: Programming
+footer:
+  about:
+    description: >-
+      This website is a common examination achievement in the course
+      Web-Services at DHBW Mosbach.
+    title: About DHBW Mehms
+  follow:
+    title: Follow us
+  legal:
+    title: Legal
+  sitemap:
+    title: Sitemap
+nav:
+  contact: Contact
+  imprint: Imprint
+  mehms: Mehms
+  privacy: Privacy
+  submit: Submit
 search:
   placeholder: Search Mehms
 sort:

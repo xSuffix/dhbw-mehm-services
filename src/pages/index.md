@@ -7,8 +7,8 @@ meta:
 
 <route lang="yaml">
 meta:
-  layout: default
+  layout: footerless
 </route>
 
 <MehmsToolbar show-search show-category show-order />
-<MehmsGalleryJson class="mt-4" />
+<MehmsGalleryJson show-footer class="mt-4" />

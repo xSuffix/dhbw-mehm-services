@@ -1,14 +1,13 @@
 <script setup lang="ts">
 const items = [
-  { url: '/', label: 'Home', icon: 'heroicons-solid:home' },
-  { url: '/vines', label: 'Vines', icon: 'heroicons-solid:film' },
-  { url: '/numbers', label: 'Zahlen', icon: 'heroicons-solid:hashtag' },
+  { url: '/', label: 'Mehms', icon: 'heroicons-solid:home' },
+  { url: '/submit', label: 'Einsenden', icon: 'heroicons-solid:plus-circle' },
   { url: '/contact', label: 'Kontakt', icon: 'heroicons-solid:mail' },
 ]
 </script>
 
 <template>
-  <div class="w-full fixed bottom-0 bg-cool-gray-900 rounded-t-2xl md:hidden">
+  <div class="w-full fixed bottom-0 bg-void-600 rounded-t-2xl md:hidden">
     <nav
       class="max-w-lg h-16 mx-auto flex justify-around text-gray-200"
     >
@@ -30,7 +29,7 @@ const items = [
 
 <style scoped>
 .router-link-active .pill {
-  @apply rounded-2xl bg-indigo-500 !text-indigo-50;
+  @apply rounded-2xl bg-root-100 !text-indigo-50;
 }
 
 .router-link-active {

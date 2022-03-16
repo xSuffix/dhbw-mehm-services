@@ -1,38 +1,40 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
 const sitemapLinks = [
-  { label: 'Mehms', url: '/' },
-  { label: 'Kontakt', url: '/contact' },
-  { label: 'Mehm Einsendung', url: 'submit' },
+  { label: t('nav.mehms'), url: '/' },
+  { label: t('nav.submit'), url: '/submit' },
+  { label: t('nav.contact'), url: '/contact' },
 ]
 
 const legalLinks = [
-  { label: 'Impressum', url: '/imprint' },
-  { label: 'Datenschutz', url: '/privacy' },
+  { label: t('nav.imprint'), url: '/imprint' },
+  { label: t('nav.privacy'), url: '/privacy' },
 ]
 
 const dhbwLinks = [
-  { label: 'Lohrtalweg 10\n74821 Mosbach', url: 'https://goo.gl/maps/TvTZgwM64HwZpfdLA', icon: 'heroicons-solid:home' },
+  { label: 'Lohrtalweg 10\n74821 Mosbach', url: 'https://goo.gl/maps/TvTZgwM64HwZpfdLA', icon: 'heroicons-solid:office-building' },
   { label: '06261 / 939-0', url: 'tel:+4962619390', icon: 'heroicons-solid:phone' },
   { label: '06261 / 939-504', url: 'fax:+496261939504', icon: 'heroicons-solid:printer' },
 ]
 </script>
 
 <template>
-  <div class="pb-16">
+  <div class="pt-10 pb-16">
     <footer class="flex flex-wrap gap-8 rounded bg-void-700">
       <div class="flex-grow-[10]">
         <p class="pb-4">
-          <strong>Über DHBW Mehms</strong>
+          <strong>{{ t('footer.about.title') }}</strong>
         </p>
         <Logo />
         <p class="pt-3">
-          Diese Webseite ist eine gemeinsame Prüfungsleistung im Kurs Web-Services der DHBW Mosbach.
+          {{ t('footer.about.description') }}
         </p>
       </div>
 
       <div>
         <p class="pb-4">
-          <strong>Folge uns</strong>
+          <strong>{{ t('footer.follow.title') }}</strong>
         </p>
         <div class="flex gap-2">
           <IconBadge alt="GitHub" href="https://github.com/xSuffix/dhbw-mehms" src="/images/icons/github.svg" />
@@ -42,7 +44,7 @@ const dhbwLinks = [
 
       <div>
         <p class="pb-4">
-          <strong>Sitemap</strong>
+          <strong>{{ t('footer.sitemap.title') }}</strong>
         </p>
         <ul>
           <li v-for="link in sitemapLinks" :key="link.url">
@@ -53,7 +55,7 @@ const dhbwLinks = [
 
       <div>
         <p class="pb-4">
-          <strong>Rechtliches</strong>
+          <strong>{{ t('footer.legal.title') }}</strong>
         </p>
         <ul>
           <li v-for="link in legalLinks" :key="link.url">

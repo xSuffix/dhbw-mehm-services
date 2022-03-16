@@ -3,6 +3,24 @@ category:
   dhbw: DHBW
   others: andere
   programming: Programmieren
+footer:
+  about:
+    description: >-
+      Diese Webseite ist eine gemeinsame Prüfungsleistung im Kurs Web-Services
+      der DHBW Mosbach.
+    title: Über DHBW Mehms
+  follow:
+    title: Folge uns
+  legal:
+    title: Rechtliches
+  sitemap:
+    title: Sitemap
+nav:
+  contact: Kontakt
+  imprint: Impressum
+  mehms: Mehms
+  privacy: Datenschutz
+  submit: Einsenden
 search:
   placeholder: Mehms suchen
 sort:
