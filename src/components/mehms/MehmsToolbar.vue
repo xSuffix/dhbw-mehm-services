@@ -56,6 +56,6 @@ const toggleOrder = () => {
 }
 
 .scrolling-up .toolbar {
-  @apply top-20;
+  @apply md:top-20;
 }
 </style>

@@ -11,7 +11,7 @@ watch(y, async(newY, oldY) => {
 </script>
 
 <template>
-  <header class="pt-8 pb-18 mx-auto inset-x-0 flex px-4 items-center justify-between z-20 sticky -top-24 transition-top duration-200">
+  <header class="pt-8 pb-18 mx-auto inset-x-0 flex px-4 items-center justify-between z-20 md:sticky -top-24 transition-top duration-200">
     <Logo />
     <div>
       <nav class="hidden md:flex gap-6 font-play text-white text-shadow-outline">
