@@ -8,6 +8,11 @@
   src: url('/fonts/press-start-2p.woff2');
 }
 
+html.dark {
+  @apply bg-void-700;
+  color-scheme: dark;
+}
+
 html,
 body,
 #app {
@@ -20,8 +25,7 @@ body {
   @apply overflow-x-hidden text-gray-700 dark:text-gray-200;
 }
 
-html.dark {
-  @apply bg-void-700;
-  color-scheme: dark;
+#app {
+  @apply relative overflow-x-hidden;
 }
 
