@@ -40,7 +40,7 @@ const sharePost = () => {
           <div>Gepostet von <a href="" class="highlight">Kapitän zur See</a> vor 2 Tagen</div>
         </div>
       </div>
-      <h1 class="text-2xl font-bold my-6">
+      <h1 class="text-2xl font-bold my-4 dark:text-gray-100">
         {{ mehm?.title }}
       </h1>
       <p class="my-4">
@@ -61,7 +61,7 @@ const sharePost = () => {
 
 <style scoped>
 .paper {
-  @apply rounded border border-void-900 bg-void-500 bg-opacity-90 backdrop-filter backdrop-blur-sm;
+  @apply rounded border border-void-900 bg-void-500 bg-opacity-85 backdrop-filter backdrop-blur-sm;
 }
 
 .highlight {
