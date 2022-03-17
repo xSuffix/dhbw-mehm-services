@@ -27,8 +27,8 @@ const toggleOrder = () => {
 <template>
   <div class="toolbar sticky top-2 flex flex-wrap gap-2 z-10 transition-top duration-200">
     <div v-if="showSearch" class="box flex-grow flex-shrink flex-300px">
-      <heroicons-solid:search class="text-xl" />
-      <input type="text" spellcheck="false" autocomplete="off" :placeholder="t('search.placeholder')" class="bg-transparent w-full p-1 outline-none">
+      <label for="mehm-search"><heroicons-solid:search class="text-xl" /></label>
+      <input id="mehm-search" type="text" spellcheck="false" autocomplete="off" :placeholder="t('search.placeholder')" class="bg-transparent w-full p-1 outline-none">
     </div>
 
     <select v-if="showCategory" id="category" name="category" class="box flex-grow">
@@ -57,5 +57,9 @@ const toggleOrder = () => {
 
 .scrolling-up .toolbar {
   @apply md:top-20;
+}
+
+.toolbar:focus-within label {
+  @apply text-void-100;
 }
 </style>

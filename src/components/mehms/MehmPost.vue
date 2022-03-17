@@ -11,15 +11,16 @@ const mehm = mehms.find(mehm => mehm.id === props.id)
 const icon = toSvg('blah', 40)
 
 const liked = ref(false)
-const shared = ref(false)
+const likePost = () => liked.value = !liked.value
 
+const shared = ref(false)
 const { share, isSupported } = useShare()
-const sharePage = () => {
+const sharePost = () => {
   shared.value = true
   share({
     title: mehm?.title,
     text: mehm?.description,
-    url: location.href,
+    url: location.href.split('#')[0],
   })
 }
 </script>
@@ -46,12 +47,12 @@ const sharePage = () => {
         {{ mehm?.description }}
       </p>
       <div class="flex flex-wrap gap-x-4 -ml-2">
-        <button class="icon-btn">
-          <heroicons-solid:heart v-if="liked" /><heroicons-outline:heart v-else />0 Likes
+        <button class="icon-btn" @click="likePost()">
+          <heroicons-solid:heart v-if="liked" class="text-root-100" /><heroicons-outline:heart v-else />0 Likes
         </button>
         <a href="#comments" class="icon-btn"><heroicons-solid:chat-alt />0 Kommentare</a>
-        <button v-if="isSupported" class="icon-btn" @click="sharePage()">
-          <heroicons-solid:share :class="{'text-void-100': shared}" />Teilen
+        <button v-if="isSupported" class="icon-btn" @click="sharePost()">
+          <heroicons-solid:share class="transition-colors duration-200" :class="{'text-void-100': shared}" />Teilen
         </button>
       </div>
     </aside>
