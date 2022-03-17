@@ -9,6 +9,18 @@
   width: 100%;
 }
 
+.prose h1 + h2 {
+  @apply mt-0 text-gray-700 dark:text-gray-200;
+}
+
+.prose-lg {
+  @apply mb-16 text-shadow-outline;
+}
+
+.prose-lg h1 {
+  @apply dark:text-white;
+}
+
 html:not(.dark) .prose {
   --prism-foreground: #393a34;
   --prism-background: #fbfbfb;

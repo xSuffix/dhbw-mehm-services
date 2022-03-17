@@ -7,6 +7,10 @@ export default defineConfig({
   // https://windicss.org/posts/v30.html#attributify-mode
   attributify: true,
 
+  corePlugins: {
+    container: false,
+  },
+
   plugins: [
     typography({
       dark: true,
@@ -48,8 +52,11 @@ export default defineConfig({
       typography: {
         DEFAULT: {
           css: {
-            maxWidth: '65ch',
+            maxWidth: '100%',
             color: 'inherit',
+            p: {
+              color: 'inherit',
+            },
             a: {
               'color': 'inherit',
               'opacity': 0.75,
@@ -73,12 +80,6 @@ export default defineConfig({
       },
       textShadow: {
         outline: '-1px -1px 0 #222, 0 -1px 0 #222, 1px -1px 0 #222, 1px 0 0 #222, 1px 1px 0 #222, 0 1px 0 #222, -1px 1px 0 #222',
-      },
-    },
-    container: {
-      padding: '1rem',
-      screens: {
-        xl: '80rem',
       },
     },
   },

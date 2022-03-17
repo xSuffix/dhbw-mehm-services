@@ -5,7 +5,17 @@ meta:
     content: Adress and representatives
 ---
 
-<div class="prose paper">
+<div class="prose prose-lg">
+<div class="max-w-65ch">
+
+# Impressum
+
+## Angaben gemäß $ 5 TMG
+
+</div>
+</div>
+
+<div class="prose paper p-4">
 
 ## Anschrift
 
@@ -21,7 +31,7 @@ Lohrtalweg 10
 
 ## Kontakt
 
-Telefon: 97379-420034297
+Telefon: 97379-420034297  
 E-Mail: mehms4DHBW@gmail.com
 
 ## Haftung für Inhalte
