@@ -15,14 +15,14 @@ watch(y, async(newY, oldY) => {
     <Logo />
     <div>
       <nav class="hidden md:flex gap-6 font-play text-white text-shadow-outline">
-        <router-link to="/vines">
-          Vines
-        </router-link>
-        <router-link to="/numbers">
-          Zahlen
+        <router-link to="/submit">
+          Einsenden
         </router-link>
         <router-link to="/contact">
           Kontakt
+        </router-link>
+        <router-link to="/login">
+          Login
         </router-link>
       </nav>
     </div>

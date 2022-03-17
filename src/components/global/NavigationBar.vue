@@ -3,6 +3,7 @@ const items = [
   { url: '/', label: 'Mehms', icon: 'heroicons-solid:home' },
   { url: '/submit', label: 'Einsenden', icon: 'heroicons-solid:plus-circle' },
   { url: '/contact', label: 'Kontakt', icon: 'heroicons-solid:mail' },
+  { url: '/login', label: 'Login', icon: 'heroicons-solid:login' },
 ]
 </script>
 

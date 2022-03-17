@@ -5,7 +5,7 @@ meta:
     content: Adress and representatives
 ---
 
-<div class="prose">
+<div class="prose paper">
 
 ## Anschrift
 
