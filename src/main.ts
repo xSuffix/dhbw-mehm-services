@@ -2,7 +2,7 @@
 import { ViteSSG } from 'vite-ssg'
 import generatedRoutes from 'virtual:generated-pages'
 import { setupLayouts } from 'virtual:generated-layouts'
-import { createWebHistory } from 'vue-router'
+import { createMemoryHistory, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
 import '@purge-icons/generated'
@@ -18,13 +18,16 @@ import 'virtual:windi-utilities.css'
 import 'virtual:windi-devtools'
 
 const routes = setupLayouts(generatedRoutes)
+const isClient = typeof window !== 'undefined'
 
 // https://github.com/antfu/vite-ssg
 export const createApp = ViteSSG(
   App,
   {
     routes,
-    history: createWebHistory(),
+    history: isClient
+      ? createWebHistory()
+      : createMemoryHistory(),
     scrollBehavior(to, from, savedPosition) {
       if (savedPosition)
         return savedPosition
