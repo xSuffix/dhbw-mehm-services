@@ -6,13 +6,11 @@ meta:
 ---
 
 <div class="prose prose-lg">
-<div class="max-w-65ch">
 
 # Impressum
 
 ## Angaben gemäß $ 5 TMG
 
-</div>
 </div>
 
 <div class="prose paper p-4">
