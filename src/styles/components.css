@@ -6,6 +6,6 @@
   @apply rounded border border-void-900 bg-void-500 bg-opacity-85 backdrop-filter backdrop-blur-sm;
 }
 
-.strong {
+.strong, strong {
   @apply text-gray-900 dark:text-white;
 }

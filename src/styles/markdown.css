@@ -5,12 +5,20 @@
   --prism-font-family: 'Input Mono', monospace;
 }
 
+.prose p {
+  @apply text-gray-300;
+}
+
 .prose img {
   width: 100%;
 }
 
 .prose h1 + h2 {
   @apply mt-0 text-gray-700 dark:text-gray-200;
+}
+
+.prose ul > li::before {
+  @apply dark:bg-gray-300;
 }
 
 .prose-lg {
