@@ -110,18 +110,24 @@ export default defineConfig({
       manifest: {
         name: 'DHBW Mehms',
         short_name: 'DHBW Mehms',
-        theme_color: '#ffffff',
+        description: 'Interactive exchange plattform for high quality Mehms',
+        theme_color: '#b167eb',
         icons: [
           {
-            src: '/pwa-192x192.png',
+            src: 'pwa-192x192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            purpose: 'any maskable',
-            src: '/pwa-192x192.png',
-            sizes: '192x192',
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
             type: 'image/png',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable',
           },
         ],
       },

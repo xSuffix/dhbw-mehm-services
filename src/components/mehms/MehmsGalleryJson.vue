@@ -8,24 +8,29 @@ defineProps<{
   showFooter?: boolean
 }>()
 
+const mehmsPerRequest = 12
+const amountLoaded = ref(0)
+
 const store = useGalleryStore()
 const { y } = useWindowScroll()
 
 const gallery = ref<HTMLDivElement>()
 const loadMehms = ref(true)
 
-const loadMehmsFromJson = (amount: number) => {
-  store.loadMehms(mehms.slice(0, amount), 304)
-  mehms.splice(0, amount)
-  loadMehms.value = mehms.length !== 0
+const getMehms = () => {
+  const mehmsToLoad = mehms.slice(amountLoaded.value, amountLoaded.value + mehmsPerRequest)
+  store.loadMehms(mehmsToLoad, 304)
+
+  amountLoaded.value += mehmsPerRequest
+  loadMehms.value = mehmsToLoad.length !== 0
 }
 
 onMounted(() => {
-  loadMehmsFromJson(24)
+  getMehms()
 })
 
 watch(y, () => {
-  if (gallery.value && gallery.value.getBoundingClientRect().bottom - 128 < window.innerHeight) loadMehmsFromJson(24)
+  if (gallery.value && gallery.value.getBoundingClientRect().bottom - 128 < window.innerHeight) getMehms()
 })
 </script>
 

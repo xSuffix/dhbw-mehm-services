@@ -9,6 +9,8 @@ const props = defineProps<{
 
 const mehm = mehms.find(mehm => mehm.id === props.id)
 const icon = toSvg('blah', 40)
+console.log(mehm)
+console.log(mehms)
 
 const liked = ref(false)
 const likePost = () => liked.value = !liked.value

@@ -8,10 +8,12 @@ meta:
 </route>
 
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   id: String
 })
+
+console.log(props)
 </script>
 
-<MehmsToolbar show-search />
+<MehmsToolbar show-search show-category show-order />
 <MehmPost :id="id" class="mt-4" />
