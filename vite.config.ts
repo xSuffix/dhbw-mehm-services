@@ -107,6 +107,7 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'safari-pinned-tab.svg'],
+      strategies: 'injectManifest',
       manifest: {
         name: 'DHBW Mehms',
         short_name: 'DHBW Mehms',
