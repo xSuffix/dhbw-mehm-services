@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { watch } from 'vue'
-import { useWindowScroll } from '@vueuse/core'
 import { useGalleryStore } from '~/stores/gallery'
 import mehms from '~/data/mehms.json'
 
@@ -8,6 +7,7 @@ defineProps<{
   showFooter?: boolean
 }>()
 
+const endPointMehms = 'http://localhost:8080/mehms/'
 const mehmsPerRequest = 12
 const amountLoaded = ref(0)
 
@@ -37,7 +37,7 @@ watch(y, () => {
 <template>
   <div v-bind="$attrs" ref="gallery" class="flex flex-wrap justify-start m-auto gap-2">
     <router-link v-for="mehm in store.loadedMehms" :key="mehm.id" :to="'/mehm/'+mehm.id" class="rounded border border-void-900" :style="{width: `${mehm.scale}px`, flexGrow: mehm.scale}">
-      <img :src="mehm.src" :alt="mehm.title" :title="mehm.title" class="w-full rounded filter transition-filter duration-200 saturate-92 dark:brightness-92 hover:(saturate-100 dark:brightness-100)">
+      <img :src="mehm.imageSource" :alt="mehm.title" :title="mehm.title" class="w-full rounded filter transition-filter duration-200 saturate-92 dark:brightness-92 hover:(saturate-100 dark:brightness-100)">
     </router-link>
     <div class="flex-grow-[99999] min-w-64" />
   </div>

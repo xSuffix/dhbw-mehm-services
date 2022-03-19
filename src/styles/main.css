@@ -30,3 +30,7 @@ body {
   @apply relative overflow-x-clip;
 }
 
+h1 {
+  @apply text-2xl font-bold my-4 dark:text-gray-100;
+}
+

@@ -109,9 +109,9 @@ export default defineConfig({
       includeAssets: ['favicon.ico', 'robots.txt', 'safari-pinned-tab.svg'],
       manifest: {
         name: 'DHBW Mehms',
-        short_name: 'DHBW Mehms',
+        short_name: 'Mehms',
         description: 'Interactive exchange plattform for high quality Mehms',
-        theme_color: '#b167eb',
+        theme_color: '#0C1A2B',
         icons: [
           {
             src: 'pwa-192x192.png',

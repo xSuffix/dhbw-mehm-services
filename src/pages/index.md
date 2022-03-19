@@ -11,4 +11,4 @@ meta:
 </route>
 
 <MehmsToolbar show-search show-category show-order />
-<MehmsGalleryJson show-footer class="mt-4" />
+<MehmsGallery show-footer class="mt-4" />

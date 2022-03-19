@@ -5,6 +5,4 @@ meta:
     content: Log in to post Mehms, like and comment
 ---
 
-Buh
 <LoginForm />
-test

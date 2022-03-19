@@ -25,7 +25,7 @@ const toggleOrder = () => {
 </script>
 
 <template>
-  <div class="toolbar sticky top-2 flex flex-wrap gap-2 z-10 transition-top duration-200">
+  <div class="sticky top-2 flex flex-wrap gap-2 z-10 transition-top duration-200">
     <div v-if="showSearch" class="box flex-grow-[4] flex-shrink flex-300px">
       <label for="mehm-search"><heroicons-solid:search class="text-xl transition-colors duration-200" /></label>
       <input id="mehm-search" type="text" spellcheck="false" autocomplete="off" :placeholder="t('search.placeholder')" class="bg-transparent w-full p-1 outline-none">
@@ -51,15 +51,7 @@ const toggleOrder = () => {
 </template>
 
 <style scoped>
-.box {
-  @apply flex justify-center items-center p-2 min-w-42px min-h-42px rounded bg-void-600 border border-void-900 px-2 py-1;
-}
-
 .scrolling-up .toolbar {
   @apply md:top-20;
-}
-
-.toolbar:focus-within label {
-  @apply text-void-100;
 }
 </style>

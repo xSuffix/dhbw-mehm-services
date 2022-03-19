@@ -7,21 +7,53 @@ const props = defineProps<{
   id: string
 }>()
 
-const mehm = mehms.find(mehm => mehm.id === props.id)
-const icon = toSvg('blah', 40)
-console.log(mehm)
-console.log(mehms)
+interface ApiMehm {
+  id: number
+  authorName: string
+  title: string
+  description: string
+  imageSource: string
+  createdDate: Array<number>
+  genre: string
+  likes: number
+}
+
+const endPointMehm = 'http://localhost:8080/mehms/'
+const { data } = useFetch<ApiMehm>(endPointMehm + props.id, {
+  afterFetch(ctx) {
+    ctx.data.icon = toSvg(ctx.data.authorName, 40)
+    console.log(ctx.data)
+    return ctx
+  },
+  onFetchError(ctx) {
+    if (ctx.data === null) {
+      ctx.data = mehms.find(mehm => mehm.id === props.id)
+      ctx.data.icon = toSvg(ctx.data.authorName, 40)
+    }
+
+    return ctx
+  },
+}).get().json()
 
 const liked = ref(false)
-const likePost = () => liked.value = !liked.value
+const likePost = () => {
+  const { onFetchResponse } = useFetch(`${endPointMehm + props.id}/like?userId=1`).post()
+  onFetchResponse((response) => {
+    if (response.status === 200) {
+      liked.value = !liked.value
+      if (liked.value) data.value.likes++
+      else data.value.likes--
+    }
+  })
+}
 
 const shared = ref(false)
 const { share, isSupported } = useShare()
 const sharePost = () => {
   shared.value = true
   share({
-    title: mehm?.title,
-    text: mehm?.description,
+    title: data.value?.title,
+    text: data.value?.description,
     url: location.href.split('#')[0],
   })
 }
@@ -31,26 +63,26 @@ const sharePost = () => {
   <div class="flex flex-col-reverse lg:flex-row lg:items-start gap-4">
     <div class="flex flex-col flex-grow flex-shrink basis-7/12">
       <div class="flex justify-center">
-        <img :src="mehm?.src" :alt="mehm?.title" class="paper w-full max-h-3xl select-none">
+        <img :src="data?.imageSource" :alt="data?.title" class="paper w-full max-h-3xl select-none">
       </div>
     </div>
     <aside class="paper flex-shrink basis-5/12 p-4">
       <div class="flex gap-2 items-start">
-        <div class="bg-white rounded" v-html="icon" />
+        <div class="bg-white rounded" v-html="data?.icon" />
         <div class="text-sm">
-          <div><a href="" class="strong">#Programmieren</a></div>
-          <div>Gepostet von <a href="" class="strong">Kapitän zur See</a> vor 2 Tagen</div>
+          <div><a href="" class="strong">#{{ data?.genre }}</a></div>
+          <div>Gepostet von <a href="" class="strong">{{ data?.authorName }}</a> vor 2 Tagen</div>
         </div>
       </div>
-      <h1 class="text-2xl font-bold my-4 dark:text-gray-100">
-        {{ mehm?.title }}
+      <h1>
+        {{ data?.title }}
       </h1>
       <p class="my-4">
-        {{ mehm?.description }}
+        {{ data?.description }}
       </p>
       <div class="flex flex-wrap gap-x-4 -ml-2">
         <button class="icon-btn" @click="likePost()">
-          <heroicons-solid:heart v-if="liked" class="text-root-100" /><heroicons-outline:heart v-else />0 Likes
+          <heroicons-solid:heart v-if="liked" class="text-root-100" /><heroicons-outline:heart v-else />{{ data?.likes }} Likes
         </button>
         <a href="#comments" class="icon-btn"><heroicons-solid:chat-alt />0 Kommentare</a>
         <button v-if="isSupported" class="icon-btn" @click="sharePost()">

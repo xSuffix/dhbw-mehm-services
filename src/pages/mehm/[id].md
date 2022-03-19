@@ -11,8 +11,6 @@ meta:
 const props = defineProps({
   id: String
 })
-
-console.log(props)
 </script>
 
 <MehmsToolbar show-search show-category show-order />

@@ -1,33 +1,25 @@
 <template>
-  <input type="text">
-  <input type="password">
-  <input type="email">
-  <input type="number">
-  <input type="url">
-  <input type="date">
-  <input type="datetime-local">
-  <input type="month">
-  <input type="week">
-  <input type="time">
-  <input type="search">
-  <input type="tel">
-  <input type="checkbox">
-  <input type="radio">
-  <select id="" name="">
-    <option value="test">
-      test
-    </option>
-    <option value="test">
-      test2
-    </option>
-  </select>
-  <select id="" name="" multiple>
-    <option value="test">
-      test
-    </option>
-    <option value="test">
-      test2
-    </option>
-  </select>
-  <textarea id="" name="" cols="30" rows="10" />
+  <div class="paper max-w-2xl mx-auto p-8 rounded">
+    <h1 class="text-center">
+      Sign in to DHBW Mehms
+    </h1>
+    <div>
+      <div class="flex flex-col my-4">
+        <label for="login" class="font-medium py-1">Username or Email Address</label>
+        <input id="login" type="text" name="login" tabindex="1" class="box">
+      </div>
+      <div>
+        <label for="password" class="font-medium py-1">Password</label>
+        <input id="password" type="password" name="password" tabindex="1" class="box">
+      </div>
+      <button>Sign In</button>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+input {
+  @apply ;
+}
+
+</style>
