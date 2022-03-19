@@ -9,9 +9,9 @@ meta:
 
 <script setup lang="ts">
 const props = defineProps({
-  id: String
+  id: Number
 })
 </script>
 
 <MehmsToolbar show-search show-category show-order />
-<MehmPost :id="id" class="mt-4" />
+<MehmPost :id="parseInt(id)" class="mt-4" />

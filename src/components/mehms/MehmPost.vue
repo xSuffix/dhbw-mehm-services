@@ -4,7 +4,7 @@ import { useShare } from '@vueuse/core'
 import mehms from '~/data/mehms.json'
 
 const props = defineProps<{
-  id: string
+  id: number
 }>()
 
 interface ApiMehm {
@@ -22,7 +22,6 @@ const endPointMehm = 'http://localhost:8080/mehms/'
 const { data } = useFetch<ApiMehm>(endPointMehm + props.id, {
   afterFetch(ctx) {
     ctx.data.icon = toSvg(ctx.data.authorName, 40)
-    console.log(ctx.data)
     return ctx
   },
   onFetchError(ctx) {

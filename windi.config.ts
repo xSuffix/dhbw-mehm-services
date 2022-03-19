@@ -44,7 +44,7 @@ export default defineConfig({
         },
       },
       fontFamily: {
-        play: ['"Press Start 2P"', 'cursive'],
+        play: ['"Press Start 2P"'],
       },
       lineHeight: {
         logo: '1.125',
