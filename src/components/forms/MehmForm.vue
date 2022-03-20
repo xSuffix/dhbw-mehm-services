@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { createFetch } from '@vueuse/core'
 import { computed } from 'vue'
 
 const { t } = useI18n()
@@ -22,23 +23,49 @@ const setFile = () => {
 
 const endpoint = 'http://localhost:3333/mehms/add'
 const requestUrl = computed(() => {
-  return `${endpoint}?title=${title.value}&description=${description.value}&genre=${genre.value}&userId=1&image=${image.value}`
+  return `${endpoint}?title=${title.value}&description=${description.value}&genre=${genre.value}&image=${image.value}`
 })
 
-const { onFetchResponse, execute } = useFetch(requestUrl, {
-  immediate: false,
-  async beforeFetch({ cancel }) {
-    if (!title.value || !description.value || !genre.value || !image.value) {
-      console.log('CANCEL')
-      cancel()
-    }
+const args = computed(() => {
+  return `?title=${title.value}&description=${description.value}&genre=${genre.value}&image=${image.value}`
+})
+
+const useMehmFetch = createFetch({
+  baseUrl: endpoint,
+  options: {
+    immediate: false,
+    async beforeFetch({ cancel }) {
+      if (!title.value || !description.value || !genre.value || !image.value) {
+        console.log('CANCEL')
+        cancel()
+      }
+    },
+    onFetchError(ctx) {
+      console.log(ctx)
+      return ctx
+    },
   },
-  onFetchError(ctx) {
-    console.log(ctx)
-    return ctx
+  fetchOptions: {
+    mode: 'cors',
   },
-},
-).post()
+})
+
+const { onFetchResponse, execute } = useMehmFetch(args).post()
+
+// const { onFetchResponse, execute } = useFetch(requestUrl, {
+//   immediate: false,
+//   async beforeFetch({ cancel }) {
+//     if (!title.value || !description.value || !genre.value || !image.value) {
+//       console.log('CANCEL')
+//       cancel()
+//     }
+//   },
+//   onFetchError(ctx) {
+//     console.log(ctx)
+//     return ctx
+//   },
+// },
+// ).post()
 
 onFetchResponse((response) => {
   console.log('res')
@@ -88,7 +115,6 @@ const submit = () => {
           </option>
         </select>
       </div>
-      <input v-model="userId" type="text" name="userId">
       <button class="bg-void-100 text-void-900 font-bold w-full p-2 mt-4 rounded" tabindex="5" @click="submit">
         Submit
       </button>

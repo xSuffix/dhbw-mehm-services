@@ -6,23 +6,25 @@ const user = ref('')
 const password = ref('')
 
 const request = computed(() => {
-  return `${endpoint}?ìd=${user.value}&password=${password.value}`
+  return `${endpoint}?id=${user.value}&password=${password.value}`
 })
 
-const { onFetchResponse, execute } = useFetch(request, {
+const { execute } = useFetch(request, {
   immediate: false,
+  afterFetch(ctx) {
+    const c = ctx.data
+    const cookie = `${c.Name}=${c.Value}; expires=${c.Expires}; path=${c.Path}; domain=http://localhost:8080`
+    document.cookie = cookie
+    console.log(`cookie: ${cookie}`)
+    return ctx
+  },
   onFetchError(ctx) {
     console.log(ctx)
     return ctx
   },
-}).post()
-
-onFetchResponse((response) => {
-  console.log(response.status)
-})
+}).post().json()
 
 const submit = () => {
-  console.log(`args ${user.value}`)
   execute()
 }
 
