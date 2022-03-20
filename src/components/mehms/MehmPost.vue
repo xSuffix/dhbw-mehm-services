@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { toSvg } from 'jdenticon'
-import { useShare } from '@vueuse/core'
 import mehms from '~/data/mehms.json'
 
 const props = defineProps<{
@@ -16,12 +15,18 @@ interface ApiMehm {
   createdDate: Array<number>
   genre: string
   likes: number
+  liked: boolean
 }
 
+const liked = ref(false)
+const shared = ref(false)
 const endPointMehm = 'http://localhost:8080/mehms/'
+
 const { data } = useFetch<ApiMehm>(endPointMehm + props.id, {
   afterFetch(ctx) {
+    console.log(ctx.data)
     ctx.data.icon = toSvg(ctx.data.authorName, 40)
+    liked.value = ctx.data.liked
     return ctx
   },
   onFetchError(ctx) {
@@ -34,7 +39,6 @@ const { data } = useFetch<ApiMehm>(endPointMehm + props.id, {
   },
 }).get().json()
 
-const liked = ref(false)
 const likePost = () => {
   const { onFetchResponse } = useFetch(`${endPointMehm + props.id}/like?userId=1`).post()
   onFetchResponse((response) => {
@@ -46,7 +50,6 @@ const likePost = () => {
   })
 }
 
-const shared = ref(false)
 const { share, isSupported } = useShare()
 const sharePost = () => {
   shared.value = true

@@ -9,7 +9,7 @@ meta:
 
 <script setup lang="ts">
 const props = defineProps({
-  id: Number
+  id: String
 })
 </script>
 

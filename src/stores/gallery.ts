@@ -2,13 +2,8 @@ import { defineStore } from 'pinia'
 
 interface ApiMehm {
   id: number
-  authorName: string
   title: string
-  description: string
   imageSource: string
-  createdDate: Array<number>
-  genre: string
-  likes: number
 }
 
 interface LoadedMehm extends ApiMehm {

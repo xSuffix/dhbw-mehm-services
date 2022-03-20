@@ -9,13 +9,8 @@ defineProps<{
 
 interface ApiMehm {
   id: number
-  authorName: string
   title: string
-  description: string
   imageSource: string
-  createdDate: Array<number>
-  genre: string
-  likes: number
 }
 
 const store = useGalleryStore()
