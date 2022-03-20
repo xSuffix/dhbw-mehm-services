@@ -21,7 +21,7 @@
 
 <style scoped>
 .banner {
-  @apply absolute top-0 left-1/2 transform -translate-x-1/2 -z-1 w-1920px;
+  @apply absolute top-0 left-1/2 transform -translate-x-1/2 -z-1 w-1920px -top-2px;
 }
 
 .bg-gradient-1 {
