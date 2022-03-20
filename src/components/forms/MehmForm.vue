@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { createFetch } from '@vueuse/core'
 import { computed } from 'vue'
 
 const { t } = useI18n()
@@ -10,7 +9,6 @@ const categoryOptions = ref([
   { text: t('category.others'), value: 'OTHER' },
 ])
 
-const userId = ref(1)
 const title = ref('')
 const description = ref('')
 const genre = ref('')
@@ -21,51 +19,29 @@ const setFile = () => {
   image.value = fileInput.value.files[0]
 }
 
-const endpoint = 'http://localhost:3333/mehms/add'
+const endpoint = 'http://localhost:8080/mehms/add'
 const requestUrl = computed(() => {
   return `${endpoint}?title=${title.value}&description=${description.value}&genre=${genre.value}&image=${image.value}`
 })
 
-const args = computed(() => {
-  return `?title=${title.value}&description=${description.value}&genre=${genre.value}&image=${image.value}`
-})
+// const args = computed(() => {
+//   return `?title=${title.value}&description=${description.value}&genre=${genre.value}&image=${image.value}`
+// })
 
-const useMehmFetch = createFetch({
-  baseUrl: endpoint,
-  options: {
-    immediate: false,
-    async beforeFetch({ cancel }) {
-      if (!title.value || !description.value || !genre.value || !image.value) {
-        console.log('CANCEL')
-        cancel()
-      }
-    },
-    onFetchError(ctx) {
-      console.log(ctx)
-      return ctx
-    },
+const { onFetchResponse, execute } = useFetch(requestUrl, {
+  immediate: false,
+  async beforeFetch({ cancel }) {
+    if (!title.value || !description.value || !genre.value || !image.value) {
+      console.log('CANCEL')
+      cancel()
+    }
   },
-  fetchOptions: {
-    mode: 'cors',
+  onFetchError(ctx) {
+    console.log(ctx)
+    return ctx
   },
-})
-
-const { onFetchResponse, execute } = useMehmFetch(args).post()
-
-// const { onFetchResponse, execute } = useFetch(requestUrl, {
-//   immediate: false,
-//   async beforeFetch({ cancel }) {
-//     if (!title.value || !description.value || !genre.value || !image.value) {
-//       console.log('CANCEL')
-//       cancel()
-//     }
-//   },
-//   onFetchError(ctx) {
-//     console.log(ctx)
-//     return ctx
-//   },
-// },
-// ).post()
+},
+).post()
 
 onFetchResponse((response) => {
   console.log('res')

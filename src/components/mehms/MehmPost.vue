@@ -21,9 +21,10 @@ const liked = ref(false)
 const shared = ref(false)
 const endPointMehm = 'http://localhost:8080/mehms/'
 
-const { data } = useFetch<ApiMehm>(endPointMehm + props.id, {
+const { data } = useFetch<ApiMehm>(`${endPointMehm}get/${props.id}`, {
   timeout: 200,
   afterFetch(ctx) {
+    console.log(ctx.data)
     ctx.data.icon = toSvg(ctx.data.authorName, 40)
     liked.value = ctx.data.liked
     return ctx
