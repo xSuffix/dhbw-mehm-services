@@ -64,7 +64,7 @@ const sharePost = () => {
   <div class="flex flex-col-reverse lg:flex-row lg:items-start gap-4">
     <div v-cloak class="flex flex-col flex-grow flex-shrink basis-7/12">
       <div class="flex justify-center">
-        <img :src="data?.imageSource" :alt="data?.title" class="paper w-full max-h-3xl select-none">
+        <img :src="data?.imageSource" :alt="data?.title" class="paper w-full max-h-3xl select-none object-contain">
       </div>
     </div>
     <aside v-cloak class="paper flex-shrink basis-5/12 p-4">
