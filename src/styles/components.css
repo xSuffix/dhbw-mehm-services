@@ -17,3 +17,8 @@
 .box:focus-within label {
   @apply text-void-100;
 }
+
+.required::after {
+  content: ' *';
+  @apply text-void-100;
+}

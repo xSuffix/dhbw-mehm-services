@@ -7,7 +7,6 @@ const props = defineProps<{
 }>()
 
 interface ApiMehm {
-  id: number
   authorName: string
   title: string
   description: string
@@ -24,7 +23,6 @@ const endPointMehm = 'http://localhost:8080/mehms/'
 
 const { data } = useFetch<ApiMehm>(endPointMehm + props.id, {
   afterFetch(ctx) {
-    console.log(ctx.data)
     ctx.data.icon = toSvg(ctx.data.authorName, 40)
     liked.value = ctx.data.liked
     return ctx
@@ -63,12 +61,12 @@ const sharePost = () => {
 
 <template>
   <div class="flex flex-col-reverse lg:flex-row lg:items-start gap-4">
-    <div class="flex flex-col flex-grow flex-shrink basis-7/12">
+    <div v-cloak class="flex flex-col flex-grow flex-shrink basis-7/12">
       <div class="flex justify-center">
         <img :src="data?.imageSource" :alt="data?.title" class="paper w-full max-h-3xl select-none">
       </div>
     </div>
-    <aside class="paper flex-shrink basis-5/12 p-4">
+    <aside v-cloak class="paper flex-shrink basis-5/12 p-4">
       <div class="flex gap-2 items-start">
         <div class="bg-white rounded" v-html="data?.icon" />
         <div class="text-sm">
