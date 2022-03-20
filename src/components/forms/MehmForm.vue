@@ -32,21 +32,21 @@ const { onFetchResponse, execute } = useFetch(requestUrl, {
   immediate: false,
   async beforeFetch({ cancel }) {
     if (!title.value || !description.value || !genre.value || !image.value) {
-      console.log('CANCEL')
+      // console.log('CANCEL')
       cancel()
     }
   },
   onFetchError(ctx) {
-    console.log(ctx)
+    // console.log(ctx)
     return ctx
   },
 },
 ).post()
 
 onFetchResponse((response) => {
-  console.log('res')
-  if (response.status === 200)
-    console.log('yay')
+  // console.log('res')
+  // if (response.status === 200)
+  // console.log('yay')
 })
 
 const formSubmit = (e: Event) => {
@@ -54,7 +54,7 @@ const formSubmit = (e: Event) => {
 }
 
 const submit = () => {
-  console.log(requestUrl.value)
+  // console.log(requestUrl.value)
   execute()
 }
 </script>

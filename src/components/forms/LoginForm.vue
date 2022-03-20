@@ -15,11 +15,11 @@ const { execute } = useFetch(request, {
     const c = ctx.data
     const cookie = `${c.Name}=${c.Value}; expires=${c.Expires}; path=${c.Path}; domain=http://84.163.89.2:8080`
     document.cookie = cookie
-    console.log(`cookie: ${cookie}`)
+    // console.log(`cookie: ${cookie}`)
     return ctx
   },
   onFetchError(ctx) {
-    console.log(ctx)
+    // console.log(ctx)
     return ctx
   },
 }).post().json()
