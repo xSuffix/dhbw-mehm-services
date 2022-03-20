@@ -7,30 +7,60 @@ defineProps<{
   showFooter?: boolean
 }>()
 
-const endPointMehms = 'http://localhost:8080/mehms/'
-const mehmsPerRequest = 12
-const amountLoaded = ref(0)
+interface ApiMehm {
+  id: number
+  authorName: string
+  title: string
+  description: string
+  imageSource: string
+  createdDate: Array<number>
+  genre: string
+  likes: number
+}
 
 const store = useGalleryStore()
 const { y } = useWindowScroll()
 
 const gallery = ref<HTMLDivElement>()
-const loadMehms = ref(true)
+const refetch = ref(true)
 
-const getMehms = () => {
-  const mehmsToLoad = mehms.slice(amountLoaded.value, amountLoaded.value + mehmsPerRequest)
-  store.loadMehms(mehmsToLoad, 304)
+const endPointMehms = 'http://localhost:8080/mehms'
+const mehmsPerRequest = 30
+const requestUrl = ref(`${endPointMehms}?skip=${store.loadedMehms.length}&take=${mehmsPerRequest}`)
 
-  amountLoaded.value += mehmsPerRequest
-  loadMehms.value = mehmsToLoad.length !== 0
+const loadMehms = (mehms: ApiMehm[]) => {
+  if (mehms)
+    store.loadMehms(mehms, 304)
+
+  refetch.value = mehmsPerRequest <= mehms.length
 }
 
-onMounted(() => {
-  getMehms()
-})
+useFetch(requestUrl, {
+  refetch: refetch.value,
+  beforeFetch({ cancel }) {
+    if (store.loadedMehms.length % mehmsPerRequest !== 0) {
+      refetch.value = false
+      cancel()
+    }
+  },
+  afterFetch(ctx) {
+    loadMehms(ctx.data.mehms)
+    return ctx
+  },
+  onFetchError(ctx) {
+    if (ctx.data === null)
+      ctx.data = { mehms: mehms.slice(store.loadedMehms.length, store.loadedMehms.length + mehmsPerRequest) }
+
+    loadMehms(ctx.data.mehms)
+    return ctx
+  },
+
+}).get().json()
 
 watch(y, () => {
-  if (gallery.value && gallery.value.getBoundingClientRect().bottom - 128 < window.innerHeight) getMehms()
+  // Fetch on scroll to bottom
+  if (refetch.value && gallery.value && gallery.value.getBoundingClientRect().bottom - 128 < window.innerHeight)
+    requestUrl.value = `${endPointMehms}?skip=${store.loadedMehms.length}&take=${mehmsPerRequest}`
 })
 </script>
 
@@ -41,5 +71,5 @@ watch(y, () => {
     </router-link>
     <div class="flex-grow-[99999] min-w-64" />
   </div>
-  <Footer v-if="showFooter && !loadMehms" class="container mx-auto" />
+  <Footer v-if="showFooter && !refetch" class="container mx-auto" />
 </template>
