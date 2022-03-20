@@ -32,6 +32,7 @@ const loadMehms = (mehms: ApiMehm[]) => {
 
 useFetch(requestUrl, {
   refetch: refetch.value,
+  timeout: 200,
   beforeFetch({ cancel }) {
     if (store.loadedMehms.length % mehmsPerRequest !== 0) {
       refetch.value = false

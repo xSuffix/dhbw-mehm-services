@@ -27,7 +27,6 @@ const { execute } = useFetch(request, {
 const submit = () => {
   execute()
 }
-
 </script>
 
 <template>
