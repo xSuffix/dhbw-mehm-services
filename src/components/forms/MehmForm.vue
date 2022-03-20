@@ -19,7 +19,7 @@ const setFile = () => {
   image.value = fileInput.value.files[0]
 }
 
-const endpoint = 'http://localhost:8080/mehms/add'
+const endpoint = 'http://84.163.89.2:8080/mehms/add'
 const requestUrl = computed(() => {
   return `${endpoint}?title=${title.value}&description=${description.value}&genre=${genre.value}&image=${image.value}`
 })

@@ -19,7 +19,7 @@ interface ApiMehm {
 
 const liked = ref(false)
 const shared = ref(false)
-const endPointMehm = 'http://localhost:8080/mehms/'
+const endPointMehm = 'http://84.163.89.2:8080/mehms/'
 
 const { data } = useFetch<ApiMehm>(`${endPointMehm}get/${props.id}`, {
   timeout: 200,

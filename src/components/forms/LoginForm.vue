@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-const endpoint = 'http://localhost:8080/user/login'
+const endpoint = 'http://84.163.89.2:8080/user/login'
 
 const user = ref('')
 const password = ref('')
@@ -13,7 +13,7 @@ const { execute } = useFetch(request, {
   immediate: false,
   afterFetch(ctx) {
     const c = ctx.data
-    const cookie = `${c.Name}=${c.Value}; expires=${c.Expires}; path=${c.Path}; domain=http://localhost:8080`
+    const cookie = `${c.Name}=${c.Value}; expires=${c.Expires}; path=${c.Path}; domain=http://84.163.89.2:8080`
     document.cookie = cookie
     console.log(`cookie: ${cookie}`)
     return ctx
