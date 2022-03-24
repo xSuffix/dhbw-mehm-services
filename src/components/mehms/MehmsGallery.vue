@@ -19,7 +19,7 @@ const { y } = useWindowScroll()
 const gallery = ref<HTMLDivElement>()
 const refetch = ref(true)
 
-const endPointMehms = 'http://84.163.89.2:8080/mehms'
+const endPointMehms = 'http://localhost:8080/mehms'
 const mehmsPerRequest = 30
 const requestUrl = ref(`${endPointMehms}?skip=${store.loadedMehms.length}&take=${mehmsPerRequest}`)
 

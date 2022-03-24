@@ -9,6 +9,7 @@ specifiers:
   '@iconify/json': ^2.1.16
   '@intlify/vite-plugin-vue-i18n': ^3.3.1
   '@types/markdown-it-link-attributes': ^3.0.1
+  '@types/node': ^17.0.22
   '@types/nprogress': ^0.2.0
   '@vitejs/plugin-vue': ^2.2.4
   '@vue/test-utils': ^2.0.0-rc.17
@@ -65,6 +66,7 @@ devDependencies:
   '@iconify/json': 2.1.16
   '@intlify/vite-plugin-vue-i18n': 3.3.1_vite@2.8.6+vue-i18n@9.1.9
   '@types/markdown-it-link-attributes': 3.0.1
+  '@types/node': 17.0.22
   '@types/nprogress': 0.2.0
   '@vitejs/plugin-vue': 2.2.4_vite@2.8.6+vue@3.2.31
   '@vue/test-utils': 2.0.0-rc.17_vue@3.2.31
@@ -1426,8 +1428,8 @@ packages:
       - supports-color
     dev: true
 
-  /@intlify/bundle-utils/2.2.0_vue-i18n@9.1.9:
-    resolution: {integrity: sha512-qVuN7+c84UB6rlLHSued2J9R86LG1rHg6ZibCghGMyPXnW0nOuIfkUFf1F7tXIqfMXjIPeJzlbpmzjWTI2z9Kw==}
+  /@intlify/bundle-utils/2.2.1_vue-i18n@9.1.9:
+    resolution: {integrity: sha512-8n8zhYEKypS+KP22KUAC6BnQifJDDWUGcn3OVPqsThqMMucU22MShGvOuiKqQ4AeT7XQ5O4pudlJmxv3L91JrQ==}
     engines: {node: '>= 12'}
     peerDependencies:
       petite-vue-i18n: '*'
@@ -1519,7 +1521,7 @@ packages:
       vue-i18n:
         optional: true
     dependencies:
-      '@intlify/bundle-utils': 2.2.0_vue-i18n@9.1.9
+      '@intlify/bundle-utils': 2.2.1_vue-i18n@9.1.9
       '@intlify/shared': 9.2.0-beta.32
       '@rollup/pluginutils': 4.2.0
       debug: 4.3.4
@@ -1717,8 +1719,8 @@ packages:
     resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
     dev: true
 
-  /@types/node/17.0.21:
-    resolution: {integrity: sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==}
+  /@types/node/17.0.22:
+    resolution: {integrity: sha512-8FwbVoG4fy+ykY86XCAclKZDORttqE5/s7dyWZKLXTdv3vRy5HozBEinG5IqhvPXXzIZEcTVbuHlQEI6iuwcmw==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -1731,7 +1733,7 @@ packages:
   /@types/resolve/1.17.1:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
-      '@types/node': 17.0.21
+      '@types/node': 17.0.22
     dev: true
 
   /@types/throttle-debounce/2.1.0:
@@ -2465,7 +2467,7 @@ packages:
   /canvas-renderer/2.2.0:
     resolution: {integrity: sha512-Itdq9pwXcs4IbbkRCXc7reeGBk6i6tlDtZTjE1yc+KvYkx1Mt3WLf6tidZ/Ixbm7Vmi+jpWKG0dRBor67x9yGw==}
     dependencies:
-      '@types/node': 17.0.21
+      '@types/node': 17.0.22
     dev: false
 
   /chalk/2.4.2:
@@ -4346,7 +4348,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 17.0.21
+      '@types/node': 17.0.22
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true

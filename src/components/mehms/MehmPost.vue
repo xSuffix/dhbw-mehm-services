@@ -19,9 +19,30 @@ interface ApiMehm {
 
 const liked = ref(false)
 const shared = ref(false)
-const endPointMehm = 'http://84.163.89.2:8080/mehms/'
+const endPointMehm = 'http://localhost:8080/mehms/'
 
-const { data } = useFetch<ApiMehm>(`${endPointMehm}get/${props.id}`, {
+function getCookieByName(name: string) {
+  name += '='
+  let ret = ''
+  const cookiesArray = document.cookie.split('; ')
+  cookiesArray.forEach((val) => {
+    if (val.indexOf(name) === 0) ret = val.substring(name.length)
+  })
+  return ret
+}
+
+const { data } = useFetch<ApiMehm>(`${endPointMehm}${props.id}`, {
+  async beforeFetch({ url, options, cancel }) {
+    options.headers = {
+      ...options.headers,
+      Credentials: 'include',
+      Authorization: `Bearer ${getCookieByName('jwt')}`,
+    }
+
+    return {
+      options,
+    }
+  },
   timeout: 200,
   afterFetch(ctx) {
     ctx.data.icon = toSvg(ctx.data.authorName, 40)
@@ -41,7 +62,19 @@ const { data } = useFetch<ApiMehm>(`${endPointMehm}get/${props.id}`, {
 // ...
 
 const likePost = () => {
-  const { onFetchResponse } = useFetch(`${endPointMehm + props.id}/like?userId=1`).post()
+  const { onFetchResponse } = useFetch(`${endPointMehm + props.id}/like`, {
+    async beforeFetch({ url, options, cancel }) {
+      options.headers = {
+        ...options.headers,
+        Credentials: 'include',
+        Authorization: `Bearer ${getCookieByName('jwt')}`,
+      }
+
+      return {
+        options,
+      }
+    },
+  }).post()
   onFetchResponse((response) => {
     if (response.status === 200) {
       liked.value = !liked.value

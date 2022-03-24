@@ -1,28 +1,41 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-const endpoint = 'http://84.163.89.2:8080/user/login'
+const endpoint = 'http://localhost:8080/user/login'
 
 const user = ref('')
 const password = ref('')
 
 const request = computed(() => {
-  return `${endpoint}?id=${user.value}&password=${password.value}`
+  return `${endpoint}`
 })
 
 const { execute } = useFetch(request, {
-  immediate: false,
+  async beforeFetch({ url, options, cancel }) {
+    options.headers = {
+      ...options.headers,
+      Credentials: 'include',
+    }
+
+    options.body = JSON.stringify({
+      id: user.value,
+      password: password.value,
+    })
+
+    return {
+      options,
+    }
+  },
   afterFetch(ctx) {
-    const c = ctx.data
-    const cookie = `${c.Name}=${c.Value}; expires=${c.Expires}; path=${c.Path}; domain=http://84.163.89.2:8080`
-    document.cookie = cookie
-    // console.log(`cookie: ${cookie}`)
+    const cookieData = JSON.parse(ctx.data)
+    document.cookie = `${cookieData.Name}=${cookieData.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000)}; path=/`
     return ctx
   },
+  immediate: false,
   onFetchError(ctx) {
     // console.log(ctx)
     return ctx
   },
-}).post().json()
+}).post()
 
 const submit = () => {
   execute()
