@@ -19,7 +19,7 @@ interface ApiMehm {
 
 const liked = ref(false)
 const shared = ref(false)
-const endPointMehm = 'http://localhost:8080/mehms/'
+const endPointMehm = 'http://localhost:420/mehms/'
 
 function getCookieByName(name: string) {
   name += '='

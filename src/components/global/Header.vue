@@ -8,6 +8,24 @@ watch(y, async(newY, oldY) => {
   if (newY < oldY && newY > 24) document.body.classList.add('scrolling-up')
   else document.body.classList.remove('scrolling-up')
 })
+
+function getCookieByName(name: string) {
+  name += '='
+  let ret = ''
+  const cookiesArray = document.cookie.split('; ')
+  cookiesArray.forEach((val) => {
+    if (val.indexOf(name) === 0) ret = val.substring(name.length)
+  })
+  return ret
+}
+
+function loginDisplayed() {
+  if (getCookieByName('jwt') !== '')
+    return 'myUser'
+
+  return 'Login'
+}
+
 </script>
 
 <template>
@@ -22,7 +40,7 @@ watch(y, async(newY, oldY) => {
           Kontakt
         </router-link>
         <router-link to="/login">
-          Login
+          {{ loginDisplayed() }}
         </router-link>
       </nav>
     </div>

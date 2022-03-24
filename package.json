@@ -13,6 +13,7 @@
     "@iconify/iconify": "^2.1.2",
     "@vueuse/core": "^8.1.1",
     "@vueuse/head": "^0.7.5",
+    "bcrypt": "^5.0.1",
     "jdenticon": "^3.1.1",
     "node": "^17.7.1",
     "nprogress": "^0.2.0",

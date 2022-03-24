@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const endpoint = 'http://localhost:8080/user/signup'
+
+const endpoint = 'http://localhost:420/user/signup'
 const user = ref('')
 const email = ref('')
 const password = ref('')
@@ -16,21 +17,21 @@ const { execute } = useFetch(request, {
       Credentials: 'include',
     }
 
-    const input = {
+    if (password.value === '' || password.value !== passwordRepeat.value)
+      cancel()
+
+    options.body = JSON.stringify({
       username: user.value,
       mail: email.value,
       password: password.value,
       repeated: passwordRepeat.value,
-    }
-
-    options.body = JSON.stringify(input)
+    })
 
     return {
       options,
     }
   },
   afterFetch(ctx) {
-    console.log(ctx)
     return ctx
   },
   immediate: false,

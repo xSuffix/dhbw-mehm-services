@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-const endpoint = 'http://localhost:8080/user/login'
+import { useUserStore } from '~/stores/user'
+const endpoint = 'http://localhost:420/user/login'
 
 const user = ref('')
 const password = ref('')
@@ -28,6 +29,7 @@ const { execute } = useFetch(request, {
   afterFetch(ctx) {
     const cookieData = JSON.parse(ctx.data)
     document.cookie = `${cookieData.Name}=${cookieData.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000)}; path=/`
+    useUserStore().login({ id: 1, name: 'test', admin: false })
     return ctx
   },
   immediate: false,
