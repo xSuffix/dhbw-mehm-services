@@ -1,9 +1,22 @@
 <script setup lang="ts">
+function getCookieByName(name: string) {
+  name += '='
+  let ret = ''
+  const cookiesArray = document.cookie.split('; ')
+  cookiesArray.forEach((val) => {
+    if (val.indexOf(name) === 0) ret = val.substring(name.length)
+  })
+  return ret
+}
+function loggedIn() {
+  return getCookieByName('jwt') !== ''
+}
+
 const items = [
   { url: '/', label: 'Mehms', icon: 'heroicons-solid:home' },
   { url: '/submit', label: 'Einsenden', icon: 'heroicons-solid:plus-circle' },
   { url: '/contact', label: 'Kontakt', icon: 'heroicons-solid:mail' },
-  { url: '/login', label: 'Login', icon: 'heroicons-solid:login' },
+  loggedIn() ? { url: '/user', label: 'Profile', icon: 'heroicons-solid:user' } : { url: '/login', label: 'Login', icon: 'heroicons-solid:login' },
 ]
 </script>
 

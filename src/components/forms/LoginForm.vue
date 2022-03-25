@@ -6,6 +6,8 @@ const endpoint = 'http://localhost:420/user/login'
 const user = ref('')
 const password = ref('')
 
+const router = useRouter()
+
 const request = computed(() => {
   return `${endpoint}`
 })
@@ -30,6 +32,8 @@ const { execute } = useFetch(request, {
     const cookieData = JSON.parse(ctx.data)
     document.cookie = `${cookieData.Name}=${cookieData.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000)}; path=/`
     useUserStore().login({ id: 1, name: 'test', admin: false })
+    router.push('/')
+    router.forward()
     return ctx
   },
   immediate: false,

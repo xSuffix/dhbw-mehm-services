@@ -18,12 +18,8 @@ function getCookieByName(name: string) {
   })
   return ret
 }
-
-function loginDisplayed() {
-  if (getCookieByName('jwt') !== '')
-    return 'myUser'
-
-  return 'Login'
+function loggedIn() {
+  return getCookieByName('jwt') !== ''
 }
 
 </script>
@@ -39,8 +35,11 @@ function loginDisplayed() {
         <router-link to="/contact">
           Kontakt
         </router-link>
-        <router-link to="/login">
-          {{ loginDisplayed() }}
+        <router-link v-if="loggedIn()" to="/user">
+          Profile
+        </router-link>
+        <router-link v-else to="/login">
+          Login
         </router-link>
       </nav>
     </div>

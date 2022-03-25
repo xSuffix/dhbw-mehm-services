@@ -9,18 +9,18 @@ interface User {
 export const useUserStore = defineStore('user', {
   state: () => {
     return {
-      user: ref<Array<User>>([]),
+      user: ref<User>({ id: 0, name: '', admin: false }),
     }
   },
   actions: {
     login(user: User) {
-      this.user[0] = user
+      this.user = user
     },
     logout() {
-      this.user = []
+      this.user = { id: 0, name: '', admin: false }
     },
     loggedIn() {
-      return this.user.length === 1
+      return this.user.id > 0
     },
   },
   /**
