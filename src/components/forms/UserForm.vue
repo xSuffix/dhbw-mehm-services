@@ -9,10 +9,12 @@ const router = useRouter()
 function getCookieByName(name: string) {
   name += '='
   let ret = ''
-  const cookiesArray = document.cookie.split('; ')
-  cookiesArray.forEach((val) => {
-    if (val.indexOf(name) === 0) ret = val.substring(name.length)
-  })
+  if (typeof document !== 'undefined') {
+    const cookiesArray = document.cookie.split('; ')
+    cookiesArray.forEach((val) => {
+      if (val.indexOf(name) === 0) ret = val.substring(name.length)
+    })
+  }
   return ret
 }
 
@@ -30,7 +32,9 @@ const { execute } = useFetch(`${endpoint}/logout`, {
   },
   afterFetch(ctx) {
     const cookie = JSON.parse(ctx.data)
-    document.cookie = `${cookie.Name}=${cookie.Value}; expires=${new Date(Date.now() - 60 * 60 * 1000)}; path=/`
+    if (typeof document !== 'undefined')
+      document.cookie = `${cookie.Name}=${cookie.Value}; expires=${new Date(Date.now() - 60 * 60 * 1000)}; path=/`
+
     router.push('/login')
     router.forward()
     return ctx
@@ -60,7 +64,8 @@ const remove = () => {
       return { options }
     },
     afterFetch(ctx) {
-      document.cookie = `${ctx.data.Name}=${ctx.data.Value}; expires=${new Date(Date.now() - 60 * 60 * 1000)}; path=/`
+      if (typeof document !== 'undefined')
+        document.cookie = `${ctx.data.Name}=${ctx.data.Value}; expires=${new Date(Date.now() - 60 * 60 * 1000)}; path=/`
       router.push('/')
       router.forward()
       return ctx

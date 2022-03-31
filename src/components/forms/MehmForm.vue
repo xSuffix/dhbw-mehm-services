@@ -31,10 +31,12 @@ const requestUrl = computed(() => {
 function getCookieByName(name: string) {
   name += '='
   let ret = ''
-  const cookiesArray = document.cookie.split('; ')
-  cookiesArray.forEach((val) => {
-    if (val.indexOf(name) === 0) ret = val.substring(name.length)
-  })
+  if (typeof document !== 'undefined') {
+    const cookiesArray = document.cookie.split('; ')
+    cookiesArray.forEach((val) => {
+      if (val.indexOf(name) === 0) ret = val.substring(name.length)
+    })
+  }
   return ret
 }
 

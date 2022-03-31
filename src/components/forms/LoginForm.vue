@@ -30,7 +30,8 @@ const { execute } = useFetch(request, {
   },
   afterFetch(ctx) {
     const cookieData = JSON.parse(ctx.data)
-    document.cookie = `${cookieData.Name}=${cookieData.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000)}; path=/`
+    if (typeof document !== 'undefined')
+      document.cookie = `${cookieData.Name}=${cookieData.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000)}; path=/`
     useUserStore().login({ id: 1, name: 'test', admin: false })
     router.push('/')
     router.forward()
