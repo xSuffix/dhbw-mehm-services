@@ -12,13 +12,17 @@ const user = useUserStore().user
 const userIcon = toSvg(user.name, 48)
 const userRole = computed(() => user.admin ? 'Admin' : 'User')
 
+const jwt = getCookieByName('jwt')
+const source = ref(jwt)
+const { copy, isSupported } = useClipboard({ source })
+
 const { execute } = useFetch(`${endpoint}/logout`, {
   immediate: false,
   async beforeFetch({ options }) {
     options.headers = {
       ...options.headers,
       Credentials: 'include',
-      Authorization: `Bearer ${getCookieByName('jwt')}`,
+      Authorization: `Bearer ${jwt}`,
     }
     return {
       options,
@@ -93,9 +97,12 @@ const remove = () => {
         </div>
       </div>
     </div>
-    <div>
+    <div class="flex gap-4 mt-2">
       <button class="bg-void-100 text-void-900 font-bold w-full p-2 mt-4 rounded" @click="logout">
         Logout
+      </button>
+      <button v-if="isSupported" class="bg-void-700 text-gray-200 font-bold w-full p-2 mt-4 rounded" @click="copy()">
+        Copy API Key
       </button>
     </div>
     <details class="mt-8">
