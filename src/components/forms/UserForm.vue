@@ -3,8 +3,9 @@ import { useRouter } from 'vue-router'
 import { toSvg } from 'jdenticon'
 import { useUserStore } from '~/stores/user'
 import { getCookieByName } from '~/composables/auth'
+import { GATEWAY } from '~/composables/config'
 
-const endpoint = 'http://localhost:420/user'
+const endpoint = `${GATEWAY}/user`
 const router = useRouter()
 
 const user = useUserStore().user

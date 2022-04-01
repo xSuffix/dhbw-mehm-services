@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { GATEWAY } from '~/composables/config'
 
-const endpoint = 'http://localhost:420/user/signup'
+const endpoint = `${GATEWAY}/user/signup`
 const user = ref('')
 const email = ref('')
 const password = ref('')

@@ -2,6 +2,7 @@
 import { watch } from 'vue'
 import { useGalleryStore } from '~/stores/gallery'
 import mehms from '~/data/mehms.json'
+import { GATEWAY } from '~/composables/config'
 
 defineProps<{
   showFooter?: boolean
@@ -19,9 +20,9 @@ const { y } = useWindowScroll()
 const gallery = ref<HTMLDivElement>()
 const refetch = ref(true)
 
-const endPointMehms = 'http://localhost:420/mehms'
+const endpoint = `${GATEWAY}/mehms`
 const mehmsPerRequest = 30
-const requestUrl = ref(`${endPointMehms}?skip=${store.loadedMehms.length}&take=${mehmsPerRequest}`)
+const requestUrl = ref(`${endpoint}?skip=${store.loadedMehms.length}&take=${mehmsPerRequest}`)
 
 const loadMehms = (mehms: ApiMehm[]) => {
   if (mehms)
@@ -55,7 +56,7 @@ useFetch(requestUrl, {
 watch(y, () => {
   // Fetch on scroll to bottom
   if (refetch.value && gallery.value && gallery.value.getBoundingClientRect().bottom - 128 < window.innerHeight)
-    requestUrl.value = `${endPointMehms}?skip=${store.loadedMehms.length}&take=${mehmsPerRequest}`
+    requestUrl.value = `${endpoint}?skip=${store.loadedMehms.length}&take=${mehmsPerRequest}`
 })
 </script>
 

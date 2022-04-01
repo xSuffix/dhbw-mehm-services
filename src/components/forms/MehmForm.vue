@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { getCookieByName } from '~/composables/auth'
+import { GATEWAY } from '~/composables/config'
 
 const { t } = useI18n()
 
@@ -20,7 +21,7 @@ const setFile = () => {
   image.value = fileInput.value.files[0]
 }
 
-const endpoint = 'http://localhost:420/mehms/add'
+const endpoint = `${GATEWAY}/mehms/add`
 const requestUrl = computed(() => {
   return `${endpoint}`
 })

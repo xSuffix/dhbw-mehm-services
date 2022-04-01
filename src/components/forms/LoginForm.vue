@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { GATEWAY } from '~/composables/config'
 import { useUserStore } from '~/stores/user'
-const endpoint = 'http://localhost:420/user/login'
+
+const endpoint = `${GATEWAY}/user/login`
 
 const username = ref('')
 const password = ref('')

@@ -2,6 +2,7 @@
 import { toSvg } from 'jdenticon'
 import mehms from '~/data/mehms.json'
 import { getCookieByName } from '~/composables/auth'
+import { GATEWAY } from '~/composables/config'
 
 const props = defineProps<{
   id: number
@@ -20,9 +21,9 @@ interface ApiMehm {
 
 const liked = ref(false)
 const shared = ref(false)
-const endPointMehm = 'http://localhost:420/mehms/'
+const endpoint = `${GATEWAY}/mehms/`
 
-const { data } = useFetch<ApiMehm>(`${endPointMehm}${props.id}`, {
+const { data } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
   async beforeFetch({ options }) {
     options.headers = {
       ...options.headers,
@@ -51,7 +52,7 @@ const { data } = useFetch<ApiMehm>(`${endPointMehm}${props.id}`, {
 }).get().json()
 
 const likePost = () => {
-  const { onFetchResponse } = useFetch(`${endPointMehm + props.id}/like`, {
+  const { onFetchResponse } = useFetch(`${endpoint + props.id}/like`, {
     async beforeFetch({ url, options, cancel }) {
       options.headers = {
         ...options.headers,
