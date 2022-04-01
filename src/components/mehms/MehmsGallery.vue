@@ -50,7 +50,6 @@ useFetch(requestUrl, {
     loadMehms(ctx.data.mehms)
     return ctx
   },
-
 }).get().json()
 
 watch(y, () => {

@@ -5,14 +5,9 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Background: typeof import('./components/global/Background.vue')['default']
-    CarbonWarning: typeof import('~icons/carbon/warning')['default']
     Footer: typeof import('./components/global/Footer.vue')['default']
     Header: typeof import('./components/global/Header.vue')['default']
-    'HeroiconsOutline:heart': typeof import('~icons/heroicons-outline/heart')['default']
-    'HeroiconsSolid:chatAlt': typeof import('~icons/heroicons-solid/chat-alt')['default']
-    'HeroiconsSolid:heart': typeof import('~icons/heroicons-solid/heart')['default']
     'HeroiconsSolid:search': typeof import('~icons/heroicons-solid/search')['default']
-    'HeroiconsSolid:share': typeof import('~icons/heroicons-solid/share')['default']
     'HeroiconsSolid:sortAscending': typeof import('~icons/heroicons-solid/sort-ascending')['default']
     'HeroiconsSolid:sortDescending': typeof import('~icons/heroicons-solid/sort-descending')['default']
     IconBadge: typeof import('./components/global/IconBadge.vue')['default']

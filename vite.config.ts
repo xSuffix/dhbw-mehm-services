@@ -63,7 +63,6 @@ export default defineConfig({
         // https://github.com/antfu/unplugin-icons
         IconsResolver({
           prefix: false,
-          // enabledCollections: ['carbon']
         }),
       ],
 
