@@ -1,11 +1,48 @@
 <script setup lang="ts">
+
+const endpoint = 'http://localhost:420/user/signup'
 const user = ref('')
 const email = ref('')
 const password = ref('')
 const passwordRepeat = ref('')
 
-const submit = () => {
+const request = computed(() => {
+  return `${endpoint}`
+})
 
+const { execute } = useFetch(request, {
+  async beforeFetch({ url, options, cancel }) {
+    options.headers = {
+      ...options.headers,
+      Credentials: 'include',
+    }
+
+    if (password.value === '' || password.value !== passwordRepeat.value)
+      cancel()
+
+    options.body = JSON.stringify({
+      username: user.value,
+      mail: email.value,
+      password: password.value,
+      repeated: passwordRepeat.value,
+    })
+
+    return {
+      options,
+    }
+  },
+  afterFetch(ctx) {
+    return ctx
+  },
+  immediate: false,
+  onFetchError(ctx) {
+    // console.log(ctx)
+    return ctx
+  },
+}).post().json()
+
+const submit = () => {
+  execute()
 }
 </script>
 

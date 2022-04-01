@@ -19,22 +19,45 @@ const setFile = () => {
   image.value = fileInput.value.files[0]
 }
 
-const endpoint = 'http://84.163.89.2:8080/mehms/add'
+const endpoint = 'http://localhost:420/mehms/add'
 const requestUrl = computed(() => {
-  return `${endpoint}?title=${title.value}&description=${description.value}&genre=${genre.value}&image=${image.value}`
+  return `${endpoint}`
 })
 
 // const args = computed(() => {
 //   return `?title=${title.value}&description=${description.value}&genre=${genre.value}&image=${image.value}`
 // })
 
+function getCookieByName(name: string) {
+  name += '='
+  let ret = ''
+  if (typeof document !== 'undefined') {
+    const cookiesArray = document.cookie.split('; ')
+    cookiesArray.forEach((val) => {
+      if (val.indexOf(name) === 0) ret = val.substring(name.length)
+    })
+  }
+  return ret
+}
+
 const { onFetchResponse, execute } = useFetch(requestUrl, {
   immediate: false,
-  async beforeFetch({ cancel }) {
+  async beforeFetch({ options, cancel }) {
     if (!title.value || !description.value || !genre.value || !image.value) {
       // console.log('CANCEL')
       cancel()
     }
+    const formData = new FormData()
+    formData.append('title', title.value)
+    formData.append('description', description.value)
+    formData.append('image', image.value)
+    formData.append('genre', genre.value)
+
+    options.headers = {
+      ...options.headers,
+      Authorization: `Bearer ${getCookieByName('jwt')}`,
+    }
+    options.body = formData
   },
   onFetchError(ctx) {
     // console.log(ctx)

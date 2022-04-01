@@ -1,9 +1,30 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 
-export const useUserStore = defineStore('user', () => {
+interface User {
+  id: number
+  name: string
+  admin: boolean
+}
+
+export const useUserStore = defineStore('user', {
+  state: () => {
+    return {
+      user: ref<User>({ id: 0, name: '', admin: false }),
+    }
+  },
+  actions: {
+    login(user: User) {
+      this.user = user
+    },
+    logout() {
+      this.user = { id: 0, name: '', admin: false }
+    },
+    loggedIn() {
+      return this.user.id > 0
+    },
+  },
   /**
    * Current name of the user.
-   */
   const savedName = ref('')
   const previousNames = ref(new Set<string>())
 
@@ -15,7 +36,6 @@ export const useUserStore = defineStore('user', () => {
    * before.
    *
    * @param name - new name to set
-   */
   function setNewName(name: string) {
     if (savedName.value)
       previousNames.value.add(savedName.value)
@@ -28,6 +48,7 @@ export const useUserStore = defineStore('user', () => {
     otherNames,
     savedName,
   }
+  */
 })
 
 if (import.meta.hot)
