@@ -1,30 +1,15 @@
 <script setup lang="ts">
 import { watch } from 'vue'
 import { useWindowScroll } from '@vueuse/core'
+import { loggedIn } from '~/composables/auth'
 
 const { y } = useWindowScroll()
 
+// TODO outsource (optional)
 watch(y, async(newY, oldY) => {
   if (newY < oldY && newY > 24) document.body.classList.add('scrolling-up')
   else document.body.classList.remove('scrolling-up')
 })
-
-function getCookieByName(name: string) {
-  name += '='
-  let ret = ''
-  if (typeof document !== 'undefined') {
-    const cookiesArray = document.cookie.split('; ')
-    cookiesArray.forEach((val) => {
-      if (val.indexOf(name) === 0) ret = val.substring(name.length)
-    })
-  }
-  return ret
-}
-
-function loggedIn() {
-  return getCookieByName('jwt') !== ''
-}
-
 </script>
 
 <template>

@@ -1,18 +1,5 @@
 <script setup lang="ts">
-function getCookieByName(name: string) {
-  name += '='
-  let ret = ''
-  if (typeof document !== 'undefined') {
-    const cookiesArray = document.cookie.split('; ')
-    cookiesArray.forEach((val) => {
-      if (val.indexOf(name) === 0) ret = val.substring(name.length)
-    })
-  }
-  return ret
-}
-function loggedIn() {
-  return getCookieByName('jwt') !== ''
-}
+import { loggedIn } from '~/composables/auth'
 
 const items = [
   { url: '/', label: 'Mehms', icon: 'heroicons-solid:home' },

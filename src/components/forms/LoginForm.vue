@@ -2,7 +2,7 @@
 import { useUserStore } from '~/stores/user'
 const endpoint = 'http://localhost:420/user/login'
 
-const user = ref('')
+const username = ref('')
 const password = ref('')
 
 const router = useRouter()
@@ -15,20 +15,22 @@ const { execute } = useFetch(endpoint, {
     }
 
     options.body = JSON.stringify({
-      id: user.value,
+      id: username.value,
       password: password.value,
     })
 
-    return {
-      options,
-    }
+    return { options }
   },
   afterFetch(ctx) {
-    if (typeof document !== 'undefined')
+    if (typeof document !== 'undefined') {
+      const user = { id: ctx.data.id, name: ctx.data.username, email: ctx.data.email, admin: ctx.data.Admin }
       document.cookie = `${ctx.data.jwt.Name}=${ctx.data.jwt.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000)}; path=/`
-    useUserStore().login({ id: ctx.data.id, name: ctx.data.username, email: ctx.data.email, admin: ctx.data.Admin })
-    router.push('/')
-    router.forward()
+      localStorage.setItem('user', JSON.stringify(user))
+      useUserStore().login(user)
+
+      router.push('/')
+      router.forward()
+    }
     return ctx
   },
   immediate: false,
@@ -53,7 +55,7 @@ const submit = () => {
     <div>
       <div class="flex flex-col my-4">
         <label for="login" class="font-medium py-1 required">Username or Email Address</label>
-        <input id="login" v-model="user" type="text" name="login" tabindex="1" class="box" required="true">
+        <input id="login" v-model="username" type="text" name="login" tabindex="1" class="box" required="true">
       </div>
       <div class="flex flex-col my-4">
         <label for="password" class="font-medium py-1 required">Password</label>

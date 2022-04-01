@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { getCookieByName } from '~/composables/auth'
 
 const { t } = useI18n()
 
@@ -24,29 +25,12 @@ const requestUrl = computed(() => {
   return `${endpoint}`
 })
 
-// const args = computed(() => {
-//   return `?title=${title.value}&description=${description.value}&genre=${genre.value}&image=${image.value}`
-// })
-
-function getCookieByName(name: string) {
-  name += '='
-  let ret = ''
-  if (typeof document !== 'undefined') {
-    const cookiesArray = document.cookie.split('; ')
-    cookiesArray.forEach((val) => {
-      if (val.indexOf(name) === 0) ret = val.substring(name.length)
-    })
-  }
-  return ret
-}
-
 const { onFetchResponse, execute } = useFetch(requestUrl, {
   immediate: false,
   async beforeFetch({ options, cancel }) {
-    if (!title.value || !description.value || !genre.value || !image.value) {
-      // console.log('CANCEL')
+    if (!title.value || !description.value || !genre.value || !image.value)
       cancel()
-    }
+
     const formData = new FormData()
     formData.append('title', title.value)
     formData.append('description', description.value)

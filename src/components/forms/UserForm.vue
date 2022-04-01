@@ -1,26 +1,19 @@
 <script setup lang="ts">
-
 import { useRouter } from 'vue-router'
+import { toSvg } from 'jdenticon'
 import { useUserStore } from '~/stores/user'
+import { getCookieByName } from '~/composables/auth'
 
 const endpoint = 'http://localhost:420/user'
 const router = useRouter()
 
-function getCookieByName(name: string) {
-  name += '='
-  let ret = ''
-  if (typeof document !== 'undefined') {
-    const cookiesArray = document.cookie.split('; ')
-    cookiesArray.forEach((val) => {
-      if (val.indexOf(name) === 0) ret = val.substring(name.length)
-    })
-  }
-  return ret
-}
+const user = useUserStore().user
+const userIcon = toSvg(user.name, 48)
+const userRole = computed(() => user.admin ? 'Admin' : 'User')
 
 const { execute } = useFetch(`${endpoint}/logout`, {
   immediate: false,
-  async beforeFetch({ url, options, cancel }) {
+  async beforeFetch({ options }) {
     options.headers = {
       ...options.headers,
       Credentials: 'include',
@@ -40,7 +33,7 @@ const { execute } = useFetch(`${endpoint}/logout`, {
     return ctx
   },
   onFetchError(ctx) {
-    console.log(ctx)
+    // TODO Feedback to user if logout fails (optional)
     return ctx
   },
 }).get()
@@ -52,7 +45,7 @@ const logout = () => {
 const remove = () => {
   const { execute } = useFetch(`${endpoint}/delete`, {
     immediate: false,
-    async beforeFetch({ url, options, cancel }) {
+    async beforeFetch({ options }) {
       options.headers = {
         ...options.headers,
         Credentials: 'include',
@@ -88,22 +81,35 @@ const remove = () => {
     <p class="mb-12 text-center">
       Time to brush your eyes? No problem, we do forgive your sins, son.
     </p>
-    <div>
-      {{ useUserStore().user.name }}
-      test
+    <div class="flex">
+      <div class="flex gap-3 items-start">
+        <div class="bg-white rounded" v-html="userIcon" />
+        <div>
+          <div class="strong font-medium">
+            [{{ userRole }}] {{ user.name }}
+          </div>
+          <div>{{ user.email }}</div>
+        </div>
+      </div>
     </div>
     <div>
       <button class="bg-void-100 text-void-900 font-bold w-full p-2 mt-4 rounded" @click="logout">
         Logout
       </button>
     </div>
-    <div class="mt-8">
-      <p class="my-4 text-center">
-        Warning! Deleting your user can not be revoked! This is not hiding from FBI but vanishing completely!
-      </p>
+    <details class="mt-8">
+      <summary class="select-none">
+        Danger Zone
+      </summary>
+      <div class="my-4">
+        <p class="text-xl strong">
+          Warning! Deleting your user account can not be revoked!
+        </p>
+        <p>This is not hiding from FBI but vanishing completely!</p>
+      </div>
       <button class="bg-root-100 text-root-900 font-bold w-full p-2 mt-4 rounded" @click="remove">
         Delete
       </button>
-    </div>
+    </details>
   </div>
 </template>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { toSvg } from 'jdenticon'
 import mehms from '~/data/mehms.json'
+import { getCookieByName } from '~/composables/auth'
 
 const props = defineProps<{
   id: number
@@ -21,20 +22,8 @@ const liked = ref(false)
 const shared = ref(false)
 const endPointMehm = 'http://localhost:420/mehms/'
 
-function getCookieByName(name: string) {
-  name += '='
-  let ret = ''
-  if (typeof document !== 'undefined') {
-    const cookiesArray = document.cookie.split('; ')
-    cookiesArray.forEach((val) => {
-      if (val.indexOf(name) === 0) ret = val.substring(name.length)
-    })
-  }
-  return ret
-}
-
 const { data } = useFetch<ApiMehm>(`${endPointMehm}${props.id}`, {
-  async beforeFetch({ url, options, cancel }) {
+  async beforeFetch({ options }) {
     options.headers = {
       ...options.headers,
       Credentials: 'include',
@@ -60,8 +49,6 @@ const { data } = useFetch<ApiMehm>(`${endPointMehm}${props.id}`, {
     return ctx
   },
 }).get().json()
-
-// ...
 
 const likePost = () => {
   const { onFetchResponse } = useFetch(`${endPointMehm + props.id}/like`, {
