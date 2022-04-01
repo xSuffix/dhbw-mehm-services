@@ -3,13 +3,16 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 interface User {
   id: number
   name: string
+  email: string
   admin: boolean
 }
+
+const noUser = { id: 0, email: '', name: '', admin: false }
 
 export const useUserStore = defineStore('user', {
   state: () => {
     return {
-      user: ref<User>({ id: 0, name: '', admin: false }),
+      user: ref<User>(noUser),
     }
   },
   actions: {
@@ -17,38 +20,12 @@ export const useUserStore = defineStore('user', {
       this.user = user
     },
     logout() {
-      this.user = { id: 0, name: '', admin: false }
+      this.user = noUser
     },
     loggedIn() {
       return this.user.id > 0
     },
   },
-  /**
-   * Current name of the user.
-  const savedName = ref('')
-  const previousNames = ref(new Set<string>())
-
-  const usedNames = computed(() => Array.from(previousNames.value))
-  const otherNames = computed(() => usedNames.value.filter(name => name !== savedName.value))
-
-  /**
-   * Changes the current name of the user and saves the one that was used
-   * before.
-   *
-   * @param name - new name to set
-  function setNewName(name: string) {
-    if (savedName.value)
-      previousNames.value.add(savedName.value)
-
-    savedName.value = name
-  }
-
-  return {
-    setNewName,
-    otherNames,
-    savedName,
-  }
-  */
 })
 
 if (import.meta.hot)

@@ -48,6 +48,7 @@ const { execute } = useFetch(`${endpoint}/logout`, {
 const logout = () => {
   execute()
 }
+
 const remove = () => {
   const { execute } = useFetch(`${endpoint}/delete`, {
     immediate: false,
@@ -88,15 +89,19 @@ const remove = () => {
       Time to brush your eyes? No problem, we do forgive your sins, son.
     </p>
     <div>
+      {{ useUserStore().user.name }}
+      test
+    </div>
+    <div>
       <button class="bg-void-100 text-void-900 font-bold w-full p-2 mt-4 rounded" @click="logout">
         Logout
       </button>
     </div>
-    <p class="mb-12 text-center">
-      Warning! Deleting your user can not be revoked! This is not hiding from FBI but vanishing completely!
-    </p>
-    <div>
-      <button class="bg-void-100 text-void-900 font-bold w-full p-2 mt-4 rounded" @click="remove">
+    <div class="mt-8">
+      <p class="my-4 text-center">
+        Warning! Deleting your user can not be revoked! This is not hiding from FBI but vanishing completely!
+      </p>
+      <button class="bg-root-100 text-root-900 font-bold w-full p-2 mt-4 rounded" @click="remove">
         Delete
       </button>
     </div>

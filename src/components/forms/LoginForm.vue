@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { useUserStore } from '~/stores/user'
 const endpoint = 'http://localhost:420/user/login'
 
@@ -8,12 +7,8 @@ const password = ref('')
 
 const router = useRouter()
 
-const request = computed(() => {
-  return `${endpoint}`
-})
-
-const { execute } = useFetch(request, {
-  async beforeFetch({ url, options, cancel }) {
+const { execute } = useFetch(endpoint, {
+  async beforeFetch({ options }) {
     options.headers = {
       ...options.headers,
       Credentials: 'include',
@@ -29,20 +24,18 @@ const { execute } = useFetch(request, {
     }
   },
   afterFetch(ctx) {
-    const cookieData = JSON.parse(ctx.data)
     if (typeof document !== 'undefined')
-      document.cookie = `${cookieData.Name}=${cookieData.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000)}; path=/`
-    useUserStore().login({ id: 1, name: 'test', admin: false })
+      document.cookie = `${ctx.data.jwt.Name}=${ctx.data.jwt.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000)}; path=/`
+    useUserStore().login({ id: ctx.data.id, name: ctx.data.username, email: ctx.data.email, admin: ctx.data.Admin })
     router.push('/')
     router.forward()
     return ctx
   },
   immediate: false,
   onFetchError(ctx) {
-    // console.log(ctx)
     return ctx
   },
-}).post()
+}).post().json()
 
 const submit = () => {
   execute()

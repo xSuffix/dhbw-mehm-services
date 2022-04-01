@@ -20,6 +20,7 @@ function getCookieByName(name: string) {
   }
   return ret
 }
+
 function loggedIn() {
   return getCookieByName('jwt') !== ''
 }
