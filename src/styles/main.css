@@ -9,8 +9,11 @@
   src: url('/fonts/press-start-2p.woff2');
 }
 
-html.dark {
+html {
   @apply bg-void-700;
+}
+
+html.dark {
   color-scheme: dark;
 }
 
@@ -23,7 +26,7 @@ body,
 }
 
 body {
-  @apply text-gray-700 dark:text-gray-300 break-words;
+  @apply text-gray-300 break-words;
 }
 
 #app {
@@ -31,6 +34,6 @@ body {
 }
 
 h1 {
-  @apply text-2xl font-bold my-4 dark:text-gray-100;
+  @apply text-2xl font-bold my-4 text-gray-100;
 }
 

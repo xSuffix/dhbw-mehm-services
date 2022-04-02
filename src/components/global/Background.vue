@@ -35,7 +35,7 @@
 }
 
 .pattern {
-  @apply dark:fill-void-700 dark:opacity-20;
+  @apply fill-void-700 opacity-20;
 }
 
 @media (min-width: 1920px) {
