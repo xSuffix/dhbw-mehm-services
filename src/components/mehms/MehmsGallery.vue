@@ -31,27 +31,29 @@ const loadMehms = (mehms: ApiMehm[]) => {
   refetch.value = mehmsPerRequest <= mehms.length
 }
 
-useFetch(requestUrl, {
-  refetch: refetch.value,
-  timeout: 200,
-  beforeFetch({ cancel }) {
-    if (store.loadedMehms.length % mehmsPerRequest !== 0) {
-      refetch.value = false
-      cancel()
-    }
-  },
-  afterFetch(ctx) {
-    loadMehms(ctx.data.mehms)
-    return ctx
-  },
-  onFetchError(ctx) {
-    if (ctx.data === null)
-      ctx.data = { mehms: mehms.slice(store.loadedMehms.length, store.loadedMehms.length + mehmsPerRequest) }
+useGalleryStore().fetchMehms(5)
 
-    loadMehms(ctx.data.mehms)
-    return ctx
-  },
-}).get().json()
+// useFetch(requestUrl, {
+//   refetch: refetch.value,
+//   timeout: 200,
+//   beforeFetch({ cancel }) {
+//     if (store.loadedMehms.length % mehmsPerRequest !== 0) {
+//       refetch.value = false
+//       cancel()
+//     }
+//   },
+//   afterFetch(ctx) {
+//     loadMehms(ctx.data.mehms)
+//     return ctx
+//   },
+//   onFetchError(ctx) {
+//     if (ctx.data === null)
+//       ctx.data = { mehms: mehms.slice(store.loadedMehms.length, store.loadedMehms.length + mehmsPerRequest) }
+
+//     loadMehms(ctx.data.mehms)
+//     return ctx
+//   },
+// }).get().json()
 
 watch(y, () => {
   // Fetch on scroll to bottom

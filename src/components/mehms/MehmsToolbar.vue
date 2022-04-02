@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 
 defineProps<{
+  endpoint?: string
   showSearch?: boolean
   showCategory?: boolean
   showOrder?: boolean
@@ -28,7 +29,7 @@ const toggleOrder = () => {
   <div class="toolbar sticky top-2 flex flex-wrap gap-2 z-10 transition-top duration-200">
     <div v-if="showSearch" class="box flex-grow-[4] flex-shrink flex-300px">
       <label for="mehm-search"><heroicons-solid:search class="text-xl transition-colors duration-200" /></label>
-      <input id="mehm-search" type="text" spellcheck="false" autocomplete="off" :placeholder="t('search.placeholder')" class="bg-transparent w-full p-1 outline-none">
+      <input id="mehm-search" type="text" spellcheck="false" autocomplete="off" :placeholder="t('search.placeholder')" class="bg-transparent w-full p-1 outline-none select-none">
     </div>
 
     <select v-if="showCategory" id="category" name="category" class="box flex-grow">
