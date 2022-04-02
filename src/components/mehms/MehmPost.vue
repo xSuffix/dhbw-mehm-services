@@ -6,6 +6,7 @@ import { GATEWAY } from '~/composables/config'
 
 const props = defineProps<{
   id: number
+  showFooter: boolean
 }>()
 
 interface ApiMehm {
@@ -23,7 +24,7 @@ const liked = ref(false)
 const shared = ref(false)
 const endpoint = `${GATEWAY}/mehms/`
 
-const { data } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
+const { data, isFetching } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
   async beforeFetch({ options }) {
     options.headers = {
       ...options.headers,
@@ -39,6 +40,7 @@ const { data } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
   afterFetch(ctx) {
     ctx.data.icon = toSvg(ctx.data.authorName, 40)
     liked.value = ctx.data.liked
+    console.log(ctx.data)
     return ctx
   },
   onFetchError(ctx) {
@@ -86,13 +88,13 @@ const sharePost = () => {
 </script>
 
 <template>
-  <div class="flex flex-col-reverse lg:flex-row lg:items-start gap-4">
-    <div v-cloak class="flex flex-col flex-grow flex-shrink basis-7/12">
+  <div v-show="!isFetching" v-bind="$attrs" class="flex flex-col-reverse lg:flex-row lg:items-start gap-4">
+    <div class="flex flex-col flex-grow flex-shrink basis-7/12">
       <div class="flex justify-center">
         <img :src="data?.imageSource" :alt="data?.title" class="paper w-full max-h-3xl select-none object-contain">
       </div>
     </div>
-    <aside v-cloak class="paper flex-shrink basis-5/12 p-4">
+    <aside class="paper flex-shrink basis-5/12 p-4">
       <div class="flex gap-2 items-start">
         <div class="bg-white rounded" v-html="data?.icon" />
         <div class="text-sm">
@@ -117,6 +119,7 @@ const sharePost = () => {
       </div>
     </aside>
   </div>
+  <Footer v-if="showFooter" v-show="!isFetching" class="container mx-auto" />
 </template>
 
 <style scoped>

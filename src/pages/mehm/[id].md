@@ -4,7 +4,7 @@ title: Mehm
 
 <route lang="yaml">
 meta:
-  layout: default
+  layout: footerless
 </route>
 
 <script setup lang="ts">
@@ -14,4 +14,4 @@ const props = defineProps({
 </script>
 
 <MehmsToolbar show-search show-category show-order />
-<MehmPost :id="parseInt(id)" class="mt-4" />
+<MehmPost :id="parseInt(id)" show-footer class="mt-4" />
