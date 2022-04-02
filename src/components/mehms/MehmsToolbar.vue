@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 defineProps<{
-  endpoint?: string
+  requestPath?: string
   showSearch?: boolean
   showCategory?: boolean
   showOrder?: boolean

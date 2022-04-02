@@ -1,64 +1,24 @@
 <script setup lang="ts">
 import { watch } from 'vue'
 import { useGalleryStore } from '~/stores/gallery'
-import mehms from '~/data/mehms.json'
-import { GATEWAY } from '~/composables/config'
 
 defineProps<{
   showFooter?: boolean
 }>()
-
-interface ApiMehm {
-  id: number
-  title: string
-  imageSource: string
-}
 
 const store = useGalleryStore()
 const { y } = useWindowScroll()
 
 const gallery = ref<HTMLDivElement>()
 const refetch = ref(true)
-
-const endpoint = `${GATEWAY}/mehms`
 const mehmsPerRequest = 30
-const requestUrl = ref(`${endpoint}?skip=${store.loadedMehms.length}&take=${mehmsPerRequest}`)
 
-const loadMehms = (mehms: ApiMehm[]) => {
-  if (mehms)
-    store.loadMehms(mehms, 304)
-
-  refetch.value = mehmsPerRequest <= mehms.length
-}
-
-useGalleryStore().fetchMehms(5)
-
-// useFetch(requestUrl, {
-//   refetch: refetch.value,
-//   timeout: 200,
-//   beforeFetch({ cancel }) {
-//     if (store.loadedMehms.length % mehmsPerRequest !== 0) {
-//       refetch.value = false
-//       cancel()
-//     }
-//   },
-//   afterFetch(ctx) {
-//     loadMehms(ctx.data.mehms)
-//     return ctx
-//   },
-//   onFetchError(ctx) {
-//     if (ctx.data === null)
-//       ctx.data = { mehms: mehms.slice(store.loadedMehms.length, store.loadedMehms.length + mehmsPerRequest) }
-
-//     loadMehms(ctx.data.mehms)
-//     return ctx
-//   },
-// }).get().json()
+useGalleryStore().fetchMehms(mehmsPerRequest)
 
 watch(y, () => {
   // Fetch on scroll to bottom
   if (refetch.value && gallery.value && gallery.value.getBoundingClientRect().bottom - 128 < window.innerHeight)
-    requestUrl.value = `${endpoint}?skip=${store.loadedMehms.length}&take=${mehmsPerRequest}`
+    useGalleryStore().fetchMehms(mehmsPerRequest)
 })
 </script>
 
@@ -69,5 +29,5 @@ watch(y, () => {
     </router-link>
     <div class="flex-grow-[99999] min-w-64" />
   </div>
-  <Footer v-if="showFooter && !refetch" class="container mx-auto" />
+  <Footer v-if="showFooter && useGalleryStore().missingMehms" class="container mx-auto" />
 </template>
