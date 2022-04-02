@@ -12,17 +12,27 @@ interface LoadedMehm extends ApiMehm {
   scale: number
 }
 
+const imageSize = 288
 const endpoint = `${GATEWAY}/mehms`
+
+// private state
 const requestUrl = ref('')
-const mehmsPerRequest = ref(10)
+const refetch = ref(true)
+const search = ref('')
+const category = ref('')
+const order = ref('createdDate')
 
 export const useGalleryStore = defineStore('gallery', {
   state: () => {
     return {
       loadedMehms: ref<Array<LoadedMehm>>([]),
-      amountFetched: ref(0),
-      missingMehms: ref(false),
+      asc: ref(true),
+      take: ref(10),
+      skip: ref(0),
     }
+  },
+  getters: {
+    isFinal: () => !refetch.value,
   },
   actions: {
     loadMehms(mehms: Array<ApiMehm>, minHeight: number) {
@@ -35,35 +45,65 @@ export const useGalleryStore = defineStore('gallery', {
         }
       })
     },
-    fetchMehms(amount: number) {
-      if (!this.missingMehms) {
-        mehmsPerRequest.value = amount
-        requestUrl.value = `${endpoint}?skip=${this.amountFetched}&take=${amount}`
+    resetState() {
+      this.loadedMehms = []
+      this.skip = 0
+      refetch.value = true
+    },
+    setSearch(input: string) {
+      input = input.trim()
+      if (input !== search.value) {
+        search.value = input
+        this.resetState()
       }
+    },
+    setCategory(input: string) {
+      if (input !== category.value)
+        category.value = input
+      this.resetState()
+    },
+    setOrder(input: string) {
+      if (input !== category.value)
+        order.value = input
+      this.resetState()
+    },
+    setAsc(input: boolean) {
+      if (input !== this.asc)
+        this.asc = input
+      this.resetState()
+    },
+    fetchMehms() {
+      requestUrl.value = `${endpoint}?take=${this.take}&skip=${this.skip}`
+      + `${search.value ? `&textSearch=${search.value}` : ''}`
+      + `${category.value ? `&genre=${category.value}` : ''}`
+      + `${order.value ? `&sort=${order.value}` : ''}`
+      + `${(!this.asc && order.value !== 'createdDate') || (this.asc && order.value === 'createdDate') ? ',desc' : ''}`
     },
   },
 })
 
 useFetch(requestUrl, {
-  refetch: true,
+  refetch,
   immediate: false,
   timeout: 200,
   afterFetch(ctx) {
+    const store = useGalleryStore()
+
     const mehms = ctx.data.mehms
-    useGalleryStore().amountFetched += mehms.length
-    useGalleryStore().loadMehms(mehms, 288)
-    const requestedAmount = parseInt((new URLSearchParams(ctx.response.url).get('take') || '0'))
-    if (!mehms || mehms.length < requestedAmount)
-      useGalleryStore().missingMehms = true
+    store.skip += mehms.length
+    store.loadMehms(mehms, imageSize)
+    if (mehms.length < store.take)
+      refetch.value = false
     return ctx
   },
   onFetchError(ctx) {
     const store = useGalleryStore()
-    const mehmsFromJson = jsonMehms.slice(store.amountFetched, store.amountFetched + mehmsPerRequest.value)
-    useGalleryStore().amountFetched += mehmsFromJson.length
-    store.loadMehms(mehmsFromJson, 288)
-    if (mehmsFromJson.length < mehmsPerRequest.value)
-      useGalleryStore().missingMehms = true
+
+    const mehmsFromJson = jsonMehms.slice(store.skip, store.skip + store.take)
+    store.skip += mehmsFromJson.length
+    store.loadMehms(mehmsFromJson, imageSize)
+    if (mehmsFromJson.length < store.take)
+      refetch.value = false
     return ctx
   },
 }).get().json()

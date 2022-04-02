@@ -23,7 +23,7 @@ nav:
   submit: Einsenden
 search:
   placeholder: Mehms suchen
-sort:
+order:
   comments: Kommentare
   date: Datum
   likes: Likes

@@ -10,5 +10,5 @@ meta:
   layout: footerless
 </route>
 
-<MehmsToolbar request-path="/mehms" show-search show-category show-order />
+<MehmsToolbar show-search show-category show-order />
 <MehmsGallery show-footer class="mt-4" />
