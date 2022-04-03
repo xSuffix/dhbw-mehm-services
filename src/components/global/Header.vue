@@ -6,7 +6,6 @@ import { useUserStore } from '~/stores/user'
 const { y } = useWindowScroll()
 const user = useUserStore()
 
-// TODO outsource (optional)
 watch(y, async(newY, oldY) => {
   if (newY < oldY && newY > 24)
     document.body.classList.add('scrolling-up')

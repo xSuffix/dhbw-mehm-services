@@ -87,7 +87,7 @@ export const useGalleryStore = defineStore('gallery', {
 useFetch(requestUrl, {
   refetch,
   immediate: false,
-  timeout: 200,
+  timeout: 400,
   afterFetch(ctx) {
     const store = useGalleryStore()
     const mehms = ctx.data.mehms
