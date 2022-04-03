@@ -42,7 +42,7 @@ const { data, execute } = useFetch<ApiComment>(`${endpoint}get/${props.id}`, {
 }).get().json()
 
 const postComment = () => {
-  postUrl.value = `${endpoint}new?userId=${user.id}&mehmId=${props.id}`
+  postUrl.value = `${endpoint}new?userId=${user.id}`
   useFetch(postUrl, {
     async beforeFetch({ options }) {
       options.headers = {
@@ -52,6 +52,7 @@ const postComment = () => {
       }
       options.body = JSON.stringify({
         id: user.id,
+        mehmId: props.id,
         comment: commentArea.value?.value,
       })
 

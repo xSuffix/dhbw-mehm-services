@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    404: typeof import('./components/404.vue')['default']
     Background: typeof import('./components/global/Background.vue')['default']
     Footer: typeof import('./components/global/Footer.vue')['default']
     Header: typeof import('./components/global/Header.vue')['default']
@@ -28,6 +29,7 @@ declare module 'vue' {
     NavigationBar: typeof import('./components/global/NavigationBar.vue')['default']
     README: typeof import('./components/README.md')['default']
     RegisterForm: typeof import('./components/forms/RegisterForm.vue')['default']
+    RickFoundYou: typeof import('~icons/ri/ck-found-you')['default']
     UserForm: typeof import('./components/forms/UserForm.vue')['default']
   }
 }
