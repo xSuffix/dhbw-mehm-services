@@ -151,8 +151,8 @@ const updateMehm = (e: Event, property: string) => {
       <div class="flex gap-2 items-start">
         <div class="bg-white rounded" v-html="data?.icon" />
         <div class="text-sm">
-          <div><a href="" class="strong">#{{ data?.genre }}</a></div>
-          <div>{{ t('mehm.postedBy') }} <a href="" class="strong">{{ data?.authorName }}</a> <span :title="data?.createdDate">{{ data?.timeAgo }}</span></div>
+          <div><span class="strong">#{{ data?.genre }}</span></div>
+          <div>{{ t('mehm.postedBy') }} <span class="strong">{{ data?.authorName }}</span> <span :title="data?.createdDate">{{ data?.timeAgo }}</span></div>
         </div>
       </div>
       <h1 :contenteditable="canEdit" class="focus:bg-void-700" @input="updateMehm($event, 'title')">

@@ -1,0 +1,1 @@
+import{_ as s,i as c,o as _,c as r,k as o,a as m,F as i,O as p,P as u,Q as l}from"./app.835034fa.js";const d={},f={class:"container mx-auto"};function g(v,x){const e=p,n=u,a=c("router-view"),t=l;return _(),r(i,null,[o(e),o(n,{class:"container mx-auto"}),m("main",f,[o(a)]),o(t)],64)}var k=s(d,[["render",g]]);export{k as default};
