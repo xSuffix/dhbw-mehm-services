@@ -15,15 +15,21 @@ footer:
     title: Rechtliches
   sitemap:
     title: Sitemap
+mehm:
+  button:
+    comments: Kommentare
+    likes: Likes
+    share: Teilen
+  postedBy: Geposted von
 nav:
   contact: Kontakt
   imprint: Impressum
   mehms: Mehms
   privacy: Datenschutz
   submit: Einsenden
-search:
-  placeholder: Mehms suchen
 order:
   comments: Kommentare
   date: Datum
   likes: Likes
+search:
+  placeholder: Mehms suchen

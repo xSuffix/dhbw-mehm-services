@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { toSvg } from 'jdenticon'
+import { useTimeAgo } from '@vueuse/core'
 import mehms from '~/data/mehms.json'
 import { getCookieByName } from '~/composables/auth'
 import { GATEWAY } from '~/composables/config'
@@ -20,6 +21,8 @@ interface ApiMehm {
   liked: boolean
 }
 
+const { t } = useI18n()
+
 const liked = ref(false)
 const shared = ref(false)
 const endpoint = `${GATEWAY}/mehms/`
@@ -39,8 +42,8 @@ const { data, isFetching } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
   timeout: 200,
   afterFetch(ctx) {
     ctx.data.icon = toSvg(ctx.data.authorName, 40)
+    ctx.data.timeAgo = useTimeAgo(Date.parse(ctx.data.createdDate)).value
     liked.value = ctx.data.liked
-    console.log(ctx.data)
     return ctx
   },
   onFetchError(ctx) {
@@ -99,7 +102,7 @@ const sharePost = () => {
         <div class="bg-white rounded" v-html="data?.icon" />
         <div class="text-sm">
           <div><a href="" class="strong">#{{ data?.genre }}</a></div>
-          <div>Gepostet von <a href="" class="strong">{{ data?.authorName }}</a> vor 2 Tagen</div>
+          <div>{{ t('mehm.postedBy') }} <a href="" class="strong">{{ data?.authorName }}</a> {{ data?.timeAgo }}</div>
         </div>
       </div>
       <h1>
@@ -110,11 +113,11 @@ const sharePost = () => {
       </p>
       <div class="flex flex-wrap gap-x-4 -ml-2">
         <button class="icon-btn" @click="likePost()">
-          <heroicons-solid:heart v-if="liked" class="text-root-100" /><heroicons-outline:heart v-else />{{ data?.likes }} Likes
+          <heroicons-solid:heart v-if="liked" class="text-root-100" /><heroicons-outline:heart v-else />{{ data?.likes }} {{ t('mehm.button.likes') }}
         </button>
-        <a href="#comments" class="icon-btn"><heroicons-solid:chat-alt />0 Kommentare</a>
+        <a href="#comments" class="icon-btn"><heroicons-solid:chat-alt />0 {{ t('mehm.button.comments') }}</a>
         <button v-if="isSupported" class="icon-btn" @click="sharePost()">
-          <heroicons-solid:share class="transition-colors duration-200" :class="{'text-void-100': shared}" />Teilen
+          <heroicons-solid:share class="transition-colors duration-200" :class="{'text-void-100': shared}" /> {{ t('mehm.button.share') }}
         </button>
       </div>
     </aside>

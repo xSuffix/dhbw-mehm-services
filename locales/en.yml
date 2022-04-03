@@ -15,15 +15,21 @@ footer:
     title: Legal
   sitemap:
     title: Sitemap
+mehm:
+  button:
+    comments: Comments
+    likes: Likes
+    share: Share
+  postedBy: Posted by
 nav:
   contact: Contact
   imprint: Imprint
   mehms: Mehms
   privacy: Privacy
   submit: Submit
-search:
-  placeholder: Search Mehms
 order:
   comments: Comments
   date: Date
   likes: Likes
+search:
+  placeholder: Search Mehms
