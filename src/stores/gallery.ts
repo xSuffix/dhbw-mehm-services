@@ -15,7 +15,7 @@ interface LoadedMehm extends ApiMehm {
   scale: number
 }
 
-const imageSize = 288
+const imageSize = 304
 const endpoint = `${GATEWAY}/mehms`
 
 const requestUrl = ref('')

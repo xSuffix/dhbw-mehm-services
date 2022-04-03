@@ -1,1 +1,1 @@
-export const GATEWAY = 'http://localhost:4200'
+export const GATEWAY = 'http://localhost:420'

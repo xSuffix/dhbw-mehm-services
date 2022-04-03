@@ -94,13 +94,14 @@ const sharePost = () => {
 </script>
 
 <template>
-  <div v-show="!isFetching" v-bind="$attrs" class="flex flex-col-reverse lg:flex-row lg:items-start gap-4">
-    <div class="flex flex-col flex-grow flex-shrink basis-7/12">
+  <div v-show="!isFetching" v-bind="$attrs" class="flex flex-col-reverse lg:flex-row lg:items-start gap-2">
+    <div class="flex flex-col flex-grow flex-shrink basis-7/12 gap-2">
       <div class="flex justify-center">
         <img :src="data?.imageSource" :alt="data?.title" class="paper w-full max-h-3xl select-none object-contain">
       </div>
+      <MehmComments :id="id" />
     </div>
-    <aside class="paper flex-shrink basis-5/12 p-4">
+    <aside class="sticky paper top-16 flex-shrink basis-5/12 p-4 transition-top duration-200">
       <div class="flex gap-2 items-start">
         <div class="bg-white rounded" v-html="data?.icon" />
         <div class="text-sm">
@@ -135,5 +136,9 @@ const sharePost = () => {
 
 .icon-btn {
   @apply flex gap-2 items-center p-2 font-medium hover:text-white;
+}
+
+.scrolling-up aside {
+  @apply md:top-34;
 }
 </style>
