@@ -23,9 +23,11 @@ interface ApiMehm {
 
 const { t } = useI18n()
 
+const userIconSize = 40
+const endpoint = `${GATEWAY}/mehms/`
+
 const liked = ref(false)
 const shared = ref(false)
-const endpoint = `${GATEWAY}/mehms/`
 
 const { data, isFetching } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
   async beforeFetch({ options }) {
@@ -41,7 +43,7 @@ const { data, isFetching } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
   },
   timeout: 200,
   afterFetch(ctx) {
-    ctx.data.icon = toSvg(ctx.data.authorName, 40)
+    ctx.data.icon = toSvg(ctx.data.authorName, userIconSize)
     ctx.data.timeAgo = useTimeAgo(Date.parse(ctx.data.createdDate)).value
     liked.value = ctx.data.liked
     return ctx
@@ -49,7 +51,8 @@ const { data, isFetching } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
   onFetchError(ctx) {
     if (ctx.data === null) {
       ctx.data = mehms.find(mehm => mehm.id === props.id)
-      ctx.data.icon = toSvg(ctx.data.authorName, 40)
+      ctx.data.icon = toSvg(ctx.data.authorName, userIconSize)
+      ctx.data.timeAgo = useTimeAgo(Date.parse(ctx.data.createdDate)).value
     }
 
     return ctx

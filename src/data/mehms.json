@@ -7,7 +7,7 @@
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
     "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "createdDate": "2022-04-01T09:52:06"
   },
   {
     "id": 2,
@@ -16,8 +16,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Binary_tree_pants.jpg",
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 7,
+    "createdDate": "2022-04-01T10:52:06"
   },
   {
     "id": 3,
@@ -26,8 +26,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/C++_Python_Timmy.jpeg",
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 2,
+    "createdDate": "2022-04-01T11:52:06"
   },
   {
     "id": 4,
@@ -36,8 +36,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/CSS_Gru.jpg",
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 5,
+    "createdDate": "2022-04-01T12:52:06"
   },
   {
     "id": 5,
@@ -47,7 +47,7 @@
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
     "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "createdDate": "2022-04-01T13:52:06"
   },
   {
     "id": 6,
@@ -56,8 +56,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Crypto_guru.jpeg",
     "authorName": "JSON Derulo",
     "genre": "DHBW",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 6,
+    "createdDate": "2022-04-01T14:52:06"
   },
   {
     "id": 7,
@@ -66,8 +66,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Daniel_Baguecki_Baguette_Wierbicki.jpg",
     "authorName": "JSON Derulo",
     "genre": "DHBW",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 69,
+    "createdDate": "2022-04-01T15:52:06"
   },
   {
     "id": 8,
@@ -76,8 +76,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/HTML_hacker.jpeg",
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 7,
+    "createdDate": "2022-04-01T16:52:06"
   },
   {
     "id": 9,
@@ -86,8 +86,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Hacker_knows_where_I_live.jpeg",
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 18,
+    "createdDate": "2022-04-01T17:52:06"
   },
   {
     "id": 10,
@@ -96,8 +96,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Linux_Antivirus.jpeg",
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 5,
+    "createdDate": "2022-04-02T14:52:06"
   },
   {
     "id": 11,
@@ -106,8 +106,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Mathemann_Demokratie.jpg",
     "authorName": "JSON Derulo",
     "genre": "OTHER",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 6,
+    "createdDate": "2022-04-02T17:52:06"
   },
   {
     "id": 12,
@@ -116,8 +116,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Noble_Atom_Guillotine.jpeg",
     "authorName": "JSON Derulo",
     "genre": "OTHER",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 7,
+    "createdDate": "2022-04-02T20:52:06"
   },
   {
     "id": 13,
@@ -126,8 +126,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Pizza_Pineapple.jpeg",
     "authorName": "JSON Derulo",
     "genre": "OTHER",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 2,
+    "createdDate": "2022-04-02T21:52:06"
   },
   {
     "id": 14,
@@ -136,8 +136,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Programmer_Rick.jpg",
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 0,
+    "createdDate": "2022-04-02T22:52:06"
   },
   {
     "id": 15,
@@ -146,8 +146,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Sleep_well_RTX_3090.jpeg",
     "authorName": "JSON Derulo",
     "genre": "OTHER",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 2,
+    "createdDate": "2022-04-02T23:52:06"
   },
   {
     "id": 16,
@@ -156,8 +156,8 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Stackoverflow_Lambo.jpg",
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 9,
+    "createdDate": "2022-04-03T00:52:06"
   },
   {
     "id": 17,
@@ -167,7 +167,7 @@
     "authorName": "JSON Derulo",
     "genre": "OTHER",
     "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "createdDate": "2022-04-03T01:52:06"
   },
   {
     "id": 18,
@@ -176,7 +176,7 @@
     "imageSource": "https://dhbw-mehms.000webhostapp.com/assets/mehms/Unit_Tests_Simpsons.jpg",
     "authorName": "JSON Derulo",
     "genre": "PROGRAMMING",
-    "likes": 3,
-    "createdDate": [2022, 3, 18, 20, 30, 40, 812621000]
+    "likes": 2,
+    "createdDate": "2022-04-03T03:52:06"
   }
 ]

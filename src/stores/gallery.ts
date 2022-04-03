@@ -6,6 +6,9 @@ interface ApiMehm {
   id: number
   title: string
   imageSource: string
+  genre: string
+  createdDate: string
+  likes: number
 }
 
 interface LoadedMehm extends ApiMehm {
@@ -27,7 +30,7 @@ export const useGalleryStore = defineStore('gallery', {
     return {
       loadedMehms: ref<Array<LoadedMehm>>([]),
       asc: ref(true),
-      take: ref(10),
+      take: ref(16),
       skip: ref(0),
     }
   },
@@ -88,22 +91,34 @@ useFetch(requestUrl, {
   timeout: 200,
   afterFetch(ctx) {
     const store = useGalleryStore()
-
     const mehms = ctx.data.mehms
+
     store.skip += mehms.length
     store.loadMehms(mehms, imageSize)
+
     if (mehms.length < store.take)
       refetch.value = false
+
     return ctx
   },
   onFetchError(ctx) {
     const store = useGalleryStore()
+    let mehms = jsonMehms.filter(mehm => mehm.title.toLowerCase().includes(search.value.toLowerCase()) && (!category.value || category.value === mehm.genre))
 
-    const mehmsFromJson = jsonMehms.slice(store.skip, store.skip + store.take)
-    store.skip += mehmsFromJson.length
-    store.loadMehms(mehmsFromJson, imageSize)
-    if (mehmsFromJson.length < store.take)
+    const direction = store.asc ? 1 : -1
+    if (order.value === 'createdDate')
+      mehms = mehms.sort((a: ApiMehm, b: ApiMehm) => direction * (Date.parse(b.createdDate) - Date.parse(a.createdDate)))
+    else if (order.value === 'likes')
+      mehms = mehms.sort((a: ApiMehm, b: ApiMehm) => direction * (b.likes - a.likes))
+
+    mehms = mehms.slice(store.skip, store.skip + store.take)
+
+    store.skip += mehms.length
+    store.loadMehms(mehms, imageSize)
+
+    if (mehms.length < store.take)
       refetch.value = false
+
     return ctx
   },
 }).get().json()
