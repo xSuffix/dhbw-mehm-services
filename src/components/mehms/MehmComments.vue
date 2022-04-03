@@ -40,7 +40,7 @@ const { data } = useFetch<ApiComment>(`${endpoint}${props.id}`, {
 </script>
 
 <template>
-  <div id="comments" class="paper p-4">
+  <div id="comments" class="paper p-4 flex flex-col gap-4">
     <router-link v-if="!loggedIn()" to="/login" class="strong flex gap-1 items-center">
       <heroicons-solid:login />Melde dich an, um zu kommentieren
     </router-link>
@@ -51,12 +51,12 @@ const { data } = useFetch<ApiComment>(`${endpoint}${props.id}`, {
         </router-link>
       </p>
       <textarea id="comment" name="comment" rows="6" class="box" />
-      <button class="ml-auto bg-void-100 text-void-900 font-bold px-4 py-2 rounded mt-2">
+      <button class="ml-auto bg-void-100 text-void-900 font-medium px-4 py-2 rounded mt-2">
         Kommentieren
       </button>
     </div>
-    <div class="flex flex-col gap-8">
-      <div v-for="comment in data" :key="comment.id" class="grid grid-cols-[36px,1fr] gap-2">
+    <div class="flex flex-col gap-4">
+      <div v-for="comment in data" :key="comment.id" class="grid grid-cols-[36px,1fr] gap-x-4 gap-y-2 mb-4">
         <a href=""><div class="bg-white rounded-1/2 p-2px" v-html="comment.icon" /></a>
         <div class="flex items-center whitespace-pre">
           <a href="" class="strong">{{ comment.author }}</a><span :title="comment.dateTime" class="text-gray-400"> · {{ comment.timeAgo }}</span>

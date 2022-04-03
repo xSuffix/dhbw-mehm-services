@@ -2,12 +2,11 @@
 import { GATEWAY } from '~/composables/config'
 import { useUserStore } from '~/stores/user'
 
+const router = useRouter()
 const endpoint = `${GATEWAY}/user/login`
 
 const username = ref('')
 const password = ref('')
-
-const router = useRouter()
 
 const { execute } = useFetch(endpoint, {
   async beforeFetch({ options }) {
@@ -29,9 +28,7 @@ const { execute } = useFetch(endpoint, {
       document.cookie = `${ctx.data.jwt.Name}=${ctx.data.jwt.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000)}; path=/`
       localStorage.setItem('user', JSON.stringify(user))
       useUserStore().login(user)
-
       router.push('/')
-      router.forward()
     }
     return ctx
   },

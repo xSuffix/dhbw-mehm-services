@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { getCookieByName } from '~/composables/auth'
 import { GATEWAY } from '~/composables/config'
 
 const { t } = useI18n()
+const endpoint = `${GATEWAY}/mehms/add`
 
 const categoryOptions = ref([
   { text: t('category.programming'), value: 'PROGRAMMING' },
@@ -17,16 +17,7 @@ const genre = ref('')
 const image = ref()
 const fileInput = ref()
 
-const setFile = () => {
-  image.value = fileInput.value.files[0]
-}
-
-const endpoint = `${GATEWAY}/mehms/add`
-const requestUrl = computed(() => {
-  return `${endpoint}`
-})
-
-const { onFetchResponse, execute } = useFetch(requestUrl, {
+const { execute } = useFetch(endpoint, {
   immediate: false,
   async beforeFetch({ options, cancel }) {
     if (!title.value || !description.value || !genre.value || !image.value)
@@ -45,24 +36,21 @@ const { onFetchResponse, execute } = useFetch(requestUrl, {
     options.body = formData
   },
   onFetchError(ctx) {
-    // console.log(ctx)
+    // TODO user feedback (optional)
     return ctx
   },
 },
 ).post()
 
-onFetchResponse((response) => {
-  // console.log('res')
-  // if (response.status === 200)
-  // console.log('yay')
-})
+const setFile = () => {
+  image.value = fileInput.value.files[0]
+}
 
 const formSubmit = (e: Event) => {
   e.preventDefault()
 }
 
 const submit = () => {
-  // console.log(requestUrl.value)
   execute()
 }
 </script>
@@ -86,10 +74,7 @@ const submit = () => {
       </div>
       <div class="flex flex-col my-4">
         <label for="image" class="font-medium py-1 required">Image</label>
-        <input ref="fileInput" type="file" name="image" size="50000000" tabindex="3" required="true" accept="image/*" @change="setFile">
-        <!-- <div class="box bg-void-700 h-64" @click="fileAccess.open()" @drop.prevent="dropFile">
-          <heroicons-solid:upload class="h-24 w-24 text-void-500" />
-        </div> -->
+        <input ref="fileInput" type="file" name="image" size="20000000" tabindex="3" required="true" accept="image/*" @change="setFile">
       </div>
       <div class="flex flex-col my-4">
         <label for="category" class="font-medium py-1 required">Category</label>
@@ -103,6 +88,5 @@ const submit = () => {
         Submit
       </button>
     </div>
-    <!-- <iframe id="target" name="target" /> -->
   </form>
 </template>

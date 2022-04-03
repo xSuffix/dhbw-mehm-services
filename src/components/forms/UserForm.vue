@@ -34,7 +34,6 @@ const { execute } = useFetch(`${endpoint}/logout`, {
       document.cookie = `${cookie.Name}=${cookie.Value}; expires=${new Date(Date.now() - 60 * 60 * 1000)}; path=/`
 
     router.push('/login')
-    router.forward()
     return ctx
   },
   onFetchError(ctx) {
@@ -48,8 +47,7 @@ const logout = () => {
 }
 
 const remove = () => {
-  const { execute } = useFetch(`${endpoint}/delete`, {
-    immediate: false,
+  useFetch(`${endpoint}/delete`, {
     async beforeFetch({ options }) {
       options.headers = {
         ...options.headers,
@@ -73,8 +71,6 @@ const remove = () => {
       return ctx
     },
   }).post().json()
-
-  execute()
 }
 </script>
 

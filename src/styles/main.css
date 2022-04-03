@@ -10,7 +10,7 @@
 }
 
 html {
-  @apply bg-void-700;
+  @apply bg-void-700 scroll-smooth;
 }
 
 html.dark {

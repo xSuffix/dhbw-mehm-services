@@ -25,7 +25,6 @@ const { execute } = useFetch(request, {
       username: user.value,
       mail: email.value,
       password: password.value,
-      repeated: passwordRepeat.value,
     })
 
     return {
@@ -73,7 +72,7 @@ const submit = () => {
         <input id="repeat-password" v-model="passwordRepeat" type="password" name="repeat-password" tabindex="1" class="box" required="true">
       </div>
       <button class="bg-void-100 text-void-900 font-bold w-full p-2 mt-4 rounded" @click="submit">
-        Sign In
+        Sign Up
       </button>
     </div>
   </div>
