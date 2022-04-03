@@ -5,12 +5,14 @@
 declare module 'vue' {
   export interface GlobalComponents {
     Background: typeof import('./components/global/Background.vue')['default']
+    ContactForwarding: typeof import('./components/ContactForwarding.vue')['default']
     Footer: typeof import('./components/global/Footer.vue')['default']
     Header: typeof import('./components/global/Header.vue')['default']
     'HeroiconsOutline:heart': typeof import('~icons/heroicons-outline/heart')['default']
     'HeroiconsSolid:chatAlt': typeof import('~icons/heroicons-solid/chat-alt')['default']
     'HeroiconsSolid:heart': typeof import('~icons/heroicons-solid/heart')['default']
     'HeroiconsSolid:login': typeof import('~icons/heroicons-solid/login')['default']
+    'HeroiconsSolid:pencil': typeof import('~icons/heroicons-solid/pencil')['default']
     'HeroiconsSolid:search': typeof import('~icons/heroicons-solid/search')['default']
     'HeroiconsSolid:share': typeof import('~icons/heroicons-solid/share')['default']
     'HeroiconsSolid:sortAscending': typeof import('~icons/heroicons-solid/sort-ascending')['default']

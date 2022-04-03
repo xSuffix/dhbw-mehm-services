@@ -10,6 +10,7 @@ const router = useRouter()
 const user = useUserStore()
 const userIcon = toSvg(user.name, 48)
 const userRole = computed(() => user.admin ? 'Admin' : 'User')
+const errorMessage = ref('')
 
 if (!user.loggedIn)
   router.push('/login')
@@ -39,7 +40,7 @@ const { execute } = useFetch(`${endpoint}/logout`, {
     return ctx
   },
   onFetchError(ctx) {
-    // TODO Feedback to user if logout fails (optional)
+    errorMessage.value = ctx.data.response
     return ctx
   },
 }).get()
@@ -70,6 +71,7 @@ const remove = () => {
       return ctx
     },
     onFetchError(ctx) {
+      errorMessage.value = ctx.data.response
       return ctx
     },
   }).post().json()
@@ -77,7 +79,7 @@ const remove = () => {
 </script>
 
 <template>
-  <div class="paper max-w-2xl mx-auto p-8 rounded">
+  <div class="paper max-w-2xl mx-auto p-4 lg:p-8 rounded">
     <h1 class="text-center">
       My user profile
     </h1>
@@ -103,6 +105,9 @@ const remove = () => {
         Copy API Key
       </button>
     </div>
+    <p class="text-root-100">
+      {{ errorMessage }}
+    </p>
     <details class="mt-8">
       <summary class="select-none">
         Danger Zone

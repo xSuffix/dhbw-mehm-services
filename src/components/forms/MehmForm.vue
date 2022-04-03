@@ -4,6 +4,7 @@ import { useUserStore } from '~/stores/user'
 
 const { t } = useI18n()
 const user = useUserStore()
+const router = useRouter()
 const endpoint = `${GATEWAY}/mehms/add`
 
 const categoryOptions = ref([
@@ -12,17 +13,25 @@ const categoryOptions = ref([
   { text: t('category.others'), value: 'OTHER' },
 ])
 
+const maxSize = 1048576
+
 const title = ref('')
 const description = ref('')
 const genre = ref('')
 const image = ref()
 const fileInput = ref()
+const errorMessage = ref('')
 
 const { execute } = useFetch(endpoint, {
   immediate: false,
   async beforeFetch({ options, cancel }) {
     if (!title.value || !description.value || !genre.value || !image.value)
       cancel()
+
+    if (image.value.size > maxSize) {
+      errorMessage.value = `Image is too large. File size: ${image.value.size}, Max size: ${maxSize}`
+      cancel()
+    }
 
     const formData = new FormData()
     formData.append('title', title.value)
@@ -36,12 +45,16 @@ const { execute } = useFetch(endpoint, {
     }
     options.body = formData
   },
+  afterFetch(ctx) {
+    router.push(`/mehm/${ctx.data.mehmId}`)
+    return ctx
+  },
   onFetchError(ctx) {
-    // TODO user feedback (optional)
+    errorMessage.value = ctx.data.message
     return ctx
   },
 },
-).post()
+).post().json()
 
 const setFile = () => {
   image.value = fileInput.value.files[0]
@@ -57,7 +70,7 @@ const submit = () => {
 </script>
 
 <template>
-  <form ref="form" class="paper max-w-2xl mx-auto p-8 rounded" enctype="multipart/form-data" @submit="formSubmit">
+  <form ref="form" class="paper max-w-2xl mx-auto p-4 lg:p-8 rounded" enctype="multipart/form-data" @submit="formSubmit">
     <h1 class="text-center">
       Upload your Mehm
     </h1>
@@ -75,7 +88,7 @@ const submit = () => {
       </div>
       <div class="flex flex-col my-4">
         <label for="image" class="font-medium py-1 required">Image</label>
-        <input ref="fileInput" type="file" name="image" size="20000000" tabindex="3" required="true" accept="image/*" @change="setFile">
+        <input ref="fileInput" type="file" name="image" size="100000" tabindex="3" required="true" accept="image/*" @change="setFile">
       </div>
       <div class="flex flex-col my-4">
         <label for="category" class="font-medium py-1 required">Category</label>
@@ -85,6 +98,9 @@ const submit = () => {
           </option>
         </select>
       </div>
+      <p class="text-root-100">
+        {{ errorMessage }}
+      </p>
       <button class="bg-void-100 text-void-900 font-bold w-full p-2 mt-4 rounded" tabindex="5" @click="submit">
         Submit
       </button>

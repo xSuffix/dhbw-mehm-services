@@ -21,11 +21,10 @@ interface Comment extends ApiComment {
 
 const user = useUserStore()
 const commentArea = ref<HTMLTextAreaElement>()
+const editableComment = ref(0)
 
 const userIconSize = 32
 const endpoint = `${GATEWAY}/comments/`
-
-const postUrl = ref('')
 
 const { data, execute } = useFetch<ApiComment>(`${endpoint}get/${props.id}`, {
   afterFetch(ctx) {
@@ -41,8 +40,7 @@ const { data, execute } = useFetch<ApiComment>(`${endpoint}get/${props.id}`, {
 }).get().json()
 
 const postComment = () => {
-  postUrl.value = `${endpoint}new?userId=${user.id}`
-  useFetch(postUrl, {
+  useFetch(`${endpoint}new`, {
     async beforeFetch({ options }) {
       options.headers = {
         ...options.headers,
@@ -50,7 +48,6 @@ const postComment = () => {
         Authorization: `Bearer ${user.jwt}`,
       }
       options.body = JSON.stringify({
-        id: user.id,
         mehmId: props.id,
         comment: commentArea.value?.value,
       })
@@ -61,6 +58,50 @@ const postComment = () => {
       execute()
       if (commentArea.value)
         commentArea.value.value = ''
+      return ctx
+    },
+  }).post()
+}
+
+const deleteComment = (id: number) => {
+  useFetch(`${endpoint}remove?commentId=${id}`, {
+    async beforeFetch({ options }) {
+      options.headers = {
+        ...options.headers,
+        Credentials: 'include',
+        Authorization: `Bearer ${user.jwt}`,
+      }
+      return { options }
+    },
+    afterFetch(ctx) {
+      execute()
+      return ctx
+    },
+  }).post()
+}
+
+const enableEdit = (id: number) => {
+  editableComment.value = id
+}
+
+const updateComment = (e: Event, commentId: number) => {
+  const commentText = (e.target as HTMLHeadingElement).innerText
+  useFetch(`${endpoint}update`, {
+    async beforeFetch({ options }) {
+      options.headers = {
+        ...options.headers,
+        Credentials: 'include',
+        Authorization: `Bearer ${user.jwt}`,
+      }
+      options.body = JSON.stringify({
+        id: commentId,
+        text: commentText,
+      })
+
+      return { options }
+    },
+    afterFetch(ctx) {
+      execute()
       return ctx
     },
   }).post()
@@ -84,15 +125,24 @@ const postComment = () => {
       </button>
     </div>
     <div class="flex flex-col gap-4">
-      <div v-for="comment in data" :key="comment.id" class="grid grid-cols-[36px,1fr] gap-x-4 gap-y-2 my-2">
+      <div v-for="comment in data" :key="comment.id" class="grid grid-cols-[36px,1fr] gap-2 my-2">
         <a href=""><div class="bg-white rounded-1/2 p-2px" v-html="comment.icon" /></a>
         <div class="flex items-center whitespace-pre">
-          <a href="" class="strong">{{ comment.author }}</a><span :title="comment.dateTime" class="text-gray-400"> · {{ comment.timeAgo }}</span>
+          <a href="" class="strong ml-2">{{ comment.author }}</a>
+          <span :title="comment.dateTime" class="text-gray-400"> · {{ comment.timeAgo }}</span>
+          <button v-if="comment.author === user.name || user.admin" class="ml-2" @click="deleteComment(comment.id)">
+            <heroicons-solid:trash />
+          </button>
+          <button v-if="comment.author === user.name || user.admin" class="ml-2" @click="enableEdit(comment.id)">
+            <heroicons-solid:pencil />
+          </button>
         </div>
         <div class="w-1px bg-gray-400 mx-auto" />
-        <p class="whitespace-pre-line">
-          {{ comment.comment.replace(/<br>/g, '\n').replace(/&lt;br&gt;/g, '<br>') }},
-          {{ comment.comment }}
+        <p
+          class="whitespace-pre-line rounded p-2 max-w-full" :class="{ editable: editableComment === comment.id }"
+          :contenteditable="editableComment === comment.id" @input="updateComment($event, comment.id)" @blur="enableEdit(-1)"
+        >
+          {{ comment.comment.replace(/<br>/g, '\n').replace(/&lt;br&gt;/g, '<br>') }}
         </p>
       </div>
     </div>
@@ -102,5 +152,9 @@ const postComment = () => {
 <style scoped>
 .strong {
   @apply hover:underline;
+}
+
+.editable {
+  @apply bg-void-700;
 }
 </style>

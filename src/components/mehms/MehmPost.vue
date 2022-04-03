@@ -4,6 +4,7 @@ import { useTimeAgo } from '@vueuse/core'
 import mehms from '~/data/mehms.json'
 import { GATEWAY } from '~/composables/config'
 import { useUserStore } from '~/stores/user'
+import { useGalleryStore } from '~/stores/gallery'
 
 const props = defineProps<{
   id: number
@@ -23,6 +24,8 @@ interface ApiMehm {
 
 const { t } = useI18n()
 const user = useUserStore()
+const gallery = useGalleryStore()
+const router = useRouter()
 
 const userIconSize = 40
 const endpoint = `${GATEWAY}/mehms/`
@@ -109,6 +112,12 @@ const deletePost = () => {
 
       return { options }
     },
+    afterFetch(ctx) {
+      gallery.resetState()
+      gallery.fetchMehms()
+      router.push('/')
+      return ctx
+    },
   }).post()
 }
 
@@ -146,10 +155,10 @@ const updateMehm = (e: Event, property: string) => {
           <div>{{ t('mehm.postedBy') }} <a href="" class="strong">{{ data?.authorName }}</a> <span :title="data?.createdDate">{{ data?.timeAgo }}</span></div>
         </div>
       </div>
-      <h1 :contenteditable="canEdit" @input="updateMehm($event, 'title')">
+      <h1 :contenteditable="canEdit" class="focus:bg-void-700" @input="updateMehm($event, 'title')">
         {{ data?.title }}
       </h1>
-      <p class="my-4" :contenteditable="canEdit" @input="updateMehm($event, 'description')">
+      <p class="my-4 focus:bg-void-700" :contenteditable="canEdit" @input="updateMehm($event, 'description')">
         {{ data?.description }}
       </p>
       <div class="flex flex-wrap gap-x-4 -ml-2">

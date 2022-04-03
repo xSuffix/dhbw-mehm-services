@@ -19,7 +19,7 @@ export const useUserStore = defineStore('user', {
       name: ref(user.name),
       email: ref(user.email),
       admin: ref(user.admin),
-      jwt: ref(''),
+      jwt: ref(cookies.get('jwt')),
     }
   },
   getters: {
