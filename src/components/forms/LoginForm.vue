@@ -28,7 +28,12 @@ const { execute } = useFetch(endpoint, {
       document.cookie = `${ctx.data.jwt.Name}=${ctx.data.jwt.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000).toUTCString()}; path=/`
       localStorage.setItem('user', JSON.stringify(user))
       useUserStore().login(user)
-      router.push('/')
+
+      // after logging in, return to previous page or home page
+      if (window.history.state.back)
+        router.back()
+      else
+        router.push('/')
     }
     return ctx
   },

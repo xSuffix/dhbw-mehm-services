@@ -2,8 +2,8 @@
 import { toSvg } from 'jdenticon'
 import { useTimeAgo } from '@vueuse/core'
 import mehms from '~/data/mehms.json'
-import { getCookieByName } from '~/composables/auth'
 import { GATEWAY } from '~/composables/config'
+import { useUserStore } from '~/stores/user'
 
 const props = defineProps<{
   id: number
@@ -22,19 +22,21 @@ interface ApiMehm {
 }
 
 const { t } = useI18n()
+const user = useUserStore()
 
 const userIconSize = 40
 const endpoint = `${GATEWAY}/mehms/`
 
 const liked = ref(false)
 const shared = ref(false)
+const canEdit = ref(user.admin)
 
 const { data, isFetching } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
   async beforeFetch({ options }) {
     options.headers = {
       ...options.headers,
       Credentials: 'include',
-      Authorization: `Bearer ${getCookieByName('jwt')}`,
+      Authorization: `Bearer ${user.jwt}`,
     }
 
     return {
@@ -48,6 +50,7 @@ const { data, isFetching } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
     ctx.data.timeAgo = useTimeAgo(date).value
     ctx.data.createdDate = new Date(date).toLocaleString()
     liked.value = ctx.data.liked
+    canEdit.value = ctx.data.authorName === user.name
     return ctx
   },
   onFetchError(ctx) {
@@ -67,7 +70,7 @@ const likePost = () => {
       options.headers = {
         ...options.headers,
         Credentials: 'include',
-        Authorization: `Bearer ${getCookieByName('jwt')}`,
+        Authorization: `Bearer ${user.jwt}`,
       }
 
       return {
@@ -94,6 +97,37 @@ const sharePost = () => {
     url: location.href.split('#')[0],
   })
 }
+
+const deletePost = () => {
+  useFetch(`${endpoint}${props.id}/remove?id=${props.id}&userId=${user.id}`, {
+    async beforeFetch({ options }) {
+      options.headers = {
+        ...options.headers,
+        Credentials: 'include',
+        Authorization: `Bearer ${user.jwt}`,
+      }
+
+      return { options }
+    },
+  }).post()
+}
+
+const updateMehm = (e: Event, property: string) => {
+  const body: any = {}
+  body[property] = (e.target as HTMLHeadingElement).innerText
+  useFetch(`${endpoint}${props.id}/update`, {
+    async beforeFetch({ options }) {
+      options.headers = {
+        ...options.headers,
+        Credentials: 'include',
+        Authorization: `Bearer ${user.jwt}`,
+      }
+      options.body = JSON.stringify(body)
+
+      return { options }
+    },
+  }).post()
+}
 </script>
 
 <template>
@@ -112,19 +146,22 @@ const sharePost = () => {
           <div>{{ t('mehm.postedBy') }} <a href="" class="strong">{{ data?.authorName }}</a> <span :title="data?.createdDate">{{ data?.timeAgo }}</span></div>
         </div>
       </div>
-      <h1>
+      <h1 :contenteditable="canEdit" @input="updateMehm($event, 'title')">
         {{ data?.title }}
       </h1>
-      <p class="my-4">
+      <p class="my-4" :contenteditable="canEdit" @input="updateMehm($event, 'description')">
         {{ data?.description }}
       </p>
       <div class="flex flex-wrap gap-x-4 -ml-2">
-        <button class="icon-btn" @click="likePost()">
+        <button class="icon-btn" @click="likePost">
           <heroicons-solid:heart v-if="liked" class="text-root-100" /><heroicons-outline:heart v-else />{{ data?.likes }} {{ t('mehm.button.likes') }}
         </button>
         <a href="#comments" class="icon-btn"><heroicons-solid:chat-alt />0 {{ t('mehm.button.comments') }}</a>
-        <button v-if="isSupported" class="icon-btn" @click="sharePost()">
+        <button v-if="isSupported" class="icon-btn" @click="sharePost">
           <heroicons-solid:share class="transition-colors duration-200" :class="{'text-void-100': shared}" /> {{ t('mehm.button.share') }}
+        </button>
+        <button v-if="canEdit" class="icon-btn" @click="deletePost">
+          <heroicons-solid:trash /> {{ t('mehm.button.delete') }}
         </button>
       </div>
     </aside>

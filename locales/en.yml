@@ -18,6 +18,7 @@ footer:
 mehm:
   button:
     comments: Comments
+    delete: Delete
     likes: Likes
     share: Share
   postedBy: Posted by

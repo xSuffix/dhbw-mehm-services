@@ -2,19 +2,19 @@
 import { useRouter } from 'vue-router'
 import { toSvg } from 'jdenticon'
 import { useUserStore } from '~/stores/user'
-import { getCookieByName } from '~/composables/auth'
 import { GATEWAY } from '~/composables/config'
 
 const endpoint = `${GATEWAY}/user`
 const router = useRouter()
 
-const user = useUserStore().user
+const user = useUserStore()
 const userIcon = toSvg(user.name, 48)
 const userRole = computed(() => user.admin ? 'Admin' : 'User')
 
-const jwt = getCookieByName('jwt')
-const source = ref(jwt)
-const { copy, isSupported } = useClipboard({ source })
+if (!user.loggedIn)
+  router.push('/login')
+
+const { copy, isSupported } = useClipboard()
 
 const { execute } = useFetch(`${endpoint}/logout`, {
   immediate: false,
@@ -22,7 +22,7 @@ const { execute } = useFetch(`${endpoint}/logout`, {
     options.headers = {
       ...options.headers,
       Credentials: 'include',
-      Authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${user.jwt}`,
     }
     return {
       options,
@@ -30,8 +30,10 @@ const { execute } = useFetch(`${endpoint}/logout`, {
   },
   afterFetch(ctx) {
     const cookie = JSON.parse(ctx.data)
-    if (typeof document !== 'undefined')
+    if (typeof document !== 'undefined') {
       document.cookie = `${cookie.Name}=${cookie.Value}; expires=${new Date(Date.now() - 60 * 60 * 1000)}; path=/`
+      user.logout()
+    }
 
     router.push('/login')
     return ctx
@@ -52,10 +54,10 @@ const remove = () => {
       options.headers = {
         ...options.headers,
         Credentials: 'include',
-        Authorization: `Bearer ${getCookieByName('jwt')}`,
+        Authorization: `Bearer ${user.jwt}`,
       }
       options.body = JSON.stringify({
-        id: `${useUserStore().user.id}`,
+        id: `${user.id}`,
       })
 
       return { options }
@@ -97,7 +99,7 @@ const remove = () => {
       <button class="bg-void-100 text-void-900 font-bold w-full p-2 mt-4 rounded" @click="logout">
         Logout
       </button>
-      <button v-if="isSupported" class="bg-void-700 text-gray-200 font-bold w-full p-2 mt-4 rounded" @click="copy()">
+      <button v-if="isSupported" class="bg-void-700 text-gray-200 font-bold w-full p-2 mt-4 rounded" @click="copy(user.jwt)">
         Copy API Key
       </button>
     </div>

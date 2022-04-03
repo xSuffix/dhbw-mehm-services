@@ -21,10 +21,14 @@ const { execute } = useFetch(request, {
     if (password.value === '' || password.value !== passwordRepeat.value)
       cancel()
 
+    if (!/^\S+@\S+.[A-Za-z]+$/.test(email.value))
+      cancel()
+
     options.body = JSON.stringify({
       username: user.value,
       mail: email.value,
       password: password.value,
+      repeated: passwordRepeat.value,
     })
 
     return {
@@ -36,7 +40,6 @@ const { execute } = useFetch(request, {
   },
   immediate: false,
   onFetchError(ctx) {
-    // console.log(ctx)
     return ctx
   },
 }).post().json()

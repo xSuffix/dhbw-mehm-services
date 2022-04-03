@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { toSvg } from 'jdenticon'
 import { GATEWAY } from '~/composables/config'
-import { getCookieByName, loggedIn } from '~/composables/auth'
 import { useUserStore } from '~/stores/user'
 
 const props = defineProps<{
@@ -20,7 +19,7 @@ interface Comment extends ApiComment {
   timeAgo: string
 }
 
-const user = useUserStore().user
+const user = useUserStore()
 const commentArea = ref<HTMLTextAreaElement>()
 
 const userIconSize = 32
@@ -48,7 +47,7 @@ const postComment = () => {
       options.headers = {
         ...options.headers,
         Credentials: 'include',
-        Authorization: `Bearer ${getCookieByName('jwt')}`,
+        Authorization: `Bearer ${user.jwt}`,
       }
       options.body = JSON.stringify({
         id: user.id,
@@ -69,8 +68,8 @@ const postComment = () => {
 </script>
 
 <template>
-  <div id="comments" class="paper p-4 flex flex-col">
-    <router-link v-if="!loggedIn()" to="/login" class="strong flex gap-1 items-center">
+  <div id="comments" class="paper p-4 flex flex-col gap-2">
+    <router-link v-if="!user.loggedIn" to="/login" class="strong flex gap-1 items-center">
       <heroicons-solid:login />Melde dich an, um zu kommentieren
     </router-link>
     <div v-else class="flex flex-col gap-2">

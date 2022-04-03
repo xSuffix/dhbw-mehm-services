@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { watch } from 'vue'
 import { useWindowScroll } from '@vueuse/core'
-import { loggedIn } from '~/composables/auth'
+import { useUserStore } from '~/stores/user'
 
 const { y } = useWindowScroll()
+const user = useUserStore()
 
 // TODO outsource (optional)
 watch(y, async(newY, oldY) => {
-  if (newY < oldY && newY > 24) document.body.classList.add('scrolling-up')
+  if (newY < oldY && newY > 24)
+    document.body.classList.add('scrolling-up')
   else document.body.classList.remove('scrolling-up')
 })
 </script>
@@ -17,13 +19,13 @@ watch(y, async(newY, oldY) => {
     <Logo />
     <div>
       <nav class="hidden md:flex gap-6 font-play text-white text-shadow-outline">
-        <router-link to="/submit">
-          Einsenden
-        </router-link>
         <router-link to="/contact">
           Kontakt
         </router-link>
-        <router-link v-if="loggedIn()" to="/user">
+        <router-link v-if="user.loggedIn" to="/submit">
+          Einsenden
+        </router-link>
+        <router-link v-if="user.loggedIn" to="/user">
           Profile
         </router-link>
         <router-link v-else to="/login">

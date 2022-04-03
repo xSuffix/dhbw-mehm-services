@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { getCookieByName } from '~/composables/auth'
 import { GATEWAY } from '~/composables/config'
+import { useUserStore } from '~/stores/user'
 
 const { t } = useI18n()
+const user = useUserStore()
 const endpoint = `${GATEWAY}/mehms/add`
 
 const categoryOptions = ref([
@@ -31,7 +32,7 @@ const { execute } = useFetch(endpoint, {
 
     options.headers = {
       ...options.headers,
-      Authorization: `Bearer ${getCookieByName('jwt')}`,
+      Authorization: `Bearer ${user.jwt}`,
     }
     options.body = formData
   },
