@@ -18,17 +18,16 @@ interface LoadedMehm extends ApiMehm {
 const imageSize = 288
 const endpoint = `${GATEWAY}/mehms`
 
-// private state
 const requestUrl = ref('')
 const refetch = ref(true)
-const search = ref('')
-const category = ref('')
-const order = ref('createdDate')
 
 export const useGalleryStore = defineStore('gallery', {
   state: () => {
     return {
       loadedMehms: ref<Array<LoadedMehm>>([]),
+      search: ref(''),
+      category: ref(''),
+      order: ref('createdDate'),
       asc: ref(true),
       take: ref(16),
       skip: ref(0),
@@ -55,19 +54,19 @@ export const useGalleryStore = defineStore('gallery', {
     },
     setSearch(input: string) {
       input = input.trim()
-      if (input !== search.value) {
-        search.value = input
+      if (input !== this.search) {
+        this.search = input
         this.resetState()
       }
     },
     setCategory(input: string) {
-      if (input !== category.value)
-        category.value = input
+      if (input !== this.category)
+        this.category = input
       this.resetState()
     },
     setOrder(input: string) {
-      if (input !== category.value)
-        order.value = input
+      if (input !== this.order)
+        this.order = input
       this.resetState()
     },
     setAsc(input: boolean) {
@@ -77,10 +76,10 @@ export const useGalleryStore = defineStore('gallery', {
     },
     fetchMehms() {
       requestUrl.value = `${endpoint}?take=${this.take}&skip=${this.skip}`
-      + `${search.value ? `&textSearch=${search.value}` : ''}`
-      + `${category.value ? `&genre=${category.value}` : ''}`
-      + `${order.value ? `&sort=${order.value}` : ''}`
-      + `${(!this.asc && order.value !== 'createdDate') || (this.asc && order.value === 'createdDate') ? ',desc' : ''}`
+      + `${this.search ? `&textSearch=${this.search}` : ''}`
+      + `${this.category ? `&genre=${this.category}` : ''}`
+      + `${this.order ? `&sort=${this.order}` : ''}`
+      + `${(!this.asc && this.order !== 'createdDate') || (this.asc && this.order === 'createdDate') ? ',desc' : ''}`
     },
   },
 })
@@ -103,12 +102,12 @@ useFetch(requestUrl, {
   },
   onFetchError(ctx) {
     const store = useGalleryStore()
-    let mehms = jsonMehms.filter(mehm => mehm.title.toLowerCase().includes(search.value.toLowerCase()) && (!category.value || category.value === mehm.genre))
+    let mehms = jsonMehms.filter(mehm => mehm.title.toLowerCase().includes(store.search.toLowerCase()) && (!store.category || store.category === mehm.genre))
 
     const direction = store.asc ? 1 : -1
-    if (order.value === 'createdDate')
+    if (store.order === 'createdDate')
       mehms = mehms.sort((a: ApiMehm, b: ApiMehm) => direction * (Date.parse(b.createdDate) - Date.parse(a.createdDate)))
-    else if (order.value === 'likes')
+    else if (store.order === 'likes')
       mehms = mehms.sort((a: ApiMehm, b: ApiMehm) => direction * (b.likes - a.likes))
 
     mehms = mehms.slice(store.skip, store.skip + store.take)

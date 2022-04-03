@@ -55,18 +55,18 @@ const toggleOrder = () => {
       <label for="mehm-search"><heroicons-solid:search class="text-xl transition-colors duration-200" /></label>
       <input
         id="mehm-search" type="text" spellcheck="false" autocomplete="off" :placeholder="t('search.placeholder')"
-        class="bg-transparent w-full p-1 outline-none select-none" @change="changeSearch"
+        class="bg-transparent w-full p-1 outline-none select-none" :value="store.search" @change="changeSearch"
       >
     </div>
 
     <select v-if="showCategory" id="category" name="category" class="box flex-grow" @change="changeCategory">
-      <option v-for="option in categoryOptions" :key="option.value" :value="option.value">
+      <option v-for="option in categoryOptions" :key="option.value" :value="option.value" :selected="store.category === option.value">
         {{ option.text }}
       </option>
     </select>
 
     <select v-if="showOrder" id="order" name="order" class="box flex-grow" @change="changeOrder">
-      <option v-for="option in orderOptions" :key="option.value" :value="option.value">
+      <option v-for="option in orderOptions" :key="option.value" :value="option.value" :selected="store.order === option.value">
         {{ option.text }}
       </option>
     </select>
