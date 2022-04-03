@@ -10,7 +10,6 @@ declare module 'vue' {
     'HeroiconsOutline:heart': typeof import('~icons/heroicons-outline/heart')['default']
     'HeroiconsSolid:chatAlt': typeof import('~icons/heroicons-solid/chat-alt')['default']
     'HeroiconsSolid:heart': typeof import('~icons/heroicons-solid/heart')['default']
-    'HeroiconsSolid:lockClosed': typeof import('~icons/heroicons-solid/lock-closed')['default']
     'HeroiconsSolid:login': typeof import('~icons/heroicons-solid/login')['default']
     'HeroiconsSolid:search': typeof import('~icons/heroicons-solid/search')['default']
     'HeroiconsSolid:share': typeof import('~icons/heroicons-solid/share')['default']

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { toSvg } from 'jdenticon'
 import { GATEWAY } from '~/composables/config'
-import { loggedIn } from '~/composables/auth'
+import { getCookieByName, loggedIn } from '~/composables/auth'
 import { useUserStore } from '~/stores/user'
 
 const props = defineProps<{
@@ -21,14 +21,17 @@ interface Comment extends ApiComment {
 }
 
 const user = useUserStore().user
+const commentArea = ref<HTMLTextAreaElement>()
 
 const userIconSize = 32
-const endpoint = `${GATEWAY}/comments/get/`
+const endpoint = `${GATEWAY}/comments/`
 
-const { data } = useFetch<ApiComment>(`${endpoint}${props.id}`, {
+const postUrl = ref('')
+
+const { data, execute } = useFetch<ApiComment>(`${endpoint}get/${props.id}`, {
   afterFetch(ctx) {
     ctx.data.forEach((comment: Comment) => {
-      const date = Date.parse(comment.dateTime)
+      const date = Date.parse(`${comment.dateTime}Z`)
       comment.icon = toSvg(comment.author, userIconSize)
       comment.timeAgo = useTimeAgo(date).value
       comment.dateTime = new Date(date).toLocaleString()
@@ -37,10 +40,35 @@ const { data } = useFetch<ApiComment>(`${endpoint}${props.id}`, {
     return ctx
   },
 }).get().json()
+
+const postComment = () => {
+  postUrl.value = `${endpoint}new?userId=${user.id}&mehmId=${props.id}`
+  useFetch(postUrl, {
+    async beforeFetch({ options }) {
+      options.headers = {
+        ...options.headers,
+        Credentials: 'include',
+        Authorization: `Bearer ${getCookieByName('jwt')}`,
+      }
+      options.body = JSON.stringify({
+        id: user.id,
+        comment: commentArea.value?.value,
+      })
+
+      return { options }
+    },
+    afterFetch(ctx) {
+      execute()
+      if (commentArea.value)
+        commentArea.value.value = ''
+      return ctx
+    },
+  }).post()
+}
 </script>
 
 <template>
-  <div id="comments" class="paper p-4 flex flex-col gap-4">
+  <div id="comments" class="paper p-4 flex flex-col">
     <router-link v-if="!loggedIn()" to="/login" class="strong flex gap-1 items-center">
       <heroicons-solid:login />Melde dich an, um zu kommentieren
     </router-link>
@@ -50,19 +78,22 @@ const { data } = useFetch<ApiComment>(`${endpoint}${props.id}`, {
           {{ user.name }}
         </router-link>
       </p>
-      <textarea id="comment" name="comment" rows="6" class="box" />
-      <button class="ml-auto bg-void-100 text-void-900 font-medium px-4 py-2 rounded mt-2">
+      <textarea id="comment" ref="commentArea" name="comment" rows="6" class="box" />
+      <button class="ml-auto bg-void-100 text-void-900 font-medium px-2 py-1 rounded mt-2" @click="postComment">
         Kommentieren
       </button>
     </div>
     <div class="flex flex-col gap-4">
-      <div v-for="comment in data" :key="comment.id" class="grid grid-cols-[36px,1fr] gap-x-4 gap-y-2 mb-4">
+      <div v-for="comment in data" :key="comment.id" class="grid grid-cols-[36px,1fr] gap-x-4 gap-y-2 my-2">
         <a href=""><div class="bg-white rounded-1/2 p-2px" v-html="comment.icon" /></a>
         <div class="flex items-center whitespace-pre">
           <a href="" class="strong">{{ comment.author }}</a><span :title="comment.dateTime" class="text-gray-400"> · {{ comment.timeAgo }}</span>
         </div>
         <div class="w-1px bg-gray-400 mx-auto" />
-        <p>{{ comment.comment }}</p>
+        <p class="whitespace-pre-line">
+          {{ comment.comment.replace(/<br>/g, '\n').replace(/&lt;br&gt;/g, '<br>') }},
+          {{ comment.comment }}
+        </p>
       </div>
     </div>
   </div>

@@ -25,7 +25,7 @@ const { execute } = useFetch(endpoint, {
   afterFetch(ctx) {
     if (typeof document !== 'undefined') {
       const user = { id: ctx.data.id, name: ctx.data.username, email: ctx.data.email, admin: ctx.data.Admin }
-      document.cookie = `${ctx.data.jwt.Name}=${ctx.data.jwt.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000)}; path=/`
+      document.cookie = `${ctx.data.jwt.Name}=${ctx.data.jwt.Value}; expires=${new Date(Date.now() + 2 * 60 * 60 * 1000).toUTCString()}; path=/`
       localStorage.setItem('user', JSON.stringify(user))
       useUserStore().login(user)
       router.push('/')

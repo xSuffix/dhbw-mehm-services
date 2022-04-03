@@ -43,8 +43,10 @@ const { data, isFetching } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
   },
   timeout: 200,
   afterFetch(ctx) {
+    const date = Date.parse(`${ctx.data.createdDate}Z`)
     ctx.data.icon = toSvg(ctx.data.authorName, userIconSize)
-    ctx.data.timeAgo = useTimeAgo(Date.parse(ctx.data.createdDate)).value
+    ctx.data.timeAgo = useTimeAgo(date).value
+    ctx.data.createdDate = new Date(date).toLocaleString()
     liked.value = ctx.data.liked
     return ctx
   },
@@ -52,7 +54,7 @@ const { data, isFetching } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
     if (ctx.data === null) {
       ctx.data = mehms.find(mehm => mehm.id === props.id)
       ctx.data.icon = toSvg(ctx.data.authorName, userIconSize)
-      ctx.data.timeAgo = useTimeAgo(Date.parse(ctx.data.createdDate)).value
+      ctx.data.timeAgo = useTimeAgo(Date.parse(`${ctx.data.createdDate}Z`)).value
     }
 
     return ctx
@@ -76,7 +78,8 @@ const likePost = () => {
   onFetchResponse((response) => {
     if (response.status === 200) {
       liked.value = !liked.value
-      if (liked.value) data.value.likes++
+      if (liked.value)
+        data.value.likes++
       else data.value.likes--
     }
   })
@@ -101,12 +104,12 @@ const sharePost = () => {
       </div>
       <MehmComments :id="id" />
     </div>
-    <aside class="sticky paper top-16 flex-shrink basis-5/12 p-4 transition-top duration-200">
+    <aside class="lg:sticky paper top-16 flex-shrink basis-5/12 p-4 transition-top duration-200">
       <div class="flex gap-2 items-start">
         <div class="bg-white rounded" v-html="data?.icon" />
         <div class="text-sm">
           <div><a href="" class="strong">#{{ data?.genre }}</a></div>
-          <div>{{ t('mehm.postedBy') }} <a href="" class="strong">{{ data?.authorName }}</a> {{ data?.timeAgo }}</div>
+          <div>{{ t('mehm.postedBy') }} <a href="" class="strong">{{ data?.authorName }}</a> <span :title="data?.createdDate">{{ data?.timeAgo }}</span></div>
         </div>
       </div>
       <h1>
