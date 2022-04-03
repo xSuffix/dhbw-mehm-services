@@ -165,7 +165,7 @@ const updateMehm = (e: Event, property: string) => {
         <button class="icon-btn" @click="likePost">
           <heroicons-solid:heart v-if="liked" class="text-root-100" /><heroicons-outline:heart v-else />{{ data?.likes }} {{ t('mehm.button.likes') }}
         </button>
-        <a href="#comments" class="icon-btn"><heroicons-solid:chat-alt />0 {{ t('mehm.button.comments') }}</a>
+        <a href="#comments" class="icon-btn"><heroicons-solid:chat-alt /> {{ t('mehm.button.comments') }}</a>
         <button v-if="isSupported" class="icon-btn" @click="sharePost">
           <heroicons-solid:share class="transition-colors duration-200" :class="{'text-void-100': shared}" /> {{ t('mehm.button.share') }}
         </button>
