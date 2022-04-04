@@ -6,6 +6,9 @@ import { useUserStore } from '~/stores/user'
 const { y } = useWindowScroll()
 const user = useUserStore()
 
+// eslint-disable-next-line no-console
+console.log(`jwt: "${user.jwt}"`)
+
 watch(y, async(newY, oldY) => {
   if (newY < oldY && newY > 24)
     document.body.classList.add('scrolling-up')
