@@ -1,6 +1,4 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { useCookies } from '@vueuse/integrations/useCookies'
-
 interface User {
   id: number
   name: string
@@ -8,9 +6,19 @@ interface User {
   admin: boolean
 }
 
-const cookies = useCookies(['jwt'])
+const getCookieByName = (name: string) => {
+  if (document === undefined)
+    return ''
+
+  const cookie = document.cookie.split('; ').find(cookie => cookie.split('=')[0] === name)
+  if (cookie)
+    return cookie.split(/=(.*)/s)[1]
+
+  return ''
+}
+
 const noUser = { id: 0, email: '', name: '', admin: false }
-const user = cookies.get('jwt') ? JSON.parse(localStorage.getItem('user') || '') : noUser
+const user = getCookieByName('jwt') ? JSON.parse(localStorage.getItem('user') || '') : noUser
 
 export const useUserStore = defineStore('user', {
   state: () => {
@@ -19,7 +27,7 @@ export const useUserStore = defineStore('user', {
       name: ref(user.name),
       email: ref(user.email),
       admin: ref(user.admin),
-      jwt: ref(cookies.get('jwt')),
+      jwt: ref(getCookieByName('jwt')),
     }
   },
   actions: {
@@ -38,7 +46,7 @@ export const useUserStore = defineStore('user', {
       this.admin = noUser.admin
     },
     checkJWT() {
-      this.jwt = cookies.get('jwt')
+      this.jwt = getCookieByName('jwt')
     },
   },
 })

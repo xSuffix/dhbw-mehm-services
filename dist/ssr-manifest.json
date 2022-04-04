@@ -46,10 +46,6 @@
   "../../../../@vite-plugin-pages/route-block": [],
   "src/pages/index.md": [],
   "../../../../@vite-plugin-pages/generated-pages": [],
-  "node_modules/.pnpm/cookie@0.4.2/node_modules/cookie/index.js": [],
-  "node_modules/.pnpm/universal-cookie@4.0.4/node_modules/universal-cookie/es6/utils.js": [],
-  "node_modules/.pnpm/universal-cookie@4.0.4/node_modules/universal-cookie/es6/Cookies.js": [],
-  "node_modules/.pnpm/@vueuse+integrations@8.2.3_b1e91c42a69bd20a5425aaef33c36690/node_modules/@vueuse/integrations/useCookies.mjs": [],
   "src/stores/user.ts": [],
   "src/components/global/NavigationBar.vue?vue&type=style&index=0&scoped=true&lang.css": [],
   "src/components/global/NavigationBar.vue": [],
@@ -75,99 +71,99 @@
     "/assets/virtual_pwa-register.1c1f76db.js"
   ],
   "src/pages/contact.md": [
-    "/assets/contact.17b1d27a.js"
+    "/assets/contact.82089910.js"
   ],
   "src/pages/imprint.md": [
-    "/assets/imprint.caaea491.js"
+    "/assets/imprint.611af6bb.js"
   ],
   "src/components/forms/LoginForm.vue": [
-    "/assets/login.e7c37265.js"
+    "/assets/login.a73daf92.js"
   ],
   "src/pages/login.md": [
-    "/assets/login.e7c37265.js"
+    "/assets/login.a73daf92.js"
   ],
   "src/pages/privacy.md": [
-    "/assets/privacy.5cb469ac.js"
+    "/assets/privacy.d4c0f7de.js"
   ],
   "src/components/forms/RegisterForm.vue": [
-    "/assets/register.cd0a33e2.js"
+    "/assets/register.2f10c694.js"
   ],
   "src/pages/register.md": [
-    "/assets/register.cd0a33e2.js"
+    "/assets/register.2f10c694.js"
   ],
   "src/components/forms/MehmForm.vue": [
-    "/assets/submit.df3bf31b.js"
+    "/assets/submit.60275da1.js"
   ],
   "src/pages/submit.md": [
-    "/assets/submit.df3bf31b.js"
+    "/assets/submit.60275da1.js"
   ],
   "src/components/forms/UserForm.vue": [
-    "/assets/user.755269f1.js"
+    "/assets/user.6197bf5b.js"
   ],
   "src/pages/user.md": [
-    "/assets/user.755269f1.js"
+    "/assets/user.6197bf5b.js"
   ],
   "node_modules/.pnpm/jdenticon@3.1.1/node_modules/jdenticon/dist/jdenticon-module.mjs": [
     "/assets/jdenticon-module.687b0030.js"
   ],
   "../../../../images/rick.gif": [
-    "/assets/_...all_.f9857782.js"
+    "/assets/_...all_.a3a09cd8.js"
   ],
   "src/components/RickFoundYou.vue": [
-    "/assets/_...all_.f9857782.js"
+    "/assets/_...all_.a3a09cd8.js"
   ],
   "src/pages/[...all].md": [
-    "/assets/_...all_.f9857782.js"
+    "/assets/_...all_.a3a09cd8.js"
   ],
   "~icons/heroicons-solid/trash": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "~icons/heroicons-solid/share": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "~icons/heroicons-solid/chat-alt": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "~icons/heroicons-outline/heart": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "~icons/heroicons-solid/heart": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "~icons/heroicons-solid/pencil": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "~icons/heroicons-solid/login": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "src/components/mehms/MehmComments.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "src/components/mehms/MehmComments.vue": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "src/components/mehms/MehmPost.vue?vue&type=style&index=0&scoped=true&lang.css": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "src/components/mehms/MehmPost.vue": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "src/pages/mehm/[id].md": [
-    "/assets/_id_.2260f43f.js",
+    "/assets/_id_.a06bcb65.js",
     "/assets/_id_.604c3c00.css"
   ],
   "src/layouts/footerless.vue": [
-    "/assets/footerless.b7bc986e.js"
+    "/assets/footerless.9d9f56f5.js"
   ]
 }
