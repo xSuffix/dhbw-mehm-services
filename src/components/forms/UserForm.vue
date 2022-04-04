@@ -15,7 +15,7 @@ const errorMessage = ref('')
 if (!user.jwt)
   router.push('/login')
 
-const { copy, isSupported } = useClipboard()
+const { copy } = useClipboard()
 
 const { execute } = useFetch(`${endpoint}/logout`, {
   immediate: false,
@@ -101,7 +101,7 @@ const remove = () => {
       <button class="bg-void-100 text-void-900 font-bold w-full p-2 mt-4 rounded" @click="logout">
         Logout
       </button>
-      <button v-if="isSupported" class="bg-void-700 text-gray-200 font-bold w-full p-2 mt-4 rounded" @click="copy(user.jwt)">
+      <button class="bg-void-700 text-gray-200 font-bold w-full p-2 mt-4 rounded" @click="copy(user.jwt)">
         Copy API Key
       </button>
     </div>
