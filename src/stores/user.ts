@@ -7,12 +7,21 @@ interface User {
 }
 
 const getCookieByName = (name: string) => {
-  if (typeof document === 'undefined')
+  if (typeof document === 'undefined') {
+    // eslint-disable-next-line no-console
+    console.log('document undefined')
     return ''
+  }
+
+  // eslint-disable-next-line no-console
+  console.log(document.cookie)
 
   const cookie = document.cookie.split('; ').find(cookie => cookie.split('=')[0] === name)
   if (cookie)
     return cookie.split(/=(.*)/s)[1]
+
+  // eslint-disable-next-line no-console
+  console.log('no cookie')
 
   return ''
 }
