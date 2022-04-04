@@ -22,11 +22,6 @@ export const useUserStore = defineStore('user', {
       jwt: ref(cookies.get('jwt')),
     }
   },
-  getters: {
-    loggedIn(): boolean {
-      return this.jwt !== ''
-    },
-  },
   actions: {
     login(user: User) {
       this.checkJWT()

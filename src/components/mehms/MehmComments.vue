@@ -110,7 +110,7 @@ const updateComment = (e: Event, commentId: number) => {
 
 <template>
   <div id="comments" class="paper p-4 flex flex-col gap-2">
-    <router-link v-if="!user.loggedIn" to="/login" class="strong flex gap-1 items-center">
+    <router-link v-if="!user.jwt" to="/login" class="strong flex gap-1 items-center">
       <heroicons-solid:login />Melde dich an, um zu kommentieren
     </router-link>
     <div v-else class="flex flex-col gap-2">

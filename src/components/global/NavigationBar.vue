@@ -11,7 +11,7 @@ const items = [
   { url: '/login', label: 'Login', icon: 'heroicons-solid:login', loggedIn: false, loggedOut: true },
 ]
 
-const activeItems = computed(() => user.loggedIn ? items.filter(item => item.loggedIn) : items.filter(item => item.loggedOut))
+const activeItems = computed(() => user.jwt ? items.filter(item => item.loggedIn) : items.filter(item => item.loggedOut))
 </script>
 
 <template>

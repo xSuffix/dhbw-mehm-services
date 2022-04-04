@@ -12,7 +12,7 @@ const userIcon = toSvg(user.name, 48)
 const userRole = computed(() => user.admin ? 'Admin' : 'User')
 const errorMessage = ref('')
 
-if (!user.loggedIn)
+if (!user.jwt)
   router.push('/login')
 
 const { copy, isSupported } = useClipboard()

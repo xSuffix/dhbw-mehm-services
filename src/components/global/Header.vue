@@ -21,10 +21,10 @@ watch(y, async(newY, oldY) => {
         <router-link to="/contact">
           Kontakt
         </router-link>
-        <router-link v-if="user.loggedIn" to="/submit">
+        <router-link v-if="user.jwt" to="/submit">
           Einsenden
         </router-link>
-        <router-link v-if="user.loggedIn" to="/user">
+        <router-link v-if="user.jwt" to="/user">
           Profile
         </router-link>
         <router-link v-else to="/login">
