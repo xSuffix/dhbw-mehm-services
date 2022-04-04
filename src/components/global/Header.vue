@@ -2,12 +2,13 @@
 import { watch } from 'vue'
 import { useWindowScroll } from '@vueuse/core'
 import { useUserStore } from '~/stores/user'
+import { getCookieByName, getUser } from '~/composables/auth'
 
 const { y } = useWindowScroll()
 const user = useUserStore()
 
-// eslint-disable-next-line no-console
-console.log(`jwt: "${user.jwt}"`)
+user.jwt = getCookieByName('jwt')
+user.login(getUser())
 
 watch(y, async(newY, oldY) => {
   if (newY < oldY && newY > 24)

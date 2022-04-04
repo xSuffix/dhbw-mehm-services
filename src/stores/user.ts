@@ -1,4 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
+import { getCookieByName } from '~/composables/auth'
+
 interface User {
   id: number
   name: string
@@ -6,37 +8,16 @@ interface User {
   admin: boolean
 }
 
-const getCookieByName = (name: string) => {
-  if (typeof document === 'undefined') {
-    // eslint-disable-next-line no-console
-    console.log('document undefined')
-    return ''
-  }
-
-  // eslint-disable-next-line no-console
-  console.log(document.cookie)
-
-  const cookie = document.cookie.split('; ').find(cookie => cookie.split('=')[0] === name)
-  if (cookie)
-    return cookie.split(/=(.*)/s)[1]
-
-  // eslint-disable-next-line no-console
-  console.log('no cookie')
-
-  return ''
-}
-
 const noUser = { id: 0, email: '', name: '', admin: false }
-const user = getCookieByName('jwt') ? JSON.parse(localStorage.getItem('user') || '') : noUser
 
 export const useUserStore = defineStore('user', {
   state: () => {
     return {
-      id: ref(user.id),
-      name: ref(user.name),
-      email: ref(user.email),
-      admin: ref(user.admin),
-      jwt: ref(getCookieByName('jwt')),
+      id: ref(noUser.id),
+      name: ref(noUser.name),
+      email: ref(noUser.email),
+      admin: ref(noUser.admin),
+      jwt: ref(''),
     }
   },
   actions: {
