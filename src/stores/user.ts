@@ -7,7 +7,7 @@ interface User {
 }
 
 const getCookieByName = (name: string) => {
-  if (document === undefined)
+  if (typeof document === 'undefined')
     return ''
 
   const cookie = document.cookie.split('; ').find(cookie => cookie.split('=')[0] === name)

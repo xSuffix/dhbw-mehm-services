@@ -46,7 +46,7 @@ const { data, isFetching } = useFetch<ApiMehm>(`${endpoint}${props.id}`, {
       options,
     }
   },
-  timeout: 200,
+  timeout: 1000,
   afterFetch(ctx) {
     const date = Date.parse(`${ctx.data.createdDate}Z`)
     ctx.data.icon = toSvg(ctx.data.authorName, userIconSize)
